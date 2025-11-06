@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - River Permits</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo">River Permits Monitor</h1>
+      <div class="nav-right">
+        <span id="userEmail" class="user-email"></span>
+        <a href="/admin.html" class="btn btn-secondary btn-sm">Admin</a>
+        <button id="logoutBtn" class="btn btn-secondary btn-sm">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container main-content">
+    <div class="dashboard-header">
+      <h2>Your Permit Monitors</h2>
+      <button id="addPermitBtn" class="btn btn-primary">+ Add New Permit</button>
+    </div>
+
+    <div id="permitsContainer" class="permits-container">
+      <div class="loading">Loading your permits...</div>
+    </div>
+
+    <!-- Add/Edit Permit Modal -->
+    <div id="permitModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modalTitle">Add Permit Monitor</h3>
+          <span class="close">&times;</span>
+        </div>
+
+        <form id="permitForm">
+          <input type="hidden" id="permitId">
+
+          <div class="form-group">
+            <label for="riverSelect">River</label>
+            <select id="riverSelect" required>
+              <option value="">Select a river...</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="permitName">Custom Name (optional)</label>
+            <input type="text" id="permitName" placeholder="e.g., Summer 2025 Trip">
+            <small>Leave blank to use river name</small>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="startDate">Start Date</label>
+              <input type="date" id="startDate" required>
+            </div>
+
+            <div class="form-group">
+              <label for="endDate">End Date</label>
+              <input type="date" id="endDate" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="minPeople">Min Party Size</label>
+              <input type="number" id="minPeople" min="1" max="99" value="1" required>
+            </div>
+
+            <div class="form-group">
+              <label for="maxPeople">Max Party Size</label>
+              <input type="number" id="maxPeople" min="1" max="99" value="25" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="enabled" checked>
+              <span>Enable monitoring</span>
+            </label>
+          </div>
+
+          <div id="formError" class="error" style="display: none;"></div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary cancel-btn">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+      <div class="modal-content modal-small">
+        <div class="modal-header">
+          <h3>Confirm Delete</h3>
+          <span class="close">&times;</span>
+        </div>
+        <p>Are you sure you want to delete this permit monitor?</p>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary cancel-delete">Cancel</button>
+          <button type="button" class="btn btn-danger confirm-delete">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

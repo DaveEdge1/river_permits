@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - River Permits</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo">River Permits Monitor</h1>
+      <div class="nav-right">
+        <a href="/dashboard.html" class="btn btn-secondary btn-sm">Dashboard</a>
+        <button id="logoutBtn" class="btn btn-secondary btn-sm">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container main-content">
+    <div class="dashboard-header">
+      <h2>User Management</h2>
+      <button id="addUserBtn" class="btn btn-primary">+ Create User</button>
+    </div>
+
+    <div id="usersContainer" class="users-container">
+      <div class="loading">Loading users...</div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div id="userModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Create New User</h3>
+          <span class="close">&times;</span>
+        </div>
+
+        <form id="userForm">
+          <div class="form-group">
+            <label for="userEmail">Email</label>
+            <input type="email" id="userEmail" required autocomplete="off">
+          </div>
+
+          <div class="form-group">
+            <label for="userPassword">Password</label>
+            <input type="password" id="userPassword" required autocomplete="new-password" minlength="6">
+            <small>Minimum 6 characters</small>
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="userActive" checked>
+              <span>Activate account immediately</span>
+            </label>
+          </div>
+
+          <div id="userFormError" class="error" style="display: none;"></div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary cancel-btn">Cancel</button>
+            <button type="submit" class="btn btn-primary">Create User</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>
