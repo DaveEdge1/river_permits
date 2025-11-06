@@ -131,6 +131,23 @@ class RiverPermitMonitor:
             logger.error(f"Incomplete configuration for {name}")
             return
 
+        # Validate dates
+        try:
+            from datetime import datetime
+            start_dt = datetime.strptime(start_date, "%Y-%m-%d")
+            end_dt = datetime.strptime(end_date, "%Y-%m-%d")
+
+            if start_dt > end_dt:
+                logger.error(f"Invalid date range for {name}: start_date ({start_date}) is after end_date ({end_date})")
+                return
+        except ValueError as e:
+            logger.error(f"Invalid date format for {name}: {e}")
+            logger.error(f"  start_date: {start_date}")
+            logger.error(f"  end_date: {end_date}")
+            logger.error(f"  Dates must be in YYYY-MM-DD format and be valid calendar dates")
+            logger.error(f"  Remember: April, June, September, November have 30 days (not 31!)")
+            return
+
         logger.info(f"Checking: {name} (ID: {facility_id})")
 
         # Check availability
