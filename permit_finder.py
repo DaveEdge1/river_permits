@@ -30,6 +30,9 @@ class PermitFinder:
         if api_key:
             self.session.headers.update({'apikey': api_key})
 
+        # Cache for division names (facility_id -> {division_id -> name})
+        self._division_cache: Dict[str, Dict[str, str]] = {}
+
     def check_permit_availability(
         self,
         facility_id: str,
@@ -100,13 +103,22 @@ class PermitFinder:
                                     if start <= check_date.replace(tzinfo=None) <= end:
                                         # Check if this permit is available
                                         if self._is_permit_available(permit_info, min_people, max_people):
+                                            # Get human-readable division name
+                                            division_name = self.get_division_name(facility_id, division_id)
+
+                                            # Skip commercial permits
+                                            if 'commercial' in division_name.lower():
+                                                logger.debug(f"Skipping commercial permit: {division_name} on {check_date.strftime('%Y-%m-%d')}")
+                                                continue
+
                                             available_permits.append({
                                                 'date': check_date.strftime("%Y-%m-%d"),
                                                 'facility_id': facility_id,
                                                 'division_id': division_id,
+                                                'division_name': division_name,
                                                 'details': permit_info
                                             })
-                                            logger.info(f"Found availability on {check_date.strftime('%Y-%m-%d')} (division {division_id})")
+                                            logger.info(f"Found availability on {check_date.strftime('%Y-%m-%d')} ({division_name})")
                                 except ValueError:
                                     # Skip if date parsing fails
                                     continue
@@ -179,6 +191,46 @@ class PermitFinder:
         except requests.exceptions.RequestException as e:
             logger.error(f"Error getting facility info for {facility_id}: {e}")
             return None
+
+    def get_division_name(self, facility_id: str, division_id: str) -> str:
+        """
+        Get the human-readable name for a division/section
+
+        Args:
+            facility_id: Recreation.gov facility ID
+            division_id: Division ID (e.g., "702")
+
+        Returns:
+            Division name or the ID if name not found
+        """
+        # Check cache first
+        if facility_id in self._division_cache:
+            if division_id in self._division_cache[facility_id]:
+                return self._division_cache[facility_id][division_id]
+
+        # Fetch division info from API
+        try:
+            info = self.get_facility_info(facility_id)
+            if info and 'payload' in info:
+                payload = info['payload']
+
+                # Cache all divisions for this facility
+                if 'divisions' in payload:
+                    divisions = payload['divisions']
+                    self._division_cache[facility_id] = {}
+
+                    for div_id, div_info in divisions.items():
+                        name = div_info.get('name', f'Division {div_id}')
+                        self._division_cache[facility_id][div_id] = name
+
+                    # Return the requested division name
+                    if division_id in self._division_cache[facility_id]:
+                        return self._division_cache[facility_id][division_id]
+        except Exception as e:
+            logger.warning(f"Could not fetch division names for facility {facility_id}: {e}")
+
+        # Fallback to showing just the ID
+        return f"Division {division_id}"
 
 
 def test_permit_finder():
