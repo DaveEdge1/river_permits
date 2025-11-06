@@ -78,23 +78,38 @@ class PermitFinder:
                     if 'payload' in data and 'availability' in data['payload']:
                         availability = data['payload']['availability']
 
-                        for date_str, date_info in availability.items():
-                            # Parse the date
-                            check_date = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%SZ")
+                        # Iterate through divisions (e.g., "701")
+                        for division_id, division_info in availability.items():
+                            if not isinstance(division_info, dict):
+                                continue
 
-                            # Check if date is within our range
-                            if start <= check_date.replace(tzinfo=None) <= end:
-                                # Check if any slots are available
-                                if isinstance(date_info, dict):
-                                    for permit_id, permit_info in date_info.items():
+                            # Check if this division has date_availability (permits use this structure)
+                            if 'date_availability' in division_info:
+                                date_availability = division_info['date_availability']
+                            else:
+                                # Fallback for other structures (direct date mapping)
+                                date_availability = {division_id: division_info}
+
+                            # Now iterate through actual dates
+                            for date_str, permit_info in date_availability.items():
+                                try:
+                                    # Parse the date
+                                    check_date = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%SZ")
+
+                                    # Check if date is within our range
+                                    if start <= check_date.replace(tzinfo=None) <= end:
+                                        # Check if this permit is available
                                         if self._is_permit_available(permit_info, min_people, max_people):
                                             available_permits.append({
                                                 'date': check_date.strftime("%Y-%m-%d"),
                                                 'facility_id': facility_id,
-                                                'permit_id': permit_id,
+                                                'division_id': division_id,
                                                 'details': permit_info
                                             })
-                                            logger.info(f"Found availability on {check_date.strftime('%Y-%m-%d')}")
+                                            logger.info(f"Found availability on {check_date.strftime('%Y-%m-%d')} (division {division_id})")
+                                except ValueError:
+                                    # Skip if date parsing fails
+                                    continue
 
                 except requests.exceptions.RequestException as e:
                     logger.error(f"Error checking availability for {month_str}: {e}")
@@ -125,12 +140,18 @@ class PermitFinder:
         """
         # Check if the permit is available (not reserved)
         if isinstance(permit_info, dict):
-            # Common status indicators
-            if 'remaining' in permit_info and permit_info['remaining'] > 0:
-                return True
+            # Check 'remaining' field (most common)
+            if 'remaining' in permit_info:
+                remaining = permit_info['remaining']
+                # Ensure remaining is a number and greater than 0
+                if isinstance(remaining, (int, float)) and remaining > 0:
+                    return True
+
+            # Check status indicators
             if 'status' in permit_info and permit_info['status'] in ['Available', 'Open']:
                 return True
-            # Check for specific reservation status
+
+            # Check for specific availability flag
             if 'is_available' in permit_info and permit_info['is_available']:
                 return True
 
