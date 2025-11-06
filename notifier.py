@@ -177,7 +177,9 @@ class Notifier:
         for permit in sorted_permits:
             date = permit['date']
             details = permit.get('details', {})
-            html_body += f"<li><strong>{date}</strong>"
+            division_name = permit.get('division_name', f"Division {permit.get('division_id', '?')}")
+
+            html_body += f"<li><strong>{date}</strong> - {division_name}"
             if isinstance(details, dict):
                 if 'remaining' in details:
                     html_body += f" - {details['remaining']} remaining"
@@ -198,11 +200,15 @@ class Notifier:
         text_body = f"River Permit Available: {permit_name}\n\n"
         text_body += f"Found {len(available_permits)} available permit(s):\n\n"
         for permit in sorted_permits:
-            text_body += f"- {permit['date']}\n"
+            division_name = permit.get('division_name', f"Division {permit.get('division_id', '?')}")
+            remaining = permit.get('details', {}).get('remaining', '?')
+            text_body += f"- {permit['date']} - {division_name} ({remaining} remaining)\n"
         text_body += f"\nBook at: https://www.recreation.gov/permits/{sorted_permits[0]['facility_id']}\n"
 
         # SMS message (brief)
-        sms_message = f"River Permit Alert! {permit_name} available on {sorted_permits[0]['date']}"
+        first_permit = sorted_permits[0]
+        division_name = first_permit.get('division_name', f"Division {first_permit.get('division_id', '?')}")
+        sms_message = f"River Permit Alert! {permit_name} - {division_name} available on {first_permit['date']}"
         if len(sorted_permits) > 1:
             sms_message += f" (+{len(sorted_permits)-1} more dates)"
         sms_message += f". Book now at recreation.gov"

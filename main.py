@@ -72,6 +72,10 @@ class RiverPermitMonitor:
             with open(self.config_path, 'r') as f:
                 config = json.load(f)
             logger.info(f"Configuration loaded from {self.config_path}")
+
+            # Validate dates in config
+            self._validate_config_dates(config)
+
             return config
         except FileNotFoundError:
             logger.error(f"Configuration file not found: {self.config_path}")
@@ -80,6 +84,50 @@ class RiverPermitMonitor:
         except json.JSONDecodeError as e:
             logger.error(f"Invalid JSON in configuration file: {e}")
             raise
+
+    def _validate_config_dates(self, config: Dict):
+        """
+        Validate all dates in configuration
+
+        Args:
+            config: Configuration dictionary
+
+        Raises:
+            ValueError: If any dates are invalid
+        """
+        permits = config.get('permits', [])
+        errors = []
+
+        for i, permit_config in enumerate(permits):
+            name = permit_config.get('name', f'Permit {i+1}')
+            start_date = permit_config.get('start_date')
+            end_date = permit_config.get('end_date')
+
+            if not start_date or not end_date:
+                continue  # Will be caught later as incomplete config
+
+            try:
+                start_dt = datetime.strptime(start_date, "%Y-%m-%d")
+                end_dt = datetime.strptime(end_date, "%Y-%m-%d")
+
+                if start_dt > end_dt:
+                    errors.append(f"  [{name}] start_date ({start_date}) is after end_date ({end_date})")
+            except ValueError as e:
+                errors.append(f"  [{name}] Invalid date: {e}")
+                errors.append(f"    start_date: {start_date}")
+                errors.append(f"    end_date: {end_date}")
+
+        if errors:
+            logger.error("=" * 60)
+            logger.error("CONFIGURATION ERROR: Invalid dates found")
+            logger.error("=" * 60)
+            for error in errors:
+                logger.error(error)
+            logger.error("")
+            logger.error("Dates must be in YYYY-MM-DD format and be valid calendar dates.")
+            logger.error("Remember: April, June, September, November have 30 days (not 31!)")
+            logger.error("=" * 60)
+            raise ValueError("Invalid dates in configuration file. Please fix the dates and try again.")
 
     def _save_stats(self):
         """Save statistics to file"""
@@ -129,23 +177,6 @@ class RiverPermitMonitor:
 
         if not all([facility_id, start_date, end_date]):
             logger.error(f"Incomplete configuration for {name}")
-            return
-
-        # Validate dates
-        try:
-            from datetime import datetime
-            start_dt = datetime.strptime(start_date, "%Y-%m-%d")
-            end_dt = datetime.strptime(end_date, "%Y-%m-%d")
-
-            if start_dt > end_dt:
-                logger.error(f"Invalid date range for {name}: start_date ({start_date}) is after end_date ({end_date})")
-                return
-        except ValueError as e:
-            logger.error(f"Invalid date format for {name}: {e}")
-            logger.error(f"  start_date: {start_date}")
-            logger.error(f"  end_date: {end_date}")
-            logger.error(f"  Dates must be in YYYY-MM-DD format and be valid calendar dates")
-            logger.error(f"  Remember: April, June, September, November have 30 days (not 31!)")
             return
 
         logger.info(f"Checking: {name} (ID: {facility_id})")
@@ -277,6 +308,10 @@ def main():
 
     except KeyboardInterrupt:
         logger.info("\nExiting...")
+    except ValueError as e:
+        # Configuration errors (like invalid dates)
+        logger.error(f"Fatal error: {e}")
+        return 1
     except Exception as e:
         logger.error(f"Fatal error: {e}", exc_info=True)
         return 1
