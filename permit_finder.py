@@ -106,6 +106,11 @@ class PermitFinder:
                                             # Get human-readable division name
                                             division_name = self.get_division_name(facility_id, division_id)
 
+                                            # Skip commercial permits
+                                            if 'commercial' in division_name.lower():
+                                                logger.debug(f"Skipping commercial permit: {division_name} on {check_date.strftime('%Y-%m-%d')}")
+                                                continue
+
                                             available_permits.append({
                                                 'date': check_date.strftime("%Y-%m-%d"),
                                                 'facility_id': facility_id,
