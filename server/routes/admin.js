@@ -147,6 +147,21 @@ router.delete('/users/:id', (req, res) => {
 });
 
 /**
+ * GET /api/admin/permits
+ * Get all permits for debugging
+ */
+router.get('/permits', (req, res) => {
+  try {
+    const { permitQueries } = require('../db');
+    const permits = permitQueries.getAllEnabled.all();
+    res.json({ permits });
+  } catch (error) {
+    console.error('Get permits error:', error);
+    res.status(500).json({ error: 'Failed to fetch permits' });
+  }
+});
+
+/**
  * POST /api/admin/check-permits
  * Manually trigger permit check for all users
  */
