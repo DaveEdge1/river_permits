@@ -24,7 +24,10 @@
   <div class="container main-content">
     <div class="dashboard-header">
       <h2>User Management</h2>
-      <button id="addUserBtn" class="btn btn-primary">+ Create User</button>
+      <div class="header-actions">
+        <button id="checkPermitsBtn" class="btn btn-success">⚡ Check Permits Now</button>
+        <button id="addUserBtn" class="btn btn-primary">+ Create User</button>
+      </div>
     </div>
 
     <div id="usersContainer" class="users-container">
@@ -65,6 +68,22 @@
             <button type="submit" class="btn btn-primary">Create User</button>
           </div>
         </form>
+      </div>
+    </div>
+
+    <!-- Permit Check Results Modal -->
+    <div id="checkResultsModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Permit Check Results</h3>
+          <span class="close">&times;</span>
+        </div>
+        <div id="checkResultsContent" class="check-results">
+          <div class="loading">Checking permits...</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary close-results">Close</button>
+        </div>
       </div>
     </div>
   </div>

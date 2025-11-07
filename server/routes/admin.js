@@ -4,6 +4,8 @@
 
 const express = require('express');
 const router = express.Router();
+const { spawn } = require('child_process');
+const path = require('path');
 const { userQueries } = require('../db');
 const { requireAdmin, hashPassword } = require('../auth');
 
@@ -141,6 +143,61 @@ router.delete('/users/:id', (req, res) => {
   } catch (error) {
     console.error('Delete user error:', error);
     res.status(500).json({ error: 'Failed to delete user' });
+  }
+});
+
+/**
+ * POST /api/admin/check-permits
+ * Manually trigger permit check for all users
+ */
+router.post('/check-permits', (req, res) => {
+  try {
+    const scriptPath = path.join(__dirname, '..', '..', 'check_all_permits.py');
+
+    console.log('Admin triggered manual permit check');
+
+    // Run Python script
+    const pythonProcess = spawn('python3', [scriptPath]);
+
+    let output = '';
+    let errorOutput = '';
+
+    pythonProcess.stdout.on('data', (data) => {
+      output += data.toString();
+    });
+
+    pythonProcess.stderr.on('data', (data) => {
+      errorOutput += data.toString();
+    });
+
+    pythonProcess.on('close', (code) => {
+      if (code === 0) {
+        console.log('Permit check completed successfully');
+        res.json({
+          success: true,
+          message: 'Permit check completed',
+          output: output
+        });
+      } else {
+        console.error('Permit check failed with code:', code);
+        res.status(500).json({
+          error: 'Permit check failed',
+          code: code,
+          output: errorOutput || output
+        });
+      }
+    });
+
+    pythonProcess.on('error', (error) => {
+      console.error('Failed to start permit check:', error);
+      res.status(500).json({
+        error: 'Failed to start permit check',
+        message: error.message
+      });
+    });
+  } catch (error) {
+    console.error('Check permits error:', error);
+    res.status(500).json({ error: 'Failed to trigger permit check' });
   }
 });
 

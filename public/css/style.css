@@ -490,6 +490,49 @@ body {
   color: var(--text-primary);
 }
 
+/* Check Permits Results */
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.check-results {
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.check-output {
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background: var(--bg-color);
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+
+.result-line {
+  padding: 0.25rem 0;
+  color: var(--text-primary);
+}
+
+.result-line.success {
+  color: var(--success-color);
+  font-weight: 500;
+}
+
+.result-line.error {
+  color: var(--danger-color);
+  font-weight: 500;
+}
+
+.result-line.header {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .form-row {

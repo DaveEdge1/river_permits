@@ -88,6 +88,9 @@ function setupEventListeners() {
   // Logout
   document.getElementById('logoutBtn').addEventListener('click', logout);
 
+  // Check permits button
+  document.getElementById('checkPermitsBtn').addEventListener('click', checkPermitsNow);
+
   // Add user button
   document.getElementById('addUserBtn').addEventListener('click', () => {
     document.getElementById('userForm').reset();
@@ -105,7 +108,7 @@ function setupEventListeners() {
     });
   });
 
-  document.querySelectorAll('.cancel-btn').forEach(btn => {
+  document.querySelectorAll('.cancel-btn, .close-results').forEach(btn => {
     btn.addEventListener('click', function() {
       closeModal(this.closest('.modal').id);
     });
@@ -232,4 +235,78 @@ function formatDateTime(dateStr) {
 
 function showError(message) {
   console.error(message);
+}
+
+async function checkPermitsNow() {
+  const btn = document.getElementById('checkPermitsBtn');
+  const originalText = btn.textContent;
+
+  try {
+    // Disable button and show loading
+    btn.disabled = true;
+    btn.textContent = '⏳ Checking...';
+
+    // Show modal with loading state
+    showModal('checkResultsModal');
+    document.getElementById('checkResultsContent').innerHTML = '<div class="loading">Checking permits for all users...</div>';
+
+    // Call API
+    const response = await fetch('/api/admin/check-permits', {
+      method: 'POST'
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      // Format output with line breaks
+      const formattedOutput = data.output
+        .split('\n')
+        .map(line => {
+          // Add styling based on content
+          if (line.includes('✓') || line.includes('SUCCESS')) {
+            return `<div class="result-line success">${escapeHtml(line)}</div>`;
+          } else if (line.includes('✗') || line.includes('ERROR') || line.includes('Failed')) {
+            return `<div class="result-line error">${escapeHtml(line)}</div>`;
+          } else if (line.includes('===')) {
+            return `<div class="result-line header">${escapeHtml(line)}</div>`;
+          } else if (line.trim()) {
+            return `<div class="result-line">${escapeHtml(line)}</div>`;
+          }
+          return '';
+        })
+        .join('');
+
+      document.getElementById('checkResultsContent').innerHTML = `
+        <div class="success" style="display: block;">Permit check completed successfully!</div>
+        <div class="check-output">${formattedOutput || '<p>No output to display</p>'}</div>
+      `;
+    } else {
+      document.getElementById('checkResultsContent').innerHTML = `
+        <div class="error" style="display: block;">
+          ${data.error || 'Failed to check permits'}
+        </div>
+        ${data.output ? `<pre class="check-output">${escapeHtml(data.output)}</pre>` : ''}
+      `;
+    }
+  } catch (error) {
+    console.error('Check permits error:', error);
+    document.getElementById('checkResultsContent').innerHTML = `
+      <div class="error" style="display: block;">
+        Network error. Please try again.
+      </div>
+    `;
+  } finally {
+    // Re-enable button
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+function escapeHtml(unsafe) {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
