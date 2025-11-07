@@ -317,8 +317,7 @@ class Notifier:
         html_body += """
             </ul>
 
-            <p><strong>Act fast!</strong> River permits can be claimed quickly.</p>
-            <p>Visit <a href="https://www.recreation.gov">Recreation.gov</a> to book your permit.</p>
+            <p>Change your permit search at any time <a href="http://64.227.48.163/login.html">Groover Bookings</a>.</p>
         </body>
         </html>
         """
