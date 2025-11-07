@@ -7,7 +7,7 @@ const { spawn } = require('child_process');
 const path = require('path');
 
 const PYTHON_SCRIPT = path.join(__dirname, '..', 'check_all_permits.py');
-const PYTHON_PATH = path.join(__dirname, '..', 'myenv', 'bin', 'python3');
+const PYTHON_PATH = path.join(__dirname, '..', 'my_env', 'bin', 'python3');
 const CHECK_INTERVAL = process.env.CHECK_INTERVAL_MINUTES || '15';
 
 let isRunning = false;

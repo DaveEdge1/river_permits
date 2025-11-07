@@ -10,7 +10,7 @@ const { userQueries } = require('../db');
 const { requireAdmin, hashPassword } = require('../auth');
 
 // Python virtual environment path
-const PYTHON_PATH = path.join(__dirname, '..', '..', 'myenv', 'bin', 'python3');
+const PYTHON_PATH = path.join(__dirname, '..', '..', 'my_env', 'bin', 'python3');
 
 // All routes require admin authentication
 router.use(requireAdmin);
