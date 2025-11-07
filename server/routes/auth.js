@@ -82,7 +82,15 @@ router.get('/me', (req, res) => {
     return res.status(401).json({ error: 'Not authenticated' });
   }
 
-  res.json({ user });
+  // Normalize field names to camelCase for consistency with login response
+  res.json({
+    user: {
+      id: user.id,
+      email: user.email,
+      isActive: user.is_active === 1,
+      isAdmin: user.is_admin === 1
+    }
+  });
 });
 
 module.exports = router;
