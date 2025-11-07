@@ -150,9 +150,30 @@ class Notifier:
             # Send via SendGrid API
             response = self.sendgrid_client.send(mail)
 
+            # Show detailed response info
+            print(f"    → SendGrid Response Status: {response.status_code}")
+            if hasattr(response, 'headers'):
+                message_id = response.headers.get('x-message-id', 'N/A')
+                print(f"    → Message ID: {message_id}")
+
+            if response.body:
+                print(f"    → Response Body: {response.body}")
+
             if response.status_code >= 200 and response.status_code < 300:
                 logger.info(f"Email sent successfully via SendGrid to {self.email_to}")
-                print(f"    ✓ Email sent successfully via SendGrid")
+                print(f"\n    ✓ Email accepted by SendGrid (Status: {response.status_code})")
+
+                if response.status_code == 202:
+                    print(f"\n    ⚠️  IMPORTANT: Status 202 = 'Accepted for delivery'")
+                    print(f"    This means SendGrid accepted the request, but:")
+                    print(f"    1. Check if sender '{self.email_from}' is VERIFIED in SendGrid")
+                    print(f"    2. Check SendGrid Activity Feed to see delivery status")
+                    print(f"    3. If sender not verified, emails will be silently dropped!")
+                    print(f"\n    To verify sender:")
+                    print(f"    → Go to: https://app.sendgrid.com/settings/sender_auth/senders")
+                    print(f"    → Add '{self.email_from}' if not listed")
+                    print(f"    → Click verification link in email")
+
                 return True
             else:
                 logger.error(f"SendGrid error: {response.status_code} - {response.body}")
