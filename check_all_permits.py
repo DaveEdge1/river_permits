@@ -8,6 +8,11 @@ import sys
 import os
 from datetime import datetime
 from collections import defaultdict
+from dotenv import load_dotenv
+
+# Load environment variables from server/.env
+server_env_path = os.path.join(os.path.dirname(__file__), 'server', '.env')
+load_dotenv(server_env_path)
 
 # Add parent directory to path to import permit_finder
 sys.path.insert(0, os.path.dirname(__file__))
