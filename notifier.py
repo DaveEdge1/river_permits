@@ -1,5 +1,6 @@
 """
 Notification system for sending email and SMS alerts
+Supports SMTP and SendGrid API for email delivery
 """
 import os
 import smtplib
@@ -32,19 +33,41 @@ class Notifier:
             sms_enabled: Whether to send SMS notifications
             email_from: Sender email address
             email_to: Recipient email address
-            email_password: Email password or app password
-            smtp_server: SMTP server address
-            smtp_port: SMTP server port
+            email_password: Email password or app password (SMTP only)
+            smtp_server: SMTP server address (SMTP only)
+            smtp_port: SMTP server port (SMTP only)
         """
         self.email_enabled = email_enabled
         self.sms_enabled = sms_enabled
 
+        # Determine email service (sendgrid or smtp)
+        self.email_service = os.getenv('EMAIL_SERVICE', 'smtp').lower()
+
         # Email configuration
         self.email_from = email_from or os.getenv('EMAIL_FROM')
         self.email_to = email_to or os.getenv('EMAIL_TO')
+
+        # SendGrid configuration
+        self.sendgrid_api_key = os.getenv('SENDGRID_API_KEY')
+        self.sendgrid_client = None
+
+        # SMTP configuration (fallback)
         self.email_password = email_password or os.getenv('EMAIL_PASSWORD')
         self.smtp_server = smtp_server or os.getenv('SMTP_SERVER', 'smtp.gmail.com')
         self.smtp_port = smtp_port or int(os.getenv('SMTP_PORT', '587'))
+
+        # Initialize SendGrid client if configured
+        if self.email_service == 'sendgrid' and self.sendgrid_api_key:
+            try:
+                from sendgrid import SendGridAPIClient
+                self.sendgrid_client = SendGridAPIClient(self.sendgrid_api_key)
+                logger.info("SendGrid API client initialized")
+            except ImportError:
+                logger.warning("SendGrid package not installed, falling back to SMTP")
+                self.email_service = 'smtp'
+            except Exception as e:
+                logger.warning(f"Failed to initialize SendGrid client: {e}")
+                self.email_service = 'smtp'
 
         # SMS configuration (Twilio)
         self.twilio_sid = os.getenv('TWILIO_ACCOUNT_SID')
@@ -69,7 +92,7 @@ class Notifier:
 
     def send_email(self, subject: str, body: str, html: bool = False) -> bool:
         """
-        Send an email notification
+        Send an email notification via SendGrid API or SMTP
 
         Args:
             subject: Email subject
@@ -84,13 +107,75 @@ class Notifier:
             print("    ! Email notifications are disabled")
             return False
 
+        # Route to appropriate send method
+        if self.email_service == 'sendgrid' and self.sendgrid_client:
+            return self._send_email_sendgrid(subject, body, html)
+        else:
+            return self._send_email_smtp(subject, body, html)
+
+    def _send_email_sendgrid(self, subject: str, body: str, html: bool = False) -> bool:
+        """Send email via SendGrid API"""
+        if not all([self.email_from, self.email_to, self.sendgrid_api_key]):
+            missing = []
+            if not self.email_from: missing.append("EMAIL_FROM")
+            if not self.email_to: missing.append("EMAIL_TO")
+            if not self.sendgrid_api_key: missing.append("SENDGRID_API_KEY")
+            logger.error(f"SendGrid configuration incomplete. Missing: {', '.join(missing)}")
+            print(f"    ! SendGrid configuration incomplete. Missing: {', '.join(missing)}")
+            return False
+
+        try:
+            from sendgrid.helpers.mail import Mail, Content
+
+            # Create message
+            print(f"    → Sending email via SendGrid...")
+            print(f"    → From: {self.email_from}")
+            print(f"    → To: {self.email_to}")
+
+            # Create content
+            if html:
+                content = Content("text/html", body)
+            else:
+                content = Content("text/plain", body)
+
+            # Create mail object
+            mail = Mail(
+                from_email=self.email_from,
+                to_emails=self.email_to,
+                subject=subject,
+                html_content=body if html else None,
+                plain_text_content=body if not html else None
+            )
+
+            # Send via SendGrid API
+            response = self.sendgrid_client.send(mail)
+
+            if response.status_code >= 200 and response.status_code < 300:
+                logger.info(f"Email sent successfully via SendGrid to {self.email_to}")
+                print(f"    ✓ Email sent successfully via SendGrid")
+                return True
+            else:
+                logger.error(f"SendGrid error: {response.status_code} - {response.body}")
+                print(f"    ! SendGrid error: {response.status_code}")
+                print(f"       {response.body}")
+                return False
+
+        except Exception as e:
+            logger.error(f"Failed to send email via SendGrid: {e}")
+            print(f"    ! Failed to send email via SendGrid: {e}")
+            import traceback
+            print(f"       {traceback.format_exc()}")
+            return False
+
+    def _send_email_smtp(self, subject: str, body: str, html: bool = False) -> bool:
+        """Send email via SMTP"""
         if not all([self.email_from, self.email_to, self.email_password]):
             missing = []
             if not self.email_from: missing.append("EMAIL_FROM")
             if not self.email_to: missing.append("EMAIL_TO")
             if not self.email_password: missing.append("EMAIL_PASSWORD")
-            logger.error(f"Email configuration incomplete. Missing: {', '.join(missing)}")
-            print(f"    ! Email configuration incomplete. Missing: {', '.join(missing)}")
+            logger.error(f"SMTP configuration incomplete. Missing: {', '.join(missing)}")
+            print(f"    ! SMTP configuration incomplete. Missing: {', '.join(missing)}")
             return False
 
         try:
