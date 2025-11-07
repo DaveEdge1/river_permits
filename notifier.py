@@ -58,14 +58,24 @@ class Notifier:
 
         # Initialize SendGrid client if configured
         if self.email_service == 'sendgrid' and self.sendgrid_api_key:
+            print(f"    DEBUG: Attempting to initialize SendGrid...")
+            print(f"    DEBUG: email_service = {self.email_service}")
+            print(f"    DEBUG: sendgrid_api_key = {'SET (starts with ' + self.sendgrid_api_key[:10] + ')' if self.sendgrid_api_key else 'NOT SET'}")
             try:
                 from sendgrid import SendGridAPIClient
+                print(f"    DEBUG: SendGrid module imported successfully")
                 self.sendgrid_client = SendGridAPIClient(self.sendgrid_api_key)
+                print(f"    DEBUG: SendGrid client created successfully")
                 logger.info("SendGrid API client initialized")
-            except ImportError:
+            except ImportError as e:
+                print(f"    ERROR: SendGrid package not installed: {e}")
                 logger.warning("SendGrid package not installed, falling back to SMTP")
                 self.email_service = 'smtp'
             except Exception as e:
+                print(f"    ERROR: Failed to initialize SendGrid client: {e}")
+                print(f"    ERROR: Exception type: {type(e).__name__}")
+                import traceback
+                print(f"    ERROR: Traceback: {traceback.format_exc()}")
                 logger.warning(f"Failed to initialize SendGrid client: {e}")
                 self.email_service = 'smtp'
 
