@@ -124,17 +124,7 @@ def main():
                     # Group by permit for this user
                     notifications_by_user[permit['user_id']][permit['id']].extend(new_permits)
 
-                    # Record notifications
-                    for avail in new_permits:
-                        record_notification(
-                            conn,
-                            permit['user_id'],
-                            permit['id'],
-                            avail['date'],
-                            avail['division_id'],
-                            avail.get('division_name', f"Division {avail['division_id']}"),
-                            avail.get('details', {}).get('remaining', 0)
-                        )
+                    # NOTE: Don't record notifications yet - wait until email is sent successfully
                 else:
                     print(f"  All available permits already notified")
             else:
@@ -143,14 +133,13 @@ def main():
         except Exception as e:
             print(f"  ERROR: {e}")
 
-    conn.close()
-
     # Send notifications to each user
     print("\n" + "=" * 60)
     print("Sending Notifications")
     print("=" * 60)
 
     if not notifications_by_user:
+        conn.close()
         print("No new permits to notify about")
         return
 
@@ -183,13 +172,29 @@ def main():
 
                 if success:
                     print(f"    ✓ Notification sent successfully")
+
+                    # ONLY record notification if email was sent successfully
+                    for avail in available_permits:
+                        record_notification(
+                            conn,
+                            user_id,
+                            permit_id,
+                            avail['date'],
+                            avail['division_id'],
+                            avail.get('division_name', f"Division {avail['division_id']}"),
+                            avail.get('details', {}).get('remaining', 0)
+                        )
                 else:
                     print(f"    ✗ Failed to send notification (check email configuration)")
+                    print(f"    → Will retry on next check")
 
             except Exception as e:
                 import traceback
                 print(f"    ✗ Error sending notification: {e}")
                 print(f"       Details: {traceback.format_exc()}")
+                print(f"    → Will retry on next check")
+
+    conn.close()
 
     print("\n" + "=" * 60)
     print("Check Complete")
