@@ -217,6 +217,61 @@ router.post('/check-permits', (req, res) => {
 });
 
 /**
+ * POST /api/admin/view-availability
+ * View current availability for all permits (ignores notification history)
+ */
+router.post('/view-availability', (req, res) => {
+  try {
+    const scriptPath = path.join(__dirname, '..', '..', 'view_availability.py');
+
+    console.log('Admin viewing current availability');
+
+    // Run Python script
+    const pythonProcess = spawn('python3', [scriptPath]);
+
+    let output = '';
+    let errorOutput = '';
+
+    pythonProcess.stdout.on('data', (data) => {
+      output += data.toString();
+    });
+
+    pythonProcess.stderr.on('data', (data) => {
+      errorOutput += data.toString();
+    });
+
+    pythonProcess.on('close', (code) => {
+      if (code === 0) {
+        console.log('View availability completed successfully');
+        res.json({
+          success: true,
+          message: 'Availability check completed',
+          output: output
+        });
+      } else {
+        console.error('View availability failed with code:', code);
+        res.status(500).json({
+          error: 'View availability failed',
+          code: code,
+          output: errorOutput || output
+        });
+      }
+    });
+
+    pythonProcess.on('error', (error) => {
+      console.error('Failed to start view availability:', error);
+      res.status(500).json({
+        error: 'Failed to start view availability',
+        message: error.message
+      });
+    });
+  } catch (error) {
+    console.error('View availability error:', error);
+    res.status(500).json({ error: 'Failed to view availability' });
+  }
+});
+
+/**
  * POST /api/admin/fix-facility-ids
  * Check and fix facility IDs for all permits
  */

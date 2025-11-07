@@ -88,6 +88,9 @@ function setupEventListeners() {
   // Logout
   document.getElementById('logoutBtn').addEventListener('click', logout);
 
+  // View availability button
+  document.getElementById('viewAvailabilityBtn').addEventListener('click', viewAvailabilityNow);
+
   // Check permits button
   document.getElementById('checkPermitsBtn').addEventListener('click', checkPermitsNow);
 
@@ -290,6 +293,73 @@ async function checkPermitsNow() {
     }
   } catch (error) {
     console.error('Check permits error:', error);
+    document.getElementById('checkResultsContent').innerHTML = `
+      <div class="error" style="display: block;">
+        Network error. Please try again.
+      </div>
+    `;
+  } finally {
+    // Re-enable button
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+async function viewAvailabilityNow() {
+  const btn = document.getElementById('viewAvailabilityBtn');
+  const originalText = btn.textContent;
+
+  try {
+    // Disable button and show loading
+    btn.disabled = true;
+    btn.textContent = '⏳ Loading...';
+
+    // Show modal with loading state
+    showModal('checkResultsModal');
+    document.getElementById('checkResultsContent').innerHTML = '<div class="loading">Viewing current availability...</div>';
+
+    // Call API
+    const response = await fetch('/api/admin/view-availability', {
+      method: 'POST'
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      // Format output with line breaks
+      const formattedOutput = data.output
+        .split('\n')
+        .map(line => {
+          // Add styling based on content
+          if (line.includes('✓') || line.includes('Found') || line.includes('available')) {
+            return `<div class="result-line success">${escapeHtml(line)}</div>`;
+          } else if (line.includes('✗') || line.includes('ERROR') || line.includes('No available')) {
+            return `<div class="result-line error">${escapeHtml(line)}</div>`;
+          } else if (line.includes('===') || line.includes('SUMMARY')) {
+            return `<div class="result-line header">${escapeHtml(line)}</div>`;
+          } else if (line.trim().startsWith('-')) {
+            return `<div class="result-line" style="margin-left: 20px;">${escapeHtml(line)}</div>`;
+          } else if (line.trim()) {
+            return `<div class="result-line">${escapeHtml(line)}</div>`;
+          }
+          return '';
+        })
+        .join('');
+
+      document.getElementById('checkResultsContent').innerHTML = `
+        <div class="success" style="display: block;">Current availability loaded!</div>
+        <div class="check-output">${formattedOutput || '<p>No output to display</p>'}</div>
+      `;
+    } else {
+      document.getElementById('checkResultsContent').innerHTML = `
+        <div class="error" style="display: block;">
+          ${data.error || 'Failed to view availability'}
+        </div>
+        ${data.output ? `<pre class="check-output">${escapeHtml(data.output)}</pre>` : ''}
+      `;
+    }
+  } catch (error) {
+    console.error('View availability error:', error);
     document.getElementById('checkResultsContent').innerHTML = `
       <div class="error" style="display: block;">
         Network error. Please try again.
