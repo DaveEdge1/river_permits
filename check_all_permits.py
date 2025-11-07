@@ -10,9 +10,9 @@ from datetime import datetime
 from collections import defaultdict
 from dotenv import load_dotenv
 
-# Load environment variables from server/.env
+# Load environment variables from server/.env (override existing vars)
 server_env_path = os.path.join(os.path.dirname(__file__), 'server', '.env')
-load_dotenv(server_env_path)
+load_dotenv(server_env_path, override=True)
 
 # Debug: Check if SendGrid is configured
 print(f"DEBUG: EMAIL_SERVICE = {os.getenv('EMAIL_SERVICE', 'NOT SET')}")
