@@ -207,7 +207,7 @@ router.post('/check-permits', (req, res) => {
  */
 router.post('/fix-facility-ids', (req, res) => {
   try {
-    const scriptPath = path.join(__dirname, 'fix-facility-ids.js');
+    const scriptPath = path.join(__dirname, '..', 'fix-facility-ids.js');
 
     console.log('Admin triggered facility ID fix');
 
