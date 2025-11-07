@@ -1,14 +1,15 @@
 /**
  * Curated list of popular river permits on recreation.gov
- * Facility IDs obtained from recreation.gov URLs
+ * Facility IDs verified against recreation.gov API
+ * Updated: 2025-11-07
  */
 
 const RIVERS = [
   {
-    id: '250986',
+    id: '234621',
     name: 'San Juan River',
-    location: 'Bears Ears National Monument, UT',
-    description: 'Sand Island to Clay Hills, Mexican Hat to Clay Hills sections'
+    location: 'Bluff, UT',
+    description: 'River permits for the San Juan River through spectacular desert canyons'
   },
   {
     id: '234623',
@@ -54,9 +55,9 @@ const RIVERS = [
   },
   {
     id: '250014',
-    name: 'Green & Yampa Rivers (Dinosaur)',
-    location: 'Dinosaur National Monument, CO/UT',
-    description: 'Gates of Lodore and Yampa River sections'
+    name: 'Dinosaur National Monument (Gates of Lodore, Yampa River)',
+    location: 'Dinosaur, CO',
+    description: 'Gates of Lodore (Green River), Yampa River, and combined Yampa/Green segments'
   },
   {
     id: '251980',
@@ -72,21 +73,21 @@ const RIVERS = [
   },
   {
     id: '621748',
-    name: 'Canyonlands Overnight River Permits',
-    location: 'Canyonlands National Park, UT',
+    name: 'Canyonlands National Park Overnight River Permits',
+    location: 'Moab, UT',
     description: 'Green and Colorado River sections including Cataract Canyon'
   },
   {
     id: '233262',
     name: 'Grand Canyon Colorado River',
-    location: 'Grand Canyon National Park, AZ',
+    location: 'Grand Canyon, AZ',
     description: 'Commercial river trips (Note: Private trips use separate NPS system)'
   },
   {
-    id: '234652',
-    name: 'Green River - Gates of Lodore',
-    location: 'Browns Park National Wildlife Refuge, CO',
-    description: 'Gates of Lodore section'
+    id: '233393',
+    name: 'Desolation-Gray Canyons, Green River',
+    location: 'Vernal, UT',
+    description: 'The 84-mile trip from Sand Wash to Swaseys Rapid'
   },
   {
     id: '251575',
@@ -95,10 +96,22 @@ const RIVERS = [
     description: 'Remote desert canyon river'
   },
   {
-    id: '233346',
-    name: 'Westwater Canyon',
-    location: 'Moab Field Office BLM, UT',
-    description: 'Colorado River through Westwater Canyon'
+    id: '16341',
+    name: 'Westwater Canyon, Colorado River',
+    location: 'Moab, UT',
+    description: 'Colorado River through Westwater Canyon - exciting whitewater'
+  },
+  {
+    id: '621749',
+    name: 'Dolores River Permits',
+    location: 'Gateway, CO',
+    description: 'River permits for the Dolores River from Gateway, CO to Dewey Bridge, UT'
+  },
+  {
+    id: '621747',
+    name: 'Canyonlands National Park Day Use River Permits',
+    location: 'Moab, UT',
+    description: 'Day use river permits for Canyonlands National Park'
   }
 ];
 

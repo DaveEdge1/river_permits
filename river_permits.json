@@ -1,0 +1,88 @@
+{
+  "generated_at": "2025-11-07",
+  "total_count": 8,
+  "facilities": [
+    {
+      "facility_id": "621748",
+      "facility_name": "Canyonlands National Park Overnight River Permits",
+      "description": "Overnight river permits for Canyonlands National Park including Cataract Canyon on the Colorado River",
+      "city": "Moab",
+      "state": "UT",
+      "divisions": {}
+    },
+    {
+      "facility_id": "621747",
+      "facility_name": "Canyonlands National Park Day Use River Permits",
+      "description": "Day use river permits for Canyonlands National Park",
+      "city": "Moab",
+      "state": "UT",
+      "divisions": {}
+    },
+    {
+      "facility_id": "233393",
+      "facility_name": "Desolation-Gray Canyons, Green River",
+      "description": "The 84-mile trip from Sand Wash to Swaseys Rapid offers outstanding scenery on the Green River",
+      "city": "Vernal",
+      "state": "UT",
+      "divisions": {
+        "282": {
+          "id": "282",
+          "name": "Desolation-Gray Canyons of the Green River"
+        }
+      }
+    },
+    {
+      "facility_id": "250014",
+      "facility_name": "Dinosaur National Monument River Permits",
+      "description": "River permits for Gates of Lodore (Green River), Yampa River, and combined Yampa/Green segments",
+      "city": "Dinosaur",
+      "state": "CO",
+      "divisions": {
+        "380": {
+          "id": "380",
+          "name": "Gates of Lodore, Green River"
+        },
+        "371": {
+          "id": "371",
+          "name": "Deerlodge Park, Yampa River"
+        },
+        "1250014": {
+          "id": "1250014",
+          "name": "Combined Yampa/Green Segment"
+        }
+      }
+    },
+    {
+      "facility_id": "621749",
+      "facility_name": "Dolores River Permits",
+      "description": "River permits for the Dolores River from Gateway, CO to Dewey Bridge, UT",
+      "city": "Gateway",
+      "state": "CO",
+      "divisions": {}
+    },
+    {
+      "facility_id": "233262",
+      "facility_name": "Grand Canyon River Permits",
+      "description": "Colorado River through Grand Canyon National Park - one of the most sought-after river trips in the world",
+      "city": "Grand Canyon",
+      "state": "AZ",
+      "divisions": {}
+    },
+    {
+      "facility_id": "234621",
+      "facility_name": "San Juan River Permits",
+      "description": "River permits for the San Juan River through spectacular desert canyons in Utah",
+      "city": "Bluff",
+      "state": "UT",
+      "divisions": {}
+    },
+    {
+      "facility_id": "16341",
+      "facility_name": "Westwater Canyon, Colorado River",
+      "description": "Colorado River through Westwater Canyon - exciting whitewater and beautiful scenery",
+      "city": "Moab",
+      "state": "UT",
+      "divisions": {}
+    }
+  ]
+}
