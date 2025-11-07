@@ -148,6 +148,37 @@ async function main() {
     console.log(`Current Facility ID: ${permit.facility_id}`);
     console.log('='.repeat(70));
 
+    // FIRST: Check if this matches a known facility
+    const nameLower = permit.name.toLowerCase();
+    let knownCorrectId = null;
+
+    for (const [knownName, knownId] of Object.entries(KNOWN_FACILITIES)) {
+      if (nameLower.includes(knownName)) {
+        knownCorrectId = knownId;
+        console.log(`\nMatches known facility: "${knownName}" -> ${knownId}`);
+        break;
+      }
+    }
+
+    // If we have a known correct ID and current ID doesn't match
+    if (knownCorrectId && permit.facility_id !== knownCorrectId) {
+      console.log(`✗ WRONG FACILITY ID!`);
+      console.log(`  Current: ${permit.facility_id}`);
+      console.log(`  Should be: ${knownCorrectId}`);
+
+      updatesNeeded.push({
+        permitId: permit.id,
+        userId: permit.user_id,
+        permitName: permit.name,
+        oldId: permit.facility_id,
+        newId: knownCorrectId,
+        reason: 'Matched known facility'
+      });
+
+      await sleep(500);
+      continue;
+    }
+
     // Test current facility ID
     console.log('Testing current facility ID...');
     const result = await testFacilityId(permit.facility_id);
@@ -162,6 +193,8 @@ async function main() {
           for (const [divId, divInfo] of divEntries) {
             console.log(`    - ${divId}: ${divInfo.name || 'Unknown'}`);
           }
+        } else {
+          console.log(`  ⚠️  WARNING: No divisions found - may not have availability data`);
         }
       }
     } else {
@@ -173,30 +206,18 @@ async function main() {
 
       let correctId = null;
 
-      // First check known facilities
-      const nameLower = permit.name.toLowerCase();
-      for (const [knownName, knownId] of Object.entries(KNOWN_FACILITIES)) {
-        if (nameLower.includes(knownName)) {
-          correctId = knownId;
-          console.log(`  Found in known facilities: ${knownId}`);
-          break;
-        }
-      }
-
-      // If not found in known facilities, search recreation.gov
-      if (!correctId) {
-        console.log(`  Searching recreation.gov for: ${permit.name}`);
-        correctId = await searchFacilityByName(permit.name);
-        if (correctId) {
-          console.log(`  Found via search: ${correctId}`);
-          // Verify it's valid
-          const verify = await testFacilityId(correctId);
-          if (verify.valid) {
-            console.log(`  Verified: ${verify.facilityName}`);
-          } else {
-            console.log('  Search result was invalid, ignoring');
-            correctId = null;
-          }
+      // Search recreation.gov
+      console.log(`  Searching recreation.gov for: ${permit.name}`);
+      correctId = await searchFacilityByName(permit.name);
+      if (correctId) {
+        console.log(`  Found via search: ${correctId}`);
+        // Verify it's valid
+        const verify = await testFacilityId(correctId);
+        if (verify.valid) {
+          console.log(`  Verified: ${verify.facilityName}`);
+        } else {
+          console.log('  Search result was invalid, ignoring');
+          correctId = null;
         }
       }
 
@@ -206,7 +227,8 @@ async function main() {
           userId: permit.user_id,
           permitName: permit.name,
           oldId: permit.facility_id,
-          newId: correctId
+          newId: correctId,
+          reason: 'Found via search'
         });
       } else {
         console.log('  ✗ Could not find correct facility ID');
@@ -230,6 +252,9 @@ async function main() {
   for (const update of updatesNeeded) {
     console.log(`  Permit #${update.permitId}: ${update.permitName}`);
     console.log(`    ${update.oldId} → ${update.newId}`);
+    if (update.reason) {
+      console.log(`    Reason: ${update.reason}`);
+    }
     console.log();
   }
 
