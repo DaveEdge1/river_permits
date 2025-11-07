@@ -1,24 +1,58 @@
 /**
- * SQLite database setup and schema
+ * SQLite database setup and schema using sql.js
+ * sql.js is a pure JavaScript port - no native compilation needed!
  */
 
-const Database = require('better-sqlite3');
+const fs = require('fs');
 const path = require('path');
+const initSqlJs = require('sql.js');
 
 const DB_PATH = path.join(__dirname, '..', 'database', 'permits.db');
+const DB_DIR = path.dirname(DB_PATH);
 
-// Initialize database
-const db = new Database(DB_PATH);
-
-// Enable foreign keys
-db.pragma('foreign_keys = ON');
+let db = null;
+let SQL = null;
 
 /**
- * Initialize database schema
+ * Initialize sql.js and load database
  */
-function initializeDatabase() {
+async function initializeDatabase() {
+  // Initialize SQL.js
+  SQL = await initSqlJs();
+
+  // Ensure database directory exists
+  if (!fs.existsSync(DB_DIR)) {
+    fs.mkdirSync(DB_DIR, { recursive: true });
+  }
+
+  // Load existing database or create new one
+  if (fs.existsSync(DB_PATH)) {
+    const fileBuffer = fs.readFileSync(DB_PATH);
+    db = new SQL.Database(fileBuffer);
+    console.log('Database loaded from disk');
+  } else {
+    db = new SQL.Database();
+    console.log('Created new database');
+  }
+
+  // Enable foreign keys
+  db.run('PRAGMA foreign_keys = ON');
+
+  // Create tables
+  createTables();
+
+  // Save to disk
+  saveDatabase();
+
+  console.log('Database initialized successfully');
+}
+
+/**
+ * Create database tables
+ */
+function createTables() {
   // Users table
-  db.exec(`
+  db.run(`
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       email TEXT UNIQUE NOT NULL,
@@ -29,7 +63,7 @@ function initializeDatabase() {
   `);
 
   // Permits table
-  db.exec(`
+  db.run(`
     CREATE TABLE IF NOT EXISTS permits (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       user_id INTEGER NOT NULL,
@@ -46,8 +80,8 @@ function initializeDatabase() {
     )
   `);
 
-  // Notifications table (tracks what we've sent to avoid duplicates)
-  db.exec(`
+  // Notifications table
+  db.run(`
     CREATE TABLE IF NOT EXISTS notifications (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       user_id INTEGER NOT NULL,
@@ -63,114 +97,223 @@ function initializeDatabase() {
     )
   `);
 
-  // Create indices for performance
-  db.exec(`
-    CREATE INDEX IF NOT EXISTS idx_permits_user_id ON permits(user_id);
-    CREATE INDEX IF NOT EXISTS idx_permits_enabled ON permits(enabled);
-    CREATE INDEX IF NOT EXISTS idx_notifications_user_permit ON notifications(user_id, permit_id);
-  `);
+  // Create indices
+  db.run('CREATE INDEX IF NOT EXISTS idx_permits_user_id ON permits(user_id)');
+  db.run('CREATE INDEX IF NOT EXISTS idx_permits_enabled ON permits(enabled)');
+  db.run('CREATE INDEX IF NOT EXISTS idx_notifications_user_permit ON notifications(user_id, permit_id)');
+}
 
-  console.log('Database initialized successfully');
+/**
+ * Save database to disk
+ */
+function saveDatabase() {
+  if (!db) return;
+  const data = db.export();
+  const buffer = Buffer.from(data);
+  fs.writeFileSync(DB_PATH, buffer);
+}
+
+/**
+ * Execute a query and return results as array of objects
+ */
+function query(sql, params = []) {
+  if (!db) throw new Error('Database not initialized');
+
+  const stmt = db.prepare(sql);
+  stmt.bind(params);
+
+  const results = [];
+  while (stmt.step()) {
+    results.push(stmt.getAsObject());
+  }
+  stmt.free();
+
+  return results;
+}
+
+/**
+ * Execute a query and return first result
+ */
+function queryOne(sql, params = []) {
+  const results = query(sql, params);
+  return results.length > 0 ? results[0] : null;
+}
+
+/**
+ * Execute a statement (INSERT, UPDATE, DELETE)
+ */
+function run(sql, params = []) {
+  if (!db) throw new Error('Database not initialized');
+
+  db.run(sql, params);
+  const changes = db.getRowsModified();
+  saveDatabase();
+
+  // Get last insert rowid if this was an INSERT
+  let lastInsertRowid = null;
+  if (sql.trim().toUpperCase().startsWith('INSERT')) {
+    const result = query('SELECT last_insert_rowid() as id');
+    lastInsertRowid = result[0].id;
+  }
+
+  return {
+    lastInsertRowid,
+    changes
+  };
 }
 
 // User queries
 const userQueries = {
-  create: db.prepare(`
-    INSERT INTO users (email, password_hash, is_active)
-    VALUES (?, ?, ?)
-  `),
+  create: {
+    run: (email, passwordHash, isActive) => {
+      return run(
+        'INSERT INTO users (email, password_hash, is_active) VALUES (?, ?, ?)',
+        [email, passwordHash, isActive]
+      );
+    }
+  },
 
-  findByEmail: db.prepare(`
-    SELECT * FROM users WHERE email = ?
-  `),
+  findByEmail: {
+    get: (email) => {
+      return queryOne('SELECT * FROM users WHERE email = ?', [email]);
+    }
+  },
 
-  findById: db.prepare(`
-    SELECT * FROM users WHERE id = ?
-  `),
+  findById: {
+    get: (id) => {
+      return queryOne('SELECT * FROM users WHERE id = ?', [id]);
+    }
+  },
 
-  getAll: db.prepare(`
-    SELECT id, email, is_active, created_at FROM users ORDER BY created_at DESC
-  `),
+  getAll: {
+    all: () => {
+      return query('SELECT id, email, is_active, created_at FROM users ORDER BY created_at DESC');
+    }
+  },
 
-  activate: db.prepare(`
-    UPDATE users SET is_active = 1 WHERE id = ?
-  `),
+  activate: {
+    run: (id) => {
+      return run('UPDATE users SET is_active = 1 WHERE id = ?', [id]);
+    }
+  },
 
-  deactivate: db.prepare(`
-    UPDATE users SET is_active = 0 WHERE id = ?
-  `),
+  deactivate: {
+    run: (id) => {
+      return run('UPDATE users SET is_active = 0 WHERE id = ?', [id]);
+    }
+  },
 
-  delete: db.prepare(`
-    DELETE FROM users WHERE id = ?
-  `)
+  delete: {
+    run: (id) => {
+      return run('DELETE FROM users WHERE id = ?', [id]);
+    }
+  }
 };
 
 // Permit queries
 const permitQueries = {
-  create: db.prepare(`
-    INSERT INTO permits (user_id, name, facility_id, start_date, end_date, min_people, max_people, enabled)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-  `),
+  create: {
+    run: (userId, name, facilityId, startDate, endDate, minPeople, maxPeople, enabled) => {
+      return run(
+        'INSERT INTO permits (user_id, name, facility_id, start_date, end_date, min_people, max_people, enabled) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [userId, name, facilityId, startDate, endDate, minPeople, maxPeople, enabled]
+      );
+    }
+  },
 
-  findById: db.prepare(`
-    SELECT * FROM permits WHERE id = ?
-  `),
+  findById: {
+    get: (id) => {
+      return queryOne('SELECT * FROM permits WHERE id = ?', [id]);
+    }
+  },
 
-  findByUserId: db.prepare(`
-    SELECT * FROM permits WHERE user_id = ? ORDER BY created_at DESC
-  `),
+  findByUserId: {
+    all: (userId) => {
+      return query('SELECT * FROM permits WHERE user_id = ? ORDER BY created_at DESC', [userId]);
+    }
+  },
 
-  getAllEnabled: db.prepare(`
-    SELECT p.*, u.email
-    FROM permits p
-    JOIN users u ON p.user_id = u.id
-    WHERE p.enabled = 1 AND u.is_active = 1
-    ORDER BY p.user_id, p.id
-  `),
+  getAllEnabled: {
+    all: () => {
+      return query(`
+        SELECT p.*, u.email
+        FROM permits p
+        JOIN users u ON p.user_id = u.id
+        WHERE p.enabled = 1 AND u.is_active = 1
+        ORDER BY p.user_id, p.id
+      `);
+    }
+  },
 
-  update: db.prepare(`
-    UPDATE permits
-    SET name = ?, facility_id = ?, start_date = ?, end_date = ?,
-        min_people = ?, max_people = ?, enabled = ?, updated_at = CURRENT_TIMESTAMP
-    WHERE id = ? AND user_id = ?
-  `),
+  update: {
+    run: (name, facilityId, startDate, endDate, minPeople, maxPeople, enabled, id, userId) => {
+      return run(
+        `UPDATE permits
+         SET name = ?, facility_id = ?, start_date = ?, end_date = ?,
+             min_people = ?, max_people = ?, enabled = ?, updated_at = CURRENT_TIMESTAMP
+         WHERE id = ? AND user_id = ?`,
+        [name, facilityId, startDate, endDate, minPeople, maxPeople, enabled, id, userId]
+      );
+    }
+  },
 
-  delete: db.prepare(`
-    DELETE FROM permits WHERE id = ? AND user_id = ?
-  `),
+  delete: {
+    run: (id, userId) => {
+      return run('DELETE FROM permits WHERE id = ? AND user_id = ?', [id, userId]);
+    }
+  },
 
-  toggleEnabled: db.prepare(`
-    UPDATE permits SET enabled = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ? AND user_id = ?
-  `)
+  toggleEnabled: {
+    run: (enabled, id, userId) => {
+      return run(
+        'UPDATE permits SET enabled = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ? AND user_id = ?',
+        [enabled, id, userId]
+      );
+    }
+  }
 };
 
 // Notification queries
 const notificationQueries = {
-  create: db.prepare(`
-    INSERT OR IGNORE INTO notifications (user_id, permit_id, date, division_id, division_name, remaining)
-    VALUES (?, ?, ?, ?, ?, ?)
-  `),
+  create: {
+    run: (userId, permitId, date, divisionId, divisionName, remaining) => {
+      return run(
+        'INSERT OR IGNORE INTO notifications (user_id, permit_id, date, division_id, division_name, remaining) VALUES (?, ?, ?, ?, ?, ?)',
+        [userId, permitId, date, divisionId, divisionName, remaining]
+      );
+    }
+  },
 
-  exists: db.prepare(`
-    SELECT 1 FROM notifications
-    WHERE user_id = ? AND permit_id = ? AND date = ? AND division_id = ?
-  `),
+  exists: {
+    get: (userId, permitId, date, divisionId) => {
+      const result = queryOne(
+        'SELECT 1 FROM notifications WHERE user_id = ? AND permit_id = ? AND date = ? AND division_id = ?',
+        [userId, permitId, date, divisionId]
+      );
+      return result;
+    }
+  },
 
-  getRecentByUser: db.prepare(`
-    SELECT * FROM notifications
-    WHERE user_id = ?
-    ORDER BY notified_at DESC
-    LIMIT 100
-  `),
+  getRecentByUser: {
+    all: (userId) => {
+      return query(
+        'SELECT * FROM notifications WHERE user_id = ? ORDER BY notified_at DESC LIMIT 100',
+        [userId]
+      );
+    }
+  },
 
-  deleteOlderThan: db.prepare(`
-    DELETE FROM notifications WHERE notified_at < datetime('now', '-90 days')
-  `)
+  deleteOlderThan: {
+    run: () => {
+      return run('DELETE FROM notifications WHERE notified_at < datetime("now", "-90 days")');
+    }
+  }
 };
 
 module.exports = {
-  db,
+  db: () => db,
   initializeDatabase,
+  saveDatabase,
   userQueries,
   permitQueries,
   notificationQueries

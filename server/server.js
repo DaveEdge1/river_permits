@@ -17,9 +17,6 @@ const adminRoutes = require('./routes/admin');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Initialize database
-initializeDatabase();
-
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -69,15 +66,28 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`=================================================`);
-  console.log(`River Permits Server`);
-  console.log(`=================================================`);
-  console.log(`Server running on port ${PORT}`);
-  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`=================================================`);
-});
+// Start server after database initializes
+async function startServer() {
+  try {
+    // Initialize database first
+    await initializeDatabase();
 
-// Start scheduler
-require('./scheduler');
+    // Start Express server
+    app.listen(PORT, () => {
+      console.log(`=================================================`);
+      console.log(`River Permits Server`);
+      console.log(`=================================================`);
+      console.log(`Server running on port ${PORT}`);
+      console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+      console.log(`=================================================`);
+    });
+
+    // Start scheduler
+    require('./scheduler');
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  }
+}
+
+startServer();

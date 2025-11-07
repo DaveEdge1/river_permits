@@ -22,7 +22,7 @@ async function main() {
   console.log('=================================================\n');
 
   // Initialize database
-  initializeDatabase();
+  await initializeDatabase();
 
   // Get user input
   const email = await question('Email: ');
