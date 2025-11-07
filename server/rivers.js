@@ -6,10 +6,10 @@
 
 const RIVERS = [
   {
-    id: '234621',
+    id: '250986',
     name: 'San Juan River',
-    location: 'Bluff, UT',
-    description: 'River permits for the San Juan River through spectacular desert canyons'
+    location: 'Bears Ears National Monument, UT',
+    description: 'San Juan River permits - Montezuma Creek to Sand Island, Mexican Hat to Clay Hills, Sand Island to Clay Hills'
   },
   {
     id: '234623',
