@@ -201,4 +201,59 @@ router.post('/check-permits', (req, res) => {
   }
 });
 
+/**
+ * POST /api/admin/fix-facility-ids
+ * Check and fix facility IDs for all permits
+ */
+router.post('/fix-facility-ids', (req, res) => {
+  try {
+    const scriptPath = path.join(__dirname, 'fix-facility-ids.js');
+
+    console.log('Admin triggered facility ID fix');
+
+    // Run Node.js script
+    const nodeProcess = spawn('node', [scriptPath]);
+
+    let output = '';
+    let errorOutput = '';
+
+    nodeProcess.stdout.on('data', (data) => {
+      output += data.toString();
+    });
+
+    nodeProcess.stderr.on('data', (data) => {
+      errorOutput += data.toString();
+    });
+
+    nodeProcess.on('close', (code) => {
+      if (code === 0) {
+        console.log('Facility ID fix completed successfully');
+        res.json({
+          success: true,
+          message: 'Facility ID verification and fix completed',
+          output: output
+        });
+      } else {
+        console.error('Facility ID fix failed with code:', code);
+        res.status(500).json({
+          error: 'Facility ID fix failed',
+          code: code,
+          output: errorOutput || output
+        });
+      }
+    });
+
+    nodeProcess.on('error', (error) => {
+      console.error('Failed to start facility ID fix:', error);
+      res.status(500).json({
+        error: 'Failed to start facility ID fix',
+        message: error.message
+      });
+    });
+  } catch (error) {
+    console.error('Fix facility IDs error:', error);
+    res.status(500).json({ error: 'Failed to trigger facility ID fix' });
+  }
+});
+
 module.exports = router;

@@ -88,6 +88,9 @@ function setupEventListeners() {
   // Logout
   document.getElementById('logoutBtn').addEventListener('click', logout);
 
+  // Fix facility IDs button
+  document.getElementById('fixFacilityIdsBtn').addEventListener('click', fixFacilityIdsNow);
+
   // Check permits button
   document.getElementById('checkPermitsBtn').addEventListener('click', checkPermitsNow);
 
@@ -108,7 +111,7 @@ function setupEventListeners() {
     });
   });
 
-  document.querySelectorAll('.cancel-btn, .close-results').forEach(btn => {
+  document.querySelectorAll('.cancel-btn, .close-results, .close-fix-results').forEach(btn => {
     btn.addEventListener('click', function() {
       closeModal(this.closest('.modal').id);
     });
@@ -291,6 +294,73 @@ async function checkPermitsNow() {
   } catch (error) {
     console.error('Check permits error:', error);
     document.getElementById('checkResultsContent').innerHTML = `
+      <div class="error" style="display: block;">
+        Network error. Please try again.
+      </div>
+    `;
+  } finally {
+    // Re-enable button
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+async function fixFacilityIdsNow() {
+  const btn = document.getElementById('fixFacilityIdsBtn');
+  const originalText = btn.textContent;
+
+  try {
+    // Disable button and show loading
+    btn.disabled = true;
+    btn.textContent = '⏳ Checking...';
+
+    // Show modal with loading state
+    showModal('fixFacilityIdsModal');
+    document.getElementById('fixFacilityIdsContent').innerHTML = '<div class="loading">Checking and fixing facility IDs...</div>';
+
+    // Call API
+    const response = await fetch('/api/admin/fix-facility-ids', {
+      method: 'POST'
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      // Format output with line breaks
+      const formattedOutput = data.output
+        .split('\n')
+        .map(line => {
+          // Add styling based on content
+          if (line.includes('✓') || line.includes('VALID') || line.includes('complete')) {
+            return `<div class="result-line success">${escapeHtml(line)}</div>`;
+          } else if (line.includes('✗') || line.includes('INVALID') || line.includes('Error')) {
+            return `<div class="result-line error">${escapeHtml(line)}</div>`;
+          } else if (line.includes('===') || line.includes('UPDATE SUMMARY')) {
+            return `<div class="result-line header">${escapeHtml(line)}</div>`;
+          } else if (line.includes('→') || line.includes('Updating')) {
+            return `<div class="result-line warning">${escapeHtml(line)}</div>`;
+          } else if (line.trim()) {
+            return `<div class="result-line">${escapeHtml(line)}</div>`;
+          }
+          return '';
+        })
+        .join('');
+
+      document.getElementById('fixFacilityIdsContent').innerHTML = `
+        <div class="success" style="display: block;">Facility ID check completed!</div>
+        <div class="check-output">${formattedOutput || '<p>No output to display</p>'}</div>
+      `;
+    } else {
+      document.getElementById('fixFacilityIdsContent').innerHTML = `
+        <div class="error" style="display: block;">
+          ${data.error || 'Failed to check facility IDs'}
+        </div>
+        ${data.output ? `<pre class="check-output">${escapeHtml(data.output)}</pre>` : ''}
+      `;
+    }
+  } catch (error) {
+    console.error('Fix facility IDs error:', error);
+    document.getElementById('fixFacilityIdsContent').innerHTML = `
       <div class="error" style="display: block;">
         Network error. Please try again.
       </div>
