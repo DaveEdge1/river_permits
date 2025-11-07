@@ -2,8 +2,13 @@
 """
 Test email notification system
 Reads configuration from server/.env and sends a test email
+
+Usage:
+  python3 test_email.py           # Normal mode
+  python3 test_email.py --verbose # Verbose mode with full SMTP debug output
 """
 import os
+import sys
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -29,11 +34,13 @@ def load_env_file(env_path):
 
     return env_vars
 
-def send_test_email(config):
+def send_test_email(config, verbose=False):
     """Send a test email using the same method as notifier.py"""
 
     print("\n" + "=" * 60)
     print("Email Notification Test")
+    if verbose:
+        print("(VERBOSE MODE - Full SMTP debug output)")
     print("=" * 60)
 
     # Get configuration
@@ -92,15 +99,30 @@ def send_test_email(config):
         msg.attach(MIMEText(html_body, 'html'))
 
         print("\n→ Connecting to SMTP server...")
+        if verbose:
+            print("\n--- SMTP Debug Output START ---")
+
         with smtplib.SMTP(smtp_server, smtp_port, timeout=10) as server:
+            # Enable debug output if verbose
+            if verbose:
+                server.set_debuglevel(2)  # 2 = full debug output
+
             print("→ Starting TLS...")
             server.starttls()
 
             print(f"→ Logging in as {email_from}...")
-            server.login(email_from, email_password)
+            try:
+                server.login(email_from, email_password)
+            except smtplib.SMTPAuthenticationError as auth_err:
+                if verbose:
+                    print("\n--- SMTP Debug Output END ---")
+                raise auth_err
 
             print(f"→ Sending test email to {email_from}...")
             server.send_message(msg)
+
+        if verbose:
+            print("--- SMTP Debug Output END ---\n")
 
         print("\n" + "=" * 60)
         print("✓ SUCCESS! Test email sent successfully!")
@@ -113,35 +135,70 @@ def send_test_email(config):
         print("\n" + "=" * 60)
         print("❌ AUTHENTICATION FAILED")
         print("=" * 60)
-        print(f"\nError: {e}")
+        print(f"\nError Code: {e.smtp_code if hasattr(e, 'smtp_code') else 'Unknown'}")
+        print(f"Error Message: {e.smtp_error.decode() if hasattr(e, 'smtp_error') else str(e)}")
+        print(f"\nFull error: {e}")
+
+        # Provide specific troubleshooting based on error
+        if '535' in str(e):  # 535 = authentication failed
+            print("\nThis is an authentication error (535).")
+        elif '534' in str(e):  # 534 = authentication mechanism too weak
+            print("\nThis is an authentication mechanism error (534).")
+
         print("\nPossible causes:")
         print("  1. Incorrect email password")
-        print("  2. Gmail users: Need to use an App Password")
+        print("  2. Gmail users: Need to use an App Password (NOT your regular password)")
         print("     - Visit: https://myaccount.google.com/apppasswords")
+        print("     - Enable 2-Step Verification first (required)")
         print("     - Create an app password for 'Mail'")
-        print("     - Use that 16-character password in EMAIL_PASSWORD")
-        print("  3. 2-Step Verification not enabled (required for App Passwords)")
+        print("     - Use that 16-character password in EMAIL_PASSWORD (remove spaces)")
+        print("  3. Less secure app access disabled (deprecated by Gmail)")
+        print("  4. Wrong email address in EMAIL_FROM")
+        print(f"\n  Current EMAIL_FROM: {email_from}")
+        print(f"  Current EMAIL_PASSWORD length: {len(email_password) if email_password else 0} characters")
+        print(f"  Expected for App Password: 16 characters")
         return False
 
     except smtplib.SMTPException as e:
         print("\n" + "=" * 60)
         print("❌ SMTP ERROR")
         print("=" * 60)
-        print(f"\nError: {e}")
+        print(f"\nError type: {type(e).__name__}")
+        print(f"Error details: {e}")
+        if hasattr(e, 'smtp_code'):
+            print(f"SMTP Code: {e.smtp_code}")
+        if hasattr(e, 'smtp_error'):
+            print(f"SMTP Error: {e.smtp_error.decode() if isinstance(e.smtp_error, bytes) else e.smtp_error}")
         print("\nCheck your SMTP server settings in server/.env")
+        return False
+
+    except ConnectionRefusedError as e:
+        print("\n" + "=" * 60)
+        print("❌ CONNECTION REFUSED")
+        print("=" * 60)
+        print(f"\nCould not connect to {smtp_server}:{smtp_port}")
+        print("\nPossible causes:")
+        print("  1. Wrong SMTP server address")
+        print("  2. Wrong SMTP port")
+        print("  3. Firewall blocking the connection")
+        print("  4. SMTP server is down")
         return False
 
     except Exception as e:
         print("\n" + "=" * 60)
-        print("❌ ERROR")
+        print("❌ UNEXPECTED ERROR")
         print("=" * 60)
-        print(f"\nError: {e}")
+        print(f"\nError type: {type(e).__name__}")
+        print(f"Error: {e}")
         import traceback
         print("\nFull traceback:")
         print(traceback.format_exc())
         return False
 
 def main():
+    # Check for verbose flag
+    verbose = '--verbose' in sys.argv or '-v' in sys.argv
+
     # Load environment from server/.env
     env_path = os.path.join(os.path.dirname(__file__), 'server', '.env')
 
@@ -154,9 +211,11 @@ def main():
         return
 
     # Send test email
-    success = send_test_email(config)
+    success = send_test_email(config, verbose=verbose)
 
     if not success:
+        print("\n💡 TIP: Run with --verbose flag for full SMTP debug output:")
+        print("   python3 test_email.py --verbose")
         exit(1)
 
 if __name__ == "__main__":
