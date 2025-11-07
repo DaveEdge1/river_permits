@@ -510,4 +510,26 @@ body {
     flex-direction: column;
     align-items: flex-end;
   }
+
+  /* Make logo text smaller on mobile */
+  .logo-text {
+    font-size: 1.1rem;
+  }
+
+  /* Reduce login logo size on mobile */
+  .login-logo img {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hide logo text on very small screens to save space */
+  .logo-text {
+    display: none;
+  }
+
+  /* Navbar logo slightly smaller on tiny screens */
+  .navbar-logo {
+    height: 35px;
+  }
 }
