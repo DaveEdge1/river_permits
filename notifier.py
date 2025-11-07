@@ -212,7 +212,7 @@ class Notifier:
 
             # Send email
             print(f"    → Connecting to {self.smtp_server}:{self.smtp_port}...")
-            with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
+            with smtplib.SMTP(self.smtp_server, self.smtp_port, timeout=10) as server:
                 server.starttls()
                 print(f"    → Logging in as {self.email_from}...")
                 server.login(self.email_from, self.email_password)
