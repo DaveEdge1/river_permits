@@ -41,12 +41,14 @@ router.post('/login', async (req, res) => {
     // Set session
     req.session.userId = user.id;
     req.session.email = user.email;
+    req.session.isAdmin = user.is_admin === 1;
 
     res.json({
       success: true,
       user: {
         id: user.id,
-        email: user.email
+        email: user.email,
+        isAdmin: user.is_admin === 1
       }
     });
   } catch (error) {

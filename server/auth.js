@@ -30,14 +30,19 @@ function requireAuth(req, res, next) {
 }
 
 /**
- * Middleware to check if user is admin (for future use)
+ * Middleware to check if user is admin
  */
 function requireAdmin(req, res, next) {
   if (!req.session || !req.session.userId) {
     return res.status(401).json({ error: 'Authentication required' });
   }
-  // For now, all logged-in users can access admin
-  // In future, add is_admin column to users table
+
+  // Check if user is admin
+  const user = userQueries.findById.get(req.session.userId);
+  if (!user || !user.is_admin) {
+    return res.status(403).json({ error: 'Admin access required' });
+  }
+
   next();
 }
 

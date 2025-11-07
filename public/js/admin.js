@@ -20,6 +20,13 @@ async function checkAuth() {
       window.location.href = '/login.html';
       return;
     }
+    const data = await response.json();
+
+    // Redirect non-admin users to dashboard
+    if (!data.user.isAdmin) {
+      window.location.href = '/dashboard.html';
+      return;
+    }
   } catch (error) {
     window.location.href = '/login.html';
   }

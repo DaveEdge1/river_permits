@@ -47,7 +47,8 @@ async function main() {
     const result = userQueries.create.run(
       email.toLowerCase().trim(),
       passwordHash,
-      1  // is_active = true
+      1,  // is_active = true
+      1   // is_admin = true
     );
 
     console.log('\n✓ Admin user created successfully!');

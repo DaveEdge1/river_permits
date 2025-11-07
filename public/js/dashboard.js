@@ -25,6 +25,14 @@ async function checkAuth() {
     }
     const data = await response.json();
     document.getElementById('userEmail').textContent = data.user.email;
+
+    // Hide admin link if user is not admin
+    if (!data.user.isAdmin) {
+      const adminLink = document.querySelector('a[href="/admin.html"]');
+      if (adminLink) {
+        adminLink.style.display = 'none';
+      }
+    }
   } catch (error) {
     window.location.href = '/login.html';
   }

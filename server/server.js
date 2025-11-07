@@ -66,11 +66,36 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
+/**
+ * Check email configuration on startup
+ */
+function checkEmailConfiguration() {
+  console.log('\n--- Email Configuration Check ---');
+
+  const requiredVars = ['EMAIL_FROM', 'EMAIL_PASSWORD'];
+  const missingVars = requiredVars.filter(varName => !process.env[varName]);
+
+  if (missingVars.length > 0) {
+    console.log('⚠️  Email notifications NOT configured');
+    console.log(`   Missing: ${missingVars.join(', ')}`);
+    console.log('   Notifications will fail until these are set in server/.env');
+  } else {
+    console.log('✓ Email configuration found');
+    console.log(`  From: ${process.env.EMAIL_FROM}`);
+    console.log(`  SMTP: ${process.env.SMTP_SERVER || 'smtp.gmail.com'}:${process.env.SMTP_PORT || '587'}`);
+  }
+
+  console.log('---------------------------------\n');
+}
+
 // Start server after database initializes
 async function startServer() {
   try {
     // Initialize database first
     await initializeDatabase();
+
+    // Check email configuration
+    checkEmailConfiguration();
 
     // Start Express server
     app.listen(PORT, () => {

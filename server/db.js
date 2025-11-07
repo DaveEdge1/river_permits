@@ -58,9 +58,17 @@ function createTables() {
       email TEXT UNIQUE NOT NULL,
       password_hash TEXT NOT NULL,
       is_active INTEGER DEFAULT 0,
+      is_admin INTEGER DEFAULT 0,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
   `);
+
+  // Add is_admin column if it doesn't exist (for existing databases)
+  try {
+    db.run(`ALTER TABLE users ADD COLUMN is_admin INTEGER DEFAULT 0`);
+  } catch (e) {
+    // Column already exists, ignore error
+  }
 
   // Permits table
   db.run(`
@@ -165,10 +173,10 @@ function run(sql, params = []) {
 // User queries
 const userQueries = {
   create: {
-    run: (email, passwordHash, isActive) => {
+    run: (email, passwordHash, isActive, isAdmin = 0) => {
       return run(
-        'INSERT INTO users (email, password_hash, is_active) VALUES (?, ?, ?)',
-        [email, passwordHash, isActive]
+        'INSERT INTO users (email, password_hash, is_active, is_admin) VALUES (?, ?, ?, ?)',
+        [email, passwordHash, isActive, isAdmin]
       );
     }
   },
@@ -187,7 +195,7 @@ const userQueries = {
 
   getAll: {
     all: () => {
-      return query('SELECT id, email, is_active, created_at FROM users ORDER BY created_at DESC');
+      return query('SELECT id, email, is_active, is_admin, created_at FROM users ORDER BY created_at DESC');
     }
   },
 
