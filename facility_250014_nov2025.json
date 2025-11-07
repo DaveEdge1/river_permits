@@ -1,0 +1,1115 @@
+{
+  "payload": {
+    "permit_id": "250014",
+    "next_available_date": "2025-11-26T00:00:00Z",
+    "availability": {
+      "1250014": {
+        "division_id": "1250014",
+        "date_availability": {
+          "2025-11-01T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-02T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-03T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-04T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-05T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-06T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-07T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-08T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-09T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-10T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-11T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-12T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-13T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-14T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-15T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-16T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-17T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-18T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-19T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-20T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-21T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-22T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-23T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-24T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-25T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-26T00:00:00Z": {
+            "total": 1,
+            "remaining": 1,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-27T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-28T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-29T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-30T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          }
+        },
+        "quota_type_maps": {
+          "AggregateQuota": {
+            "2025-11-01T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-02T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-03T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-04T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-05T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-06T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-07T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-08T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-09T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-10T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-11T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-12T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-13T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-14T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-15T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-16T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-17T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-18T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-19T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-20T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-21T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-22T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-23T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-24T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-25T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-26T00:00:00Z": {
+              "total": 1,
+              "remaining": 1,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-27T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-28T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-29T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-30T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            }
+          }
+        }
+      },
+      "371": {
+        "division_id": "371",
+        "date_availability": {
+          "2025-11-01T00:00:00Z": {
+            "total": 0,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-02T00:00:00Z": {
+            "total": 0,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-03T00:00:00Z": {
+            "total": 0,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-04T00:00:00Z": {
+            "total": 0,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-05T00:00:00Z": {
+            "total": 0,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-06T00:00:00Z": {
+            "total": 0,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-07T00:00:00Z": {
+            "total": 0,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-08T00:00:00Z": {
+            "total": 0,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-09T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-10T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-11T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-12T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-13T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-14T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-15T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-16T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-17T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-18T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-19T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-20T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-21T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-22T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-23T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-24T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-25T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-26T00:00:00Z": {
+            "total": 1,
+            "remaining": 1,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-27T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-28T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-29T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-30T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          }
+        },
+        "quota_type_maps": {
+          "ConstantQuotaUsageByStartDate": {
+            "2025-11-01T00:00:00Z": {
+              "total": 0,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-02T00:00:00Z": {
+              "total": 0,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-03T00:00:00Z": {
+              "total": 0,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-04T00:00:00Z": {
+              "total": 0,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-05T00:00:00Z": {
+              "total": 0,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-06T00:00:00Z": {
+              "total": 0,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-07T00:00:00Z": {
+              "total": 0,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-08T00:00:00Z": {
+              "total": 0,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-09T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-10T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-11T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-12T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-13T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-14T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-15T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-16T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-17T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-18T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-19T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-20T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-21T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-22T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-23T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-24T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-25T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-26T00:00:00Z": {
+              "total": 1,
+              "remaining": 1,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-27T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-28T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-29T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-30T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            }
+          }
+        }
+      },
+      "380": {
+        "division_id": "380",
+        "date_availability": {
+          "2025-11-01T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-02T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-03T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-04T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-05T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-06T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-07T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-08T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-09T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-10T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-11T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-12T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-13T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-14T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-15T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-16T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-17T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-18T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-19T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-20T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-21T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-22T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-23T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-24T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-25T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-26T00:00:00Z": {
+            "total": 1,
+            "remaining": 1,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-27T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-28T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-29T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          },
+          "2025-11-30T00:00:00Z": {
+            "total": 1,
+            "remaining": 0,
+            "show_walkup": false,
+            "is_secret_quota": false
+          }
+        },
+        "quota_type_maps": {
+          "ConstantQuotaUsageByStartDate": {
+            "2025-11-01T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-02T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-03T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-04T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-05T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-06T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-07T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-08T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-09T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-10T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-11T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-12T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-13T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-14T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-15T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-16T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-17T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-18T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-19T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-20T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-21T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-22T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-23T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-24T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-25T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-26T00:00:00Z": {
+              "total": 1,
+              "remaining": 1,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-27T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-28T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-29T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            },
+            "2025-11-30T00:00:00Z": {
+              "total": 1,
+              "remaining": 0,
+              "show_walkup": false,
+              "is_secret_quota": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

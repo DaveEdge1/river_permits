@@ -1,0 +1,2189 @@
+{
+  "latitude": "37.43931700000000",
+  "location": "Lodore, Virginia, United States",
+  "longitude": "-78.02250200000000",
+  "query": "Lodore",
+  "radius": "400",
+  "results": [
+    {
+      "campgrounds_count": "4",
+      "campsite_equipment_name": [
+        "Tent",
+        "RV",
+        "RV/Motorhome",
+        "Trailer",
+        "Caravan/Camper Van",
+        "Pickup Camper",
+        "Fifth Wheel",
+        "Pop up",
+        "Hammock"
+      ],
+      "campsite_type_of_use": [
+        "na"
+      ],
+      "city": "Elkton",
+      "country_code": "United States",
+      "description": "Just 75 miles from the bustle of Washington, D.C., Shenandoah National Park is a land bursting with cascading waterfalls, spectacular vistas, fields of wildflowers, and quiet wooded hollows. With over 200,000 acres of protected lands that are haven to deer, songbirds, and black bear, there's so much to explore...and your journey begins right here!",
+      "directions": "Shenandoah National Park is located in the Blue Ridge Mountains of Virginia, west of Washington, D.C. It stretches 105 miles and has four entrances: Front Royal (northern entrance), Thornton Gap, Swift Run Gap, and Rockfish Gap (southern entrance to Shenandoah and the northern entrance to the Blue Ridge Parkway). The physical address listed is to the administrative offices, not the Park itself. GPS can be unreliable for navigating to the Park, so we encourage you to check out our website for more info.",
+      "distance": "123.46",
+      "entity_id": "2933",
+      "entity_type": "recarea",
+      "go_live_date": "2018-09-30T00:00:00Z",
+      "html_description": "Just 75 miles from the bustle of Washington, D.C., Shenandoah National Park is a land bursting with cascading waterfalls, spectacular vistas, fields of wildflowers, and quiet wooded hollows. With over 200,000 acres of protected lands that are haven to deer, songbirds, and black bear, there's so much to explore...and your journey begins right here!",
+      "id": "2933_asset",
+      "latitude": "38.49236600000000",
+      "longitude": "-78.46907700000000",
+      "name": "Shenandoah National Park",
+      "official_site_url": "http://www.nps.gov/shen/",
+      "org_id": "128",
+      "org_name": "National Park Service",
+      "park_pass_facility_id": "74293",
+      "permits_count": "1",
+      "preview_image_url": "https://cdn.recreation.gov/public/images/82378_1440.webp",
+      "reservable": true,
+      "state_code": "Virginia",
+      "ticket_facilities_count": "2",
+      "type": "Rec Area"
+    },
+    {
+      "aggregate_cell_coverage": 1.4130435067674387,
+      "average_rating": 4.7961783,
+      "campsite_type_of_use": [
+        "na"
+      ],
+      "description": "Access to Rapidan Camp involves traveling on a Park-operated van on a seven-mile unpaved administrative road. For this reason, visitors must join a Ranger-guided program to travel to the site. A ranger guided tour of Rapidan Camp includes time inside both the Brown House and the Prime Ministers Cabin, as well as time exploring the grounds and gardens within the Historic Landmark. The shuttle ride is approximately 30 minutes each way. Total tour time (including travel) is 2.5 hours. Tours can be reserved up to a week in advance. Seating is limited, so early reservations are recommended. These popular programs do require some walking and standing on level ground during the tour. Many tours are accessible and can accommodate a wheelchair on the shuttle and at the site.",
+      "directions": "The Rapidan Camp tour departs from the Byrd Visitor Center at Big Meadows (mile 51 on Skyline Drive) in Shenandoah National Park. \n\n<br>Address: </br>\n<br>Harry F. Byrd Visitor Center</br>\n<br>259 Big Meadows Visitor Road</br>\n<br>Stanley, VA 22851 </br>\n\n<br>The Park has four entrances that access Skyline Drive: Front Royal, Thornton Gap, Swift Run Gap, and Rockfish Gap. It is not recommended to rely on your GPS unit for accurate directions. There is no public transportation within Shenandoah National Park. For detailed directions to Shenandoah National Park, see our website at  http://www.nps.gov/shen/planyourvisit/directions.htm. </br>",
+      "distance": "125.32",
+      "entity_id": "188",
+      "entity_type": "tour",
+      "go_live_date": "0001-01-01T00:00:00Z",
+      "html_description": "Access to Rapidan Camp involves traveling on a Park-operated van on a seven-mile unpaved administrative road. For this reason, visitors must join a Ranger-guided program to travel to the site. A ranger guided tour of Rapidan Camp includes time inside both the Brown House and the Prime Ministers Cabin, as well as time exploring the grounds and gardens within the Historic Landmark. The shuttle ride is approximately 30 minutes each way. Total tour time (including travel) is 2.5 hours. Tours can be reserved up to a week in advance. Seating is limited, so early reservations are recommended. These popular programs do require some walking and standing on level ground during the tour. Many tours are accessible and can accommodate a wheelchair on the shuttle and at the site.",
+      "id": "188_tour",
+      "latitude": "38.51800700000000",
+      "longitude": "-78.43685499999999",
+      "name": "Historic Rapidan Camp Tour",
+      "number_of_ratings": 157,
+      "org_id": "128",
+      "parent_id": "251745",
+      "parent_name": "Rapidan Camp Tours",
+      "parent_type": "facility",
+      "preview_image_url": "https://cdn.recreation.gov/public/2018/09/21/16/41/251745_47aa55e7-3f80-4d43-989a-e974bee978f2_700.webp",
+      "reservable": true,
+      "time_zone": "America/New_York",
+      "type": "Historic Tour"
+    },
+    {
+      "aggregate_cell_coverage": 1.4130435067674387,
+      "average_rating": 4.7961783,
+      "campsite_type_of_use": [
+        "na"
+      ],
+      "city": "Luray",
+      "country_code": "United States",
+      "description": "Visitors to Shenandoah National Park, located in the stunning Blue Ridge Mountains of Virginia, can visit Rapidan Camp, President Herbert Hoover's rustic and beautiful summer vacation home. President and First Lady Hoover established Rapidan Camp as a summer retreat during his administration (1929 to 1933). The camp features three original buildings including the President's Cabin, the Prime Ministers Cabin and The Creel.    The Presidents Cabin, also known as the Brown House, has been restored to its 1929 appearance with original and period furniture and is an excellent reflection of not only its era, but also of President Hoover. The Prime Minister's Cabin includes an exhibit that offers visitors insight into the Hoovers' lives and their time at Rapidan Camp, as well as President Hoover's Depression-era presidency. Learn more about the history of  President and Mrs. Hoovers  Rapidan Camp,  a National Historic Landmark.       Access to Rapidan Camp involves traveling in a Park-operated van on a seven mile unpaved administrative road. For this reason, visitors must join a Ranger-guided program to travel to the site. Ranger-guided programs to Rapidan Camp are offered Thursdays, Fridays, Saturdays, and Sundays each week between late-May and late-October. A Ranger-guided tour of Rapidan Camp includes time inside both the Brown House and the Prime Minister's Cabin, as well as time exploring the grounds and gardens within the Historic Landmark.       Advance Reservations . Tour space is limited. Rapidan Camp tours are available by reservation only. First-come, first-served tickets are not available at the Park.      Visitors may book a reservation up to 6 months in advance and up to 4 hours before the tour.         Van Ride.   The van ride to Rapidan Camp is approximately 30 minutes each way.         Van Seating.   Seating is limited. Some vans offer wheelchair space (see below).         Tour Length.  The total tour time (included travel) is 2.5 hours.       Accessibility.  These popular programs require some walking and standing on level ground during the tour. Visitors with mobility concerns should book the 10:00 a.m. or 2:00 p.m. tour for easier entry into and exit from the van. Both Rapidan Camp and the van for the 10:00 a.m. and 2:00 p.m. tour can accommodate a wheelchair. Visitors may book up to two wheelchair spaces on the van through the Accessible Wheelchair ONLY Tour. Wheelchair spaces are part of the same van tour as the Historic Rapidan Camp Tour offered at the same time.       Rapidan Camp Hiking Option.  Visitors may also choose to hike to Rapidan Camp without a reservation by hiking the 4-mile round-trip Mill Prong Trail that begins at Milam Gap (mile 52.4 on Skyline Drive). Hikers may download a map of the trail and the  area   from the park website. There is no guarantee that hikers will be able to tour the buildings, but a Park volunteer may be available to provide access to the Prime Minister's Cabin and the Brown House during certain times of the year. Check at the Harry F. Byrd, Sr. Visitor Center (mile 51 on Skyline Drive) for more information on hiking to Rapidan Camp. \n",
+      "distance": "125.32",
+      "entity_id": "251745",
+      "entity_type": "ticketfacility",
+      "go_live_date": "2018-09-30T00:00:00Z",
+      "html_description": "<p>Visitors to Shenandoah National Park, located in the stunning Blue Ridge Mountains of Virginia, can visit Rapidan Camp, President Herbert Hoover's rustic and beautiful summer vacation home. President and First Lady Hoover established Rapidan Camp as a summer retreat during his administration (1929 to 1933). The camp features three original buildings including the President's Cabin, the Prime Ministers Cabin and The Creel.<br> <br><br>The Presidents Cabin, also known as the Brown House, has been restored to its 1929 appearance with original and period furniture and is an excellent reflection of not only its era, but also of President Hoover. The Prime Minister's Cabin includes an exhibit that offers visitors insight into the Hoovers' lives and their time at Rapidan Camp, as well as President Hoover's Depression-era presidency. Learn more about the history of  President and Mrs. Hoovers  Rapidan Camp,  a National Historic Landmark.  <br> <br><br> Access to Rapidan Camp involves traveling in a Park-operated van on a seven mile unpaved administrative road. For this reason, visitors must join a Ranger-guided program to travel to the site. Ranger-guided programs to Rapidan Camp are offered Thursdays, Fridays, Saturdays, and Sundays each week between late-May and late-October. A Ranger-guided tour of Rapidan Camp includes time inside both the Brown House and the Prime Minister's Cabin, as well as time exploring the grounds and gardens within the Historic Landmark.   <br> <br><br>Advance Reservations . Tour space is limited. Rapidan Camp tours are available by reservation only. First-come, first-served tickets are not available at the Park.  <br> <br> Visitors may book a reservation up to 6 months in advance and up to 4 hours before the tour.   <br> <br><br>  Van Ride.   The van ride to Rapidan Camp is approximately 30 minutes each way.   <br> <br><br>  Van Seating.   Seating is limited. Some vans offer wheelchair space (see below).   <br> <br><br>  Tour Length.  The total tour time (included travel) is 2.5 hours.   <br><br> <br>Accessibility.  These popular programs require some walking and standing on level ground during the tour. Visitors with mobility concerns should book the 10:00 a.m. or 2:00 p.m. tour for easier entry into and exit from the van. Both Rapidan Camp and the van for the 10:00 a.m. and 2:00 p.m. tour can accommodate a wheelchair. Visitors may book up to two wheelchair spaces on the van through the Accessible Wheelchair ONLY Tour. Wheelchair spaces are part of the same van tour as the Historic Rapidan Camp Tour offered at the same time.   <br> <br><br>Rapidan Camp Hiking Option.  Visitors may also choose to hike to Rapidan Camp without a reservation by hiking the 4-mile round-trip Mill Prong Trail that begins at Milam Gap (mile 52.4 on Skyline Drive). Hikers may download a map of the trail and the  area   from the park website. There is no guarantee that hikers will be able to tour the buildings, but a Park volunteer may be available to provide access to the Prime Minister's Cabin and the Brown House during certain times of the year. Check at the Harry F. Byrd, Sr. Visitor Center (mile 51 on Skyline Drive) for more information on hiking to Rapidan Camp.</p>\n",
+      "id": "251745_ticketfacility",
+      "latitude": "38.51800700000000",
+      "longitude": "-78.43685499999999",
+      "name": "Rapidan Camp Tours",
+      "number_of_ratings": 157,
+      "org_id": "128",
+      "org_name": "National Park Service",
+      "parent_id": "2933",
+      "parent_name": "Shenandoah National Park",
+      "parent_type": "recarea",
+      "preview_image_url": "https://cdn.recreation.gov/public/2018/09/21/16/41/251745_47aa55e7-3f80-4d43-989a-e974bee978f2_700.webp",
+      "reservable": true,
+      "state_code": "Virginia",
+      "time_zone": "America/New_York",
+      "tours_count": "2"
+    },
+    {
+      "campsite_type_of_use": [
+        "na"
+      ],
+      "description": "Access to Rapidan Camp involves traveling on a Park-operated van on a seven-mile unpaved administrative road. For this reason, visitors must join a Ranger-guided program to travel to the site. A ranger guided tour of Rapidan Camp includes time inside both the Brown House and the Prime Ministers Cabin, as well as time exploring the grounds and gardens within the Historic Landmark. The shuttle ride is approximately 30 minutes each way. Total tour time (including travel) is 2.5 hours. Tours can be reserved up to a week in advance. Seating is limited, so early reservations are recommended. These popular programs do require some walking and standing on level ground during the tour. Many tours are accessible and can accommodate a wheelchair on the shuttle and at the site.",
+      "directions": "The Rapidan Camp tour departs from the Byrd Visitor Center at Big Meadows (mile 51 on Skyline Drive) in Shenandoah National Park. \n\n<br>Address: </br>\n<br>Harry F. Byrd Visitor Center</br>\n<br>259 Big Meadows Visitor Road</br>\n<br>Stanley, VA 22851 </br>\n\n<br>The Park has four entrances that access Skyline Drive: Front Royal, Thornton Gap, Swift Run Gap, and Rockfish Gap. It is not recommended to rely on your GPS unit for accurate directions. There is no public transportation within Shenandoah National Park. For detailed directions to Shenandoah National Park, see our website at  http://www.nps.gov/shen/planyourvisit/directions.htm. </br>",
+      "distance": "125.32",
+      "entity_id": "187",
+      "entity_type": "tour",
+      "go_live_date": "0001-01-01T00:00:00Z",
+      "html_description": "Access to Rapidan Camp involves traveling on a Park-operated van on a seven-mile unpaved administrative road. For this reason, visitors must join a Ranger-guided program to travel to the site. A ranger guided tour of Rapidan Camp includes time inside both the Brown House and the Prime Ministers Cabin, as well as time exploring the grounds and gardens within the Historic Landmark. The shuttle ride is approximately 30 minutes each way. Total tour time (including travel) is 2.5 hours. Tours can be reserved up to a week in advance. Seating is limited, so early reservations are recommended. These popular programs do require some walking and standing on level ground during the tour. Many tours are accessible and can accommodate a wheelchair on the shuttle and at the site.",
+      "id": "187_tour",
+      "latitude": "38.51800700000000",
+      "longitude": "-78.43685499999999",
+      "name": "Wheelchair ONLY Tour",
+      "org_id": "128",
+      "parent_id": "251745",
+      "parent_name": "Rapidan Camp Tours",
+      "parent_type": "facility",
+      "preview_image_url": "https://cdn.recreation.gov/public/2018/09/21/16/41/251745_47aa55e7-3f80-4d43-989a-e974bee978f2_700.webp",
+      "reservable": true,
+      "time_zone": "America/New_York",
+      "type": "Historic Tour"
+    },
+    {
+      "aggregate_cell_coverage": 1.1794871953817514,
+      "average_rating": 4.6547008,
+      "campsite_type_of_use": [
+        "na"
+      ],
+      "description": "Provides access for one person to Old Rag Mountain hiking trails",
+      "directions": "<p>Do not rely exclusively on your mobile GPS, Google Maps, or similar automated navigation systems to get to the Old Rag parking area. Routes can be misleading and incorrect, and cell service is unreliable. Please consider downloading an offline map to your phone's GPS app before leaving home. To arrive at the main parking area, where most people start hiking, please follow the directions below.</p>\n\n<p>If using Google Maps, enter \"Old Rag Mountain Fee & Information Station\" as your destination. If using Maps on an iPhone, enter \"Old Rag Parking - Lower Lot\" as your destination.\u00a0</p>\n<p><strong>Sperryville, VA to Old Rag Parking:</strong> From Route 211, turn onto Route 522 and follow it south for 0.8 mile. Turn right on Route 231, follow 8 miles, turn right onto Route 601 and follow signs to the Old Rag parking area, approximately 3 miles.</p>\n<p><strong>Madison, VA to Old Rag Parking:</strong> From Route 29 Business, turn onto Route 231 and follow it for 12.8 miles. Turn left onto Route 602. Follow signs for the parking area, approximately 3 miles.\u00a0</p>\n\n<p>If you choose to begin your hike from the Berry Hollow Parking lot, know that parking is extremely limited and that the 1-mile road from the Lower Whiteoak Canyon entrance is a single-lane fire road. This parking lot is primarily for those wishing not to do the rock scramble. If using Google Maps, enter \"Berry Hollow Parking Area\" as your destination. If using Maps on an iPhone, enter \"Berry Hollow Road Trailhead\" as your destination.</p>\n<p><strong>Sperryville to Berry Hollow Parking</strong>: Take Rt. 231 S, turn right onto Rt. 643 (Etlan Rd.), then right onto Weakley Hollow Rd. Drive about 3.5 miles and go past the Lower Whiteoak Canyon parking entrance another mile to the Berry Hollow parking area.</p>\n<p><strong>Madison to Berry Hollow Parking</strong>: Take Rt. 231 N, turn left onto Rt. 670, right onto Rt. 643, then continue straight onto Weakley Hollow Rd. Drive about 3.5 miles and go past the Lower Whiteoak Canyon parking entrance another mile to the Berry Hollow parking area.</p>\n",
+      "distance": "128.20",
+      "entity_id": "10088451",
+      "entity_type": "tour",
+      "go_live_date": "0001-01-01T00:00:00Z",
+      "html_description": "Provides access for one person to Old Rag Mountain hiking trails",
+      "id": "10088451_tour",
+      "latitude": "38.57219262144280",
+      "longitude": "-78.29425300028640",
+      "name": "Old Rag Day-Use Ticket",
+      "number_of_ratings": 1755,
+      "org_id": "128",
+      "parent_id": "10088450",
+      "parent_name": "Old Rag Mountain Tickets",
+      "parent_type": "facility",
+      "preview_image_url": "https://cdn.recreation.gov/public/2022/01/26/22/39/10088451_976c4d55-e0d1-4e82-bde2-ed240093a949_700.webp",
+      "reservable": true,
+      "time_zone": "America/New_York",
+      "type": "Hike"
+    },
+    {
+      "aggregate_cell_coverage": 1.1794871953817514,
+      "average_rating": 4.6547008,
+      "campsite_type_of_use": [
+        "na"
+      ],
+      "description": "Featuring hikes with adventurous rock scrambles and 360-degree views that make you feel like you're on top of the world, there's no wonder why Old Rag is one of the most popular destinations in Shenandoah National Park. Most visitors choose to hike to the summit via a loop originating near the Park\u2019s eastern boundary. The 9.4-mile loop, which incorporates the Ridge, Ridge Access, and Saddle trails, is extremely strenuous and includes a significant rock scramble. To help ensure your safety and get the most out of your hike, be sure that you  prepare to hike Old Rag before you arrive. \u00a0 \n Visitors to Old Rag Mountain are required to purchase a $2 day-use ticket in advance of their visit, in addition to a park entrance pass. Day-use tickets are not required during the months of December, January, and February; however, you still need to pay the park admission if you don't already have a park pass.  With the increasing popularity of the Old Rag area, a visitor-use study found that this was necessary to provide a positive visitor experience, increase visitor safety, and protect natural resources.  Find out more information about the Old Rag day-use ticket. \u00a0 \n",
+      "distance": "128.20",
+      "entity_id": "10088450",
+      "entity_type": "ticketfacility",
+      "go_live_date": "2022-01-26T20:39:53.727311Z",
+      "html_description": "<p>Featuring hikes with adventurous rock scrambles and 360-degree views that make you feel like you're on top of the world, there's no wonder why Old Rag is one of the most popular destinations in Shenandoah National Park. Most visitors choose to hike to the summit via a loop originating near the Park\u2019s eastern boundary. The 9.4-mile loop, which incorporates the Ridge, Ridge Access, and Saddle trails, is extremely strenuous and includes a significant rock scramble. To help ensure your safety and get the most out of your hike, be sure that you <a href=\"https://www.nps.gov/places/old-rag.htm\" rel=\"nofollow\">prepare to hike Old Rag before you arrive.</a>\u00a0</p>\n<p>Visitors to Old Rag Mountain are required to purchase a $2 day-use ticket in advance of their visit, in addition to a park entrance pass. Day-use tickets are not required during the months of December, January, and February; however, you still need to pay the park admission if you don't already have a park pass.  With the increasing popularity of the Old Rag area, a visitor-use study found that this was necessary to provide a positive visitor experience, increase visitor safety, and protect natural resources. <a href=\"https://www.nps.gov/shen/planyourvisit/faqs-oldrag.htm\" rel=\"nofollow\">Find out more information about the Old Rag day-use ticket.</a>\u00a0</p>\n",
+      "id": "10088450_ticketfacility",
+      "latitude": "38.57219262144280",
+      "longitude": "-78.29425300028640",
+      "name": "Old Rag Mountain Tickets",
+      "number_of_ratings": 1755,
+      "org_id": "128",
+      "org_name": "National Park Service",
+      "parent_id": "2933",
+      "parent_name": "Shenandoah National Park",
+      "parent_type": "recarea",
+      "preview_image_url": "https://cdn.recreation.gov/public/2022/01/28/17/10/10088450_5b7c33a4-29c7-4c7e-bb61-cc6c54edad5b_700.webp",
+      "reservable": true,
+      "time_zone": "America/New_York",
+      "tours_count": "1"
+    },
+    {
+      "activities": [
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Boating"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Canoeing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Day Use Area"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Fishing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Kayaking"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Picnicking"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Swimming Site"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Water Access"
+        }
+      ],
+      "aggregate_cell_coverage": 4,
+      "average_rating": 5,
+      "campsite_reserve_type": [
+        "Site-Specific"
+      ],
+      "campsite_type_of_use": [
+        "Day"
+      ],
+      "campsites_count": "1",
+      "city": "Boydton",
+      "country_code": "United States",
+      "description": "Rudds Creek Park is located on John H. Kerr Reservoir, a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina.  Rudd's Creek Campground is open April 1 - October 31. The Day Use Park, located across Hwy 58, is open year-around.\u00a0\u00a0\u00a0 \n Kerr Reservoir, also known as Buggs Island Lake, was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties in two states and offer countless recreation opportunities for visitors. \nThe Day Use Area provides a boat ramp and a courtesty dock for the public to use. There is also a desingated swimming area with a life jacket loaner station where you can borrow and return a life jacket. The shelter does not have electricity but it located near a very nice restroom that offers flush toilets. There is a playground in the park along with many picnicing opprotunities with picnic tables and grills.\u00a0 \nRudds Creek Park is forested and offers plenty of shade. It is located 2 miles from the town of Boydton, VA, and has a marina less than a mile away.  The day use area offers lots of picnicing opprotunites and shade. \nThe Corps Visitor Assistance Center is located about 30 minutes away at Kerr Dam.\u00a0\u00a0 \n Gas, groceries and shopping are available just minutes away, in Boydton.  The park is about 20 minutes from Clarksville, Virginia and 30 minutes from South Hill, VA. \nPublic lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese. \n \u00a0 \n There are 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. Buggs Island, located immediately below the dam, attracts migrating bald eagles in the winter and osprey in the summer, as well as gulls, great blue herons, waterfowl and the occasional river otter.\u00a0 \n \u00a0 \n Several trails are available for hiking and biking. The  5.5-mile Robert Munford Trail is within a short drive from the campground. \n \u00a0 \n The lake is widely known for fishing, with large-mouth bass, striped bass, crappie and flathead catfish available. Virginia Department of Wildlife Resources regulate hunting and fishing on the Virginia side of Kerr Lake. \n",
+      "distance": "94.54",
+      "entity_id": "10286339",
+      "entity_type": "campground",
+      "go_live_date": "2023-09-06T20:18:25.99205Z",
+      "html_description": "Rudds Creek Park is located on John H. Kerr Reservoir, a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina.  Rudd's Creek Campground is open April 1 - October 31. The Day Use Park, located across Hwy 58, is open year-around.\u00a0\u00a0\u00a0 \n Kerr Reservoir, also known as Buggs Island Lake, was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties in two states and offer countless recreation opportunities for visitors. \nThe Day Use Area provides a boat ramp and a courtesty dock for the public to use. There is also a desingated swimming area with a life jacket loaner station where you can borrow and return a life jacket. The shelter does not have electricity but it located near a very nice restroom that offers flush toilets. There is a playground in the park along with many picnicing opprotunities with picnic tables and grills.\u00a0 \nRudds Creek Park is forested and offers plenty of shade. It is located 2 miles from the town of Boydton, VA, and has a marina less than a mile away.  The day use area offers lots of picnicing opprotunites and shade. \nThe Corps Visitor Assistance Center is located about 30 minutes away at Kerr Dam.\u00a0\u00a0 \n Gas, groceries and shopping are available just minutes away, in Boydton.  The park is about 20 minutes from Clarksville, Virginia and 30 minutes from South Hill, VA. \nPublic lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese. \n \u00a0 \n There are 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. Buggs Island, located immediately below the dam, attracts migrating bald eagles in the winter and osprey in the summer, as well as gulls, great blue herons, waterfowl and the occasional river otter.\u00a0 \n \u00a0 \n Several trails are available for hiking and biking. The  5.5-mile Robert Munford Trail is within a short drive from the campground. \n \u00a0 \n The lake is widely known for fishing, with large-mouth bass, striped bass, crappie and flathead catfish available. Virginia Department of Wildlife Resources regulate hunting and fishing on the Virginia side of Kerr Lake. \n",
+      "id": "10286339_asset",
+      "latitude": "36.65794300000000",
+      "links": [
+        {
+          "description": "John H. Kerr Reservoir Facebook Page",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.facebook.com/JohnHKerrReservoirBuggsIslandLake"
+        },
+        {
+          "description": "Virginia State Tourism",
+          "link_type": "",
+          "title": "",
+          "url": "http://www.virginia.org/"
+        },
+        {
+          "description": "Virginia State Road Conditions",
+          "link_type": "",
+          "title": "",
+          "url": "http://www.virginiadot.org"
+        },
+        {
+          "description": "John K. Kerr Dam and Reservoir",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.saw.usace.army.mil/Locations/District-Lakes-and-Dams/John-H-Kerr/"
+        }
+      ],
+      "longitude": "-78.44229500000000",
+      "name": "Rudds Creek Rec Area Picnic Shelter",
+      "notices": [
+        {
+          "text": "<p>If you have reserved the shelter and it is already occupied the day of your reservation, please call Rudds Creek Campground at 434.738.6827. <strong>Keep in mind that you are reserving the shelter only.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Vehicle parking first come first served. Shelter reservation holders are reserving the shelter only and are <strong>not guaranteed parking</strong> due to the area being open to the public.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>All vehicles entering the day use area are <strong>required to pay the $7 day use fee</strong> including those who have rented the shelter for the day. You can purchase a day use pass by using the fee machine. If you would like to purchase in advance, please speak to the gatehouse or call the Visitor Assistance Center at 434.738.6143. Please see rules below if you have an America the Beautiful, Golden Age/Access, or Corps Annual Pass.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>This shelter does <strong>not</strong> have electricity.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Vehicles should remain on paved roads only.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Alcoholic beverages, camping and hunting are <strong>prohibited</strong> in the park.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Off-road vehicles and golf carts are <strong>prohibited.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Dogs are allowed but <strong>must</strong> stay on a maximum 6-foot leash and are <strong>prohibited in the designated swimming area</strong>.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Golden Age/Access, America the Beautiful Interagency Senior and Access Passes and the Corps Annual Pass are accepted at this park and cardholders receive free entrance to the day use area only. <strong>Passes must be displayed correctly. </strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>For a full list of rules and regulations please visit <a href=\"https://www.swf-wc.usace.army.mil/canyon/title36.pdf\" rel=\"nofollow\">Title 36 Rules and Regulations. </a>\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Please read through the <a href=\"https://www.recreation.gov/rules-reservation-policies\" rel=\"nofollow\">fees and cancelation</a>  policy for Recreation.gov.</p>\n",
+          "type": "warning"
+        }
+      ],
+      "number_of_ratings": 1,
+      "org_id": "130",
+      "org_name": "US Army Corps of Engineers",
+      "parent_id": "458",
+      "parent_name": "John H. Kerr Dam and Reservoir",
+      "parent_type": "recarea",
+      "preview_image_url": "https://cdn.recreation.gov/public/2023/09/29/17/47/10286339_35dad188-1049-485a-9c56-ba046e031a75_700.webp",
+      "price_range": {
+        "amount_max": 50,
+        "amount_min": 50,
+        "per_unit": "day"
+      },
+      "reservable": true,
+      "state_code": "Virginia",
+      "time_zone": "America/New_York",
+      "type": "STANDARD"
+    },
+    {
+      "accessible_campsites_count": 1,
+      "activities": [
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Swimming Site"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Day Use Area"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Hunting"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Hiking"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Fishing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Camping"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Boating"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Amphitheater"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Environmental Education"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Evening Programs"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Interpretive Programs"
+        }
+      ],
+      "addresses": [
+        {
+          "address_type": "Default",
+          "city": "BOYDTON",
+          "country_code": "USA",
+          "postal_code": "23917-9801",
+          "state_code": "VA",
+          "street_address1": "VISITOR ASSISTANCE CENTER",
+          "street_address2": "1930 MAYS CHAPEL ROAD",
+          "street_address3": ""
+        }
+      ],
+      "aggregate_cell_coverage": 2.8929961094132657,
+      "average_rating": 4.648475,
+      "campsite_accessible": 1,
+      "campsite_equipment_name": [
+        "Tent",
+        "RV",
+        "RV/Motorhome",
+        "Trailer",
+        "Caravan/Camper Van",
+        "Pickup Camper",
+        "Fifth Wheel",
+        "Pop up"
+      ],
+      "campsite_max_vehicle_length": 45,
+      "campsite_reserve_type": [
+        "Site-Specific"
+      ],
+      "campsite_type_of_use": [
+        "Overnight"
+      ],
+      "campsites_count": "98",
+      "city": "Boydton",
+      "country_code": "United States",
+      "description": "Rudds Creek Park is located on John H. Kerr Reservoir, a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina.  Rudd's Creek Campground is open April 1 - October 31. The Day Use Park, located across Hwy 58, is open year-around.  \nKerr Reservoir, also known as Buggs Island Lake, was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties in two states and offer countless recreation opportunities for visitors.Rudds Creek Park is forested and offers plenty of shade. It is located 2 miles from the town of Boydton, VA, and has a marina less than a mile away.  The campground road has very little shoulder, so care should be taken with bicycle riders and children.The Corps Visitor Assistance Center is located about 30 minutes away at Kerr Dam.   Gas, groceries and shopping are available just minutes away, in Boydton.  The park is about 20 minutes from Clarksville, Virginia and 30 minutes from South Hill, VA. \nPublic lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese.\n  \nThere are 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. \nThe Robert Munford Trail is about 5.5 miles long and is multipurpose. A trailhead is located within 7 miles of Rudd's Campground, at Eagle Point Landing.\n  \nThe lake is widely known for fishing, with large-mouth bass, striped bass, crappie and catfish available. Virginia Dept of Game and Inland Fisheries regulate fishing and hunting on the Virginia side.Between 04/01/2025 and 10/31/2025 this location is staffed. Please call (434) 738-6827 to speak with local staff. From 11/01/2025 to 03/31/2026 this location is unstaffed. Please call (434) 738-6143 for general information.There are 98 sites for tents or RVs, and amenities like hot showers, flush toilets and a dump station provide a comfortable camping experience. A swimming beach and picnic shelter make the campground ideal for families. The campground has its own boat ramp and courtesty dock for campers only. All electric sites have water hook-ups.",
+      "directions": "The physical location for Rudd's Creek Park is:  16064 Highway 58, Boydton, VA  23917.  It is located about 3 miles west of Boydton, VA.",
+      "distance": "94.74",
+      "entity_id": "233610",
+      "entity_type": "campground",
+      "go_live_date": "2018-09-30T00:00:00Z",
+      "html_description": "Rudds Creek Park is located on John H. Kerr Reservoir, a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina.  Rudd's Creek Campground is open April 1 - October 31. The Day Use Park, located across Hwy 58, is open year-around.  \nKerr Reservoir, also known as Buggs Island Lake, was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties in two states and offer countless recreation opportunities for visitors.Rudds Creek Park is forested and offers plenty of shade. It is located 2 miles from the town of Boydton, VA, and has a marina less than a mile away.  The campground road has very little shoulder, so care should be taken with bicycle riders and children.The Corps Visitor Assistance Center is located about 30 minutes away at Kerr Dam.   Gas, groceries and shopping are available just minutes away, in Boydton.  The park is about 20 minutes from Clarksville, Virginia and 30 minutes from South Hill, VA. \nPublic lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese.\n  \nThere are 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. \nThe Robert Munford Trail is about 5.5 miles long and is multipurpose. A trailhead is located within 7 miles of Rudd's Campground, at Eagle Point Landing.\n  \nThe lake is widely known for fishing, with large-mouth bass, striped bass, crappie and catfish available. Virginia Dept of Game and Inland Fisheries regulate fishing and hunting on the Virginia side.Between 04/01/2025 and 10/31/2025 this location is staffed. Please call (434) 738-6827 to speak with local staff. From 11/01/2025 to 03/31/2026 this location is unstaffed. Please call (434) 738-6143 for general information.There are 98 sites for tents or RVs, and amenities like hot showers, flush toilets and a dump station provide a comfortable camping experience. A swimming beach and picnic shelter make the campground ideal for families. The campground has its own boat ramp and courtesty dock for campers only. All electric sites have water hook-ups.",
+      "id": "233610_asset",
+      "latitude": "36.65527780000000",
+      "links": [
+        {
+          "description": "Virginia State Tourism",
+          "link_type": "Other",
+          "title": "Virginia State Tourism",
+          "url": "http://www.virginia.org/"
+        },
+        {
+          "description": "Virginia State Road Conditions",
+          "link_type": "Other",
+          "title": "Virginia State Road Conditions",
+          "url": "http://www.virginiadot.org"
+        },
+        {
+          "description": "John H. Kerr Dam and Reservoir",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.saw.usace.army.mil/Locations/District-Lakes-and-Dams/John-H-Kerr/"
+        },
+        {
+          "description": "John H. Kerr Reservoir Facebook Page",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.facebook.com/JohnHKerrReservoirBuggsIslandLake"
+        }
+      ],
+      "longitude": "-78.44027780000000",
+      "name": "Rudds Creek Rec. Area",
+      "notices": [
+        {
+          "text": "<p>Rudds Creek Campground gate house hours are as follows:</p><p><strong>01 April \u2013 31 October</strong></p><p><strong>Every day:  9:00 a.m. \u2013 9:00 p.m.</strong></p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>All campsites have gravel bases; bring padding for tents; all camping equipment must fit within the site perimeters (timbers).</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p><strong>Check-in is at 4 p.m. and check-out is at 2 p.m</strong>. Campers must drop off their blue camping hangtags at the gatehouse upon checkout.\u00a0Checking in to your campsite after the gatehouse closes is <strong>prohibited.</strong></p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Maximum stay is 14-days within any 30 day period. Changing names on a reservation, changing campsites, or making multiple reservations in order to stay over 14-days is <strong>prohibited!</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Quiet hours are from 10pm to 6 am. <strong>Generators and music must be cut off at 10 pm.\u00a0</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Customers should <strong>not</strong> have packages or mail sent or delivered to the park.<strong> Mail and packages will be refused and returned to sender.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Alcoholic beverages and off-road vehicles (golf carts,4-wheelers, etc.) are <strong>prohibited.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Golden Age/Access and America the Beautiful Interagency Senior and Access Passes are accepted at this campground and cardholders receive a 50% discount on camping fees. <strong>Cardholder must be present at registration, show pass and ID, and camp during entire stay.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>For a full list of rules and regulations please visit <a href=\"https://www.saw.usace.army.mil/Portals/59/title36_1.pdf\" rel=\"nofollow\">Title 36</a>\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Please read through the <a href=\"https://www.recreation.gov/rules-reservation-policies\" rel=\"nofollow\">fees and cancelation policy for Recreation.gov.</a>\u00a0</p>\n",
+          "type": "warning"
+        }
+      ],
+      "number_of_ratings": 623,
+      "org_id": "130",
+      "org_name": "US Army Corps of Engineers",
+      "parent_id": "458",
+      "parent_name": "John H. Kerr Dam and Reservoir",
+      "parent_type": "recarea",
+      "preview_image_url": "https://cdn.recreation.gov/public/2020/03/27/18/55/233610_15a7530f-0fc3-4ef9-a6c2-351e3422a694_1440.webp",
+      "price_range": {
+        "amount_max": 68,
+        "amount_min": 24,
+        "per_unit": "night"
+      },
+      "reservable": true,
+      "state_code": "Virginia",
+      "time_zone": "America/New_York",
+      "type": "STANDARD"
+    },
+    {
+      "campgrounds_count": "2",
+      "campsite_type_of_use": [
+        "na"
+      ],
+      "city": "Patuxent River",
+      "country_code": "United States",
+      "description": "Located at the mouth of the Patuxent River and the majestic Chesapeake Bay, the naval air station sits on approximately 6,400 historic acres. It is one of the most beautiful and vital shore installations in existence today. Our Fleet & Family Readiness Programs strives to deliver customer-driven, quality of life programs and services for the NAS Patuxent River community. Our programs include Morale, Welfare & Recreation (MWR), Fleet & Family Support Center (FFSC), Child & Youth Programs (CYP), Housing, MWR Recreational Lodging and much more!",
+      "directions": "From Washington DC:   From 495 take exit 7A (MD 5 south/Branch Ave)   Take Rt 5 to Mattawoman Beantown Road, from Mattawoman Beantown Road turn left on to Rt MD Rt- 5, follow straight on MD Rt5/235 South, NAS Patuxent River entry will be on your left hand side, via Buse Road   approximate time is 1.5 hours",
+      "distance": "172.24",
+      "entity_id": "RA40027",
+      "entity_type": "recarea",
+      "go_live_date": "2022-06-03T15:37:02.757446Z",
+      "html_description": "Located at the mouth of the Patuxent River and the majestic Chesapeake Bay, the naval air station sits on approximately 6,400 historic acres. It is one of the most beautiful and vital shore installations in existence today. Our Fleet & Family Readiness Programs strives to deliver customer-driven, quality of life programs and services for the NAS Patuxent River community. Our programs include Morale, Welfare & Recreation (MWR), Fleet & Family Support Center (FFSC), Child & Youth Programs (CYP), Housing, MWR Recreational Lodging and much more!",
+      "id": "RA40027_asset",
+      "latitude": "38.30600000000000",
+      "longitude": "-76.39600000000000",
+      "name": "Naval Airstation (NAS) Patuxent River",
+      "org_id": "260",
+      "org_name": "Commander, Navy Installation Command (CNIC)",
+      "reservable": true,
+      "state_code": "Maryland",
+      "time_zone": "US/Eastern",
+      "type": "Rec Area"
+    },
+    {
+      "activitypass_count": "2",
+      "campgrounds_count": "48",
+      "campsite_equipment_name": [
+        "Tent",
+        "RV",
+        "RV/Motorhome",
+        "Trailer",
+        "Caravan/Camper Van",
+        "Pickup Camper",
+        "Fifth Wheel",
+        "Pop up",
+        "Horse",
+        "Hammock"
+      ],
+      "campsite_type_of_use": [
+        "na"
+      ],
+      "city": "Roanoke",
+      "country_code": "United States",
+      "directions": "n/a",
+      "distance": "173.97",
+      "entity_id": "1050",
+      "entity_type": "recarea",
+      "go_live_date": "2018-09-30T00:00:00Z",
+      "html_description": "<p></p>",
+      "id": "1050_asset",
+      "latitude": "37.33200000000000",
+      "longitude": "-79.98699999999999",
+      "name": "George Washington & Jefferson National Forest",
+      "official_site_url": "https://www.fs.usda.gov/gwj",
+      "org_id": "131",
+      "org_name": "USDA Forest Service",
+      "preview_image_url": "https://cdn.recreation.gov/public/2018/08/28/18/12/1050_27c01ad9-43e7-4fe4-a373-250541dff9cd_700.webp",
+      "reservable": true,
+      "state_code": "Virginia",
+      "type": "Rec Area"
+    },
+    {
+      "activities": [
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Birding"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Boating"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Canoeing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Fishing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Kayaking"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Paddling"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Photography"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Picnicking"
+        }
+      ],
+      "campsite_reserve_type": [
+        "Site-Specific"
+      ],
+      "campsite_type_of_use": [
+        "Day"
+      ],
+      "campsites_count": "1",
+      "city": "South Hill",
+      "country_code": "United States",
+      "description": "Tailrace Park is located just below John H. Kerr Reservoir, a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina. Kerr Reservoir, also known as Buggs Island Lake, was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties and two states and offer countless recreation opportunities for visitors. \nPublic lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese. There are 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. The lake is widely known for fishing, with large-mouth bass, striped bass, crappie, flathead catfish, channel catfish and blue catfish available. Virginia Dept of Wildlife Resources regulate hunting and fishing on Kerr Lake on the Virginia side (which is known as Buggs Island Lake) and North Carolina Dept of Wildlife Resources regulate hunting and fishing on Kerr Lake on the North Carolina side. \nThis location is unstaffed. To speak with our main office for general information, please call: (434) 738-6143.Visitors to Tailrace Park will enjoy the riverside view. There is a picnic shelter as well as flush toilets during peak season that make the park ideal for families. \nTailrace park is a semi-wooded location with many fishing and birding opprotunities. There is a kayak launch avaliable for access into the Roanoke River.\u00a0There is also a small peir that can be used for birding as bald eagles are often seen here.\u00a0 \nTailrace Park is located approximately 20 minutes from South Hill, Virginia. Shopping, gas, and groceries are available.\u00a0 \n",
+      "directions": "<p>The physical address for Tailrace Park is 5458 Buggs Island Road Boydton, Virginia 23917.  Tailrace Park is approximately 17 miles south of South Hill, Virginia.\u00a0</p>\n",
+      "distance": "96.34",
+      "entity_id": "10103191",
+      "entity_type": "campground",
+      "go_live_date": "2021-01-21T20:48:42.884679Z",
+      "html_description": "Tailrace Park is located just below John H. Kerr Reservoir, a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina. Kerr Reservoir, also known as Buggs Island Lake, was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties and two states and offer countless recreation opportunities for visitors. \nPublic lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese. There are 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. The lake is widely known for fishing, with large-mouth bass, striped bass, crappie, flathead catfish, channel catfish and blue catfish available. Virginia Dept of Wildlife Resources regulate hunting and fishing on Kerr Lake on the Virginia side (which is known as Buggs Island Lake) and North Carolina Dept of Wildlife Resources regulate hunting and fishing on Kerr Lake on the North Carolina side. \nThis location is unstaffed. To speak with our main office for general information, please call: (434) 738-6143.Visitors to Tailrace Park will enjoy the riverside view. There is a picnic shelter as well as flush toilets during peak season that make the park ideal for families. \nTailrace park is a semi-wooded location with many fishing and birding opprotunities. There is a kayak launch avaliable for access into the Roanoke River.\u00a0There is also a small peir that can be used for birding as bald eagles are often seen here.\u00a0 \nTailrace Park is located approximately 20 minutes from South Hill, Virginia. Shopping, gas, and groceries are available.\u00a0 \n",
+      "id": "10103191_asset",
+      "latitude": "36.60177900000000",
+      "links": [
+        {
+          "description": "John H. Kerr Dam and Reservoir",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.saw.usace.army.mil/Locations/District-Lakes-and-Dams/John-H-Kerr/"
+        },
+        {
+          "description": "Virginia State Tourism",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.virginia.org/"
+        },
+        {
+          "description": "Virginia State Road Conditions",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.virginiadot.org/"
+        },
+        {
+          "description": "North Carolina State Tourism",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.visitnc.com/"
+        },
+        {
+          "description": "John H. Kerr Reservoir Facebook Page",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.facebook.com/JohnHKerrReservoirBuggsIslandLake"
+        }
+      ],
+      "longitude": "-78.30037700000000",
+      "name": "Tailrace Park",
+      "notices": [
+        {
+          "text": "<p>If you are using a third-party organization to bring in any equipment (Large tents, port-a-potties, etc.) please call our office two weeks in advance to coordinate with our special event coordinator.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>If you have reserved the shelter and it is already occupied the day of your reservation, please call the Powerhouse at 434.738.6633.\u00a0<strong>Keep in mind that you are reserving the shelter only.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Vehicle parking first come first served. Shelter reservation holders are reserving the shelter only and are <strong>not guaranteed parking</strong> due to the area being open to the public.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Shelter does <strong>not</strong> have electricity.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Vehicles should remain on paved roads only.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Alcoholic beverages, camping and hunting are<strong> prohibited</strong> in the park.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Off-road vehicles and golf carts are <strong>prohibited.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Dogs are allowed but <strong>must</strong> stay on a maximum 6-foot leash.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>For a full list of rules and regualtions please visit <a href=\"https://www.saw.usace.army.mil/Portals/59/title36_1.pdf\" rel=\"nofollow\">Title 36. </a>\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Please read through the <a href=\"https://www.recreation.gov/rules-reservation-policies\" rel=\"nofollow\">fees and cancelation policy for Recreation.gov. </a>\u00a0</p>\n",
+          "type": "warning"
+        }
+      ],
+      "org_id": "130",
+      "org_name": "US Army Corps of Engineers",
+      "parent_id": "458",
+      "parent_name": "John H. Kerr Dam and Reservoir",
+      "parent_type": "recarea",
+      "preview_image_url": "https://cdn.recreation.gov/public/2023/01/23/19/01/10103191_dd943afc-b905-4f12-b6d9-06720fe1b1e1_700.webp",
+      "price_range": {
+        "amount_max": 50,
+        "amount_min": 50,
+        "per_unit": "day"
+      },
+      "reservable": true,
+      "state_code": "Virginia",
+      "time_zone": "America/New_York",
+      "type": "STANDARD"
+    },
+    {
+      "campgrounds_count": "14",
+      "campsite_equipment_name": [
+        "Tent",
+        "RV",
+        "RV/Motorhome",
+        "Trailer",
+        "Caravan/Camper Van",
+        "Pickup Camper",
+        "Fifth Wheel",
+        "Pop up"
+      ],
+      "campsite_type_of_use": [
+        "na"
+      ],
+      "city": "Boydton",
+      "country_code": "United States",
+      "description": "John H. Kerr Dam & Reservoir, also known as Buggs Island Lake, is a 50,000-acre lake extending 39 miles up the Roanoke River along 800 miles of wooded, cove-studded shoreline in Virginia and North Carolina.  Visitors enjoy fishing, camping, swimming, boating or just relaxing and enjoying the scenic beauty.  There are 30 recreation areas around Kerr Reservoir:  campsites, swim beaches, picnic areas, hiking, nature trails, marinas all available for public use.  There are 26 wildlife management areas on Kerr, totaling over 10,000 acres.  In addition to flood control and hydroelectric power, other benefits include fish and wildlife conservation, recreation, forest management, and water supply.",
+      "directions": "From Raleigh, north on US 1 to I-85; west on NC 1224, exit 223; north on NC 1200, which turns into VA 4 at State line. From Richmond, south on I-95; south on I-85 toward South Hill; West on US 58, exit 12; South on VA 4.",
+      "distance": "96.70",
+      "entity_id": "458",
+      "entity_type": "recarea",
+      "go_live_date": "2018-09-30T00:00:00Z",
+      "html_description": "John H. Kerr Dam & Reservoir, also known as Buggs Island Lake, is a 50,000-acre lake extending 39 miles up the Roanoke River along 800 miles of wooded, cove-studded shoreline in Virginia and North Carolina.  Visitors enjoy fishing, camping, swimming, boating or just relaxing and enjoying the scenic beauty.  There are 30 recreation areas around Kerr Reservoir:  campsites, swim beaches, picnic areas, hiking, nature trails, marinas all available for public use.  There are 26 wildlife management areas on Kerr, totaling over 10,000 acres.  In addition to flood control and hydroelectric power, other benefits include fish and wildlife conservation, recreation, forest management, and water supply.",
+      "id": "458_asset",
+      "latitude": "36.59746200000000",
+      "longitude": "-78.29585500000000",
+      "name": "John H. Kerr Dam and Reservoir",
+      "official_site_url": "https://corpsLakes.erdc.dren.mil/visitors/projects.cfm?ID=K708350",
+      "org_id": "130",
+      "org_name": "US Army Corps of Engineers",
+      "preview_image_url": "https://cdn.recreation.gov/public/2022/03/29/15/15/458_a57fb81d-de3c-4bcc-80e3-6c48552b67f4_700.webp",
+      "reservable": true,
+      "state_code": "Virginia",
+      "type": "Rec Area"
+    },
+    {
+      "activities": [
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Birding"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Day Use Area"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Fishing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Photography"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Picnicking"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Scenic Drive"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Water Access"
+        }
+      ],
+      "addresses": [
+        {
+          "address_type": "Physical",
+          "city": "Boydton ",
+          "country_code": "",
+          "postal_code": "23917",
+          "state_code": "VA",
+          "street_address1": "2340 Mays Chapel Road",
+          "street_address2": "",
+          "street_address3": ""
+        }
+      ],
+      "campsite_reserve_type": [
+        "Site-Specific"
+      ],
+      "campsite_type_of_use": [
+        "Day"
+      ],
+      "campsites_count": "1",
+      "city": "Boydton",
+      "country_code": "United States",
+      "description": "Welcome to John H. Kerr Dam and Reservoir! Kerr Lake is a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina.\u00a0 \n Kerr Reservoir, also known as Buggs Island Lake, was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties and two states and offer countless recreation opportunities for visitors. \n The Old Picnic Area (OPA) is a day use area open to the public but also avalible for reservations on Recreation.gov. Looking for a great view for a wedding or a large area for a reuinion? The Old Picnic Area is a great option! It has a paved parking lot and road way. There is a shelter with electricity and a water spigot located near by the shelter.\u00a0 \nLocated right across the road, visitors will find the Joseph S.J. Tanner II Environmental Education Center. The center has interpretive programs and exhibits for the public from Memorial Day through Labor Day, on Saturdays and Sundays.\u00a0 \n\n Gas, groceries, firewood and restaurants are located within 2 miles and also within 20 minutes in Boydton and South Hill, Virginia. \nPublic lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese. \n \u00a0\u00a0 \n There are 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. Buggs Island, located immediately below the dam, attracts migrating bald eagles in the winter and osprey in the summer, as well as gulls, great blue herons, waterfowl and the occasional river otter.\u00a0 \n \u00a0\u00a0 \n Several trails are available for hiking and biking. The 1.5-mile Liberty Nature Trail and 5.5-mile Robert Munford Trail both offer hikes within a short drive.\u00a0 \n\n The lake is widely known for fishing, with large-mouth bass, striped bass, crappie and flathead catfish available. Virginia Department of Game and Inland Fisheries regulate hunting and fishing on the Virginia side of Kerr Lake. \nFor local information, please call (434) 738-0059 or call (434) 738-6143 for general information.The Old Picnic Area (OPA) has a wooden shelter with electricity for small items such as fans and lights. There is a water spigot located near the shelter.  Trash cans are located all throughout the area. This area is located behind a locked gate. There is one vault toilet located within the park.\u00a0 \nThe Old Picnic Area (OPA) is located right next to a very sandy beach area perfect for fishing. There are trees to create shade and a clear grassy area for games for the family. Bald Eagles can be seen year round at the OPA.\u00a0 \n",
+      "distance": "96.74",
+      "entity_id": "10224635",
+      "entity_type": "campground",
+      "go_live_date": "2022-11-30T21:02:14.907175Z",
+      "html_description": "Welcome to John H. Kerr Dam and Reservoir! Kerr Lake is a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina.\u00a0 \n Kerr Reservoir, also known as Buggs Island Lake, was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties and two states and offer countless recreation opportunities for visitors. \n The Old Picnic Area (OPA) is a day use area open to the public but also avalible for reservations on Recreation.gov. Looking for a great view for a wedding or a large area for a reuinion? The Old Picnic Area is a great option! It has a paved parking lot and road way. There is a shelter with electricity and a water spigot located near by the shelter.\u00a0 \nLocated right across the road, visitors will find the Joseph S.J. Tanner II Environmental Education Center. The center has interpretive programs and exhibits for the public from Memorial Day through Labor Day, on Saturdays and Sundays.\u00a0 \n\n Gas, groceries, firewood and restaurants are located within 2 miles and also within 20 minutes in Boydton and South Hill, Virginia. \nPublic lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese. \n \u00a0\u00a0 \n There are 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. Buggs Island, located immediately below the dam, attracts migrating bald eagles in the winter and osprey in the summer, as well as gulls, great blue herons, waterfowl and the occasional river otter.\u00a0 \n \u00a0\u00a0 \n Several trails are available for hiking and biking. The 1.5-mile Liberty Nature Trail and 5.5-mile Robert Munford Trail both offer hikes within a short drive.\u00a0 \n\n The lake is widely known for fishing, with large-mouth bass, striped bass, crappie and flathead catfish available. Virginia Department of Game and Inland Fisheries regulate hunting and fishing on the Virginia side of Kerr Lake. \nFor local information, please call (434) 738-0059 or call (434) 738-6143 for general information.The Old Picnic Area (OPA) has a wooden shelter with electricity for small items such as fans and lights. There is a water spigot located near the shelter.  Trash cans are located all throughout the area. This area is located behind a locked gate. There is one vault toilet located within the park.\u00a0 \nThe Old Picnic Area (OPA) is located right next to a very sandy beach area perfect for fishing. There are trees to create shade and a clear grassy area for games for the family. Bald Eagles can be seen year round at the OPA.\u00a0 \n",
+      "id": "10224635_asset",
+      "latitude": "36.59913800000000",
+      "links": [
+        {
+          "description": "John H Kerr Dam and Reservoir",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.saw.usace.army.mil/Locations/District-Lakes-and-Dams/John-H-Kerr/"
+        },
+        {
+          "description": "Virginia State Tourism",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.virginia.org/listing/john-h-kerr-dam/5090/"
+        },
+        {
+          "description": "John H. Kerr Reservoir Facebook Page",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.facebook.com/JohnHKerrReservoirBuggsIslandLake"
+        },
+        {
+          "description": "Virginia State Road Conditions",
+          "link_type": "",
+          "title": "",
+          "url": "http://www.virginiadot.org"
+        }
+      ],
+      "longitude": "-78.30526100000000",
+      "name": "Old Picnic Area (John H Kerr)",
+      "notices": [
+        {
+          "text": "<p>If you are using a thrid-party ornaginzation to bring in any equipment (Large tents, port-a-potties, etc.) please call our office two weeks in advance to coordinate with our special event coordniator.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>If you have reserved the shelter and it is already occupied the day of your reservation, please call the office phone number at (434) 738-6143 to speak to a ranger or call North Bend Gatehouse at (434) 738-0059.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Off-road vehicles and golf carts are <strong>not</strong> permitted.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Alcoholic beverages, camping and hunting are <strong>not</strong> permitted in the park.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Dogs are allowed but <strong>must</strong> stay on a maximum 6-foot leash.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>This location may be subject to weather related flooding; please call the office at (434) 738-6143 prior to your arrival to verify.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Shelter <strong>does</strong> have electricity.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>For a full list of rules and regulations please visit <a href=\"https://www.saw.usace.army.mil/Portals/59/title36_1.pdf\" rel=\"nofollow\">Title 36. </a>\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Please read through the <a href=\"https://www.recreation.gov/rules-reservation-policies\" rel=\"nofollow\">fees and cancelation policy for Recreation.gov.</a>\u00a0</p>\n",
+          "type": "warning"
+        }
+      ],
+      "org_id": "130",
+      "org_name": "US Army Corps of Engineers",
+      "parent_id": "458",
+      "parent_name": "John H. Kerr Dam and Reservoir",
+      "parent_type": "recarea",
+      "preview_image_url": "https://cdn.recreation.gov/public/2024/02/23/21/25/10224635_dee8c94f-456c-4275-9943-35d28dad9714_700.webp",
+      "price_range": {
+        "amount_max": 100,
+        "amount_min": 100,
+        "per_unit": "day"
+      },
+      "reservable": true,
+      "state_code": "Virginia",
+      "time_zone": "America/New_York",
+      "type": "STANDARD"
+    },
+    {
+      "activities": [
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Fishing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Picnicking"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Disc Golf"
+        }
+      ],
+      "campsite_reserve_type": [
+        "Site-Specific"
+      ],
+      "campsite_type_of_use": [
+        "Day"
+      ],
+      "campsites_count": "1",
+      "city": "Boydton",
+      "country_code": "United States",
+      "description": "North Bend Park is located on John H. Kerr Reservoir, a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina. North Bend is the largest park on Kerr Lake and is located near Kerr Dam and the Corps Visitor Assistance Center. \n \u00a0\u00a0 \n Kerr Reservoir, also known as Buggs Island Lake, was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties and two states and offer countless recreation opportunities for visitors. \nVisitors to North Bend Park will enjoy the lakeside views and wildlife watching. North Bend Park has a large day use area with picnic shelters and a swim beach, 3 boat launching ramps, an amphitheater, a disc golf course and a paved 1.5 mile bicycle trail. The OSAGE Picnic shelter is the only shelter that can be reserved. The shelter in the day use area is open to the public.\u00a0 \nNorth Bend Park is forested and offers plenty of shade. The shelter is shaded and near an accessible fishing pier and restrooms. \n Wildlife viewing is popular just below Kerr Dam, where waterfowl and Bald Eagles can be observed year around. This area, called Tailrace Park, has a wheelchair accessible canoe/kayak launch into the river, and is part of the Virginia Blueways Trail. \nAbout a half-mile away, at the intersection of Mays Chapel Road and State Route 4, visitors will find the Joseph S.J. Tanner II Environmental Education Center. The center has interpretive programs and exhibits for the public from Memorial Day through Labor Day, on Saturdays and Sundays. \n \u00a0\u00a0 \n Gas, groceries, firewood and restaurants are located within 2 miles and also within 20 minutes in Boydton and South Hill, Virginia. \nPublic lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese. \n \u00a0\u00a0 \n There are 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. Buggs Island, located immediately below the dam, attracts migrating bald eagles in the winter and osprey in the summer, as well as gulls, great blue herons, waterfowl and the occasional river otter.\u00a0 \n \u00a0\u00a0 \n Several trails are available for hiking and biking. The 1.5-mile Liberty Nature Trail and 5.5-mile Robert Munford Trail both offer hikes within a short drive from the campground. \n \u00a0\u00a0 \n The lake is widely known for fishing, with large-mouth bass, striped bass, crappie and flathead catfish available. Virginia Department of Wildlife Resources regulate hunting and fishing on the Virginia side of Kerr Lake. \n",
+      "distance": "97.34",
+      "entity_id": "10286337",
+      "entity_type": "campground",
+      "go_live_date": "2023-09-06T20:18:25.973301Z",
+      "html_description": "North Bend Park is located on John H. Kerr Reservoir, a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina. North Bend is the largest park on Kerr Lake and is located near Kerr Dam and the Corps Visitor Assistance Center. \n \u00a0\u00a0 \n Kerr Reservoir, also known as Buggs Island Lake, was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties and two states and offer countless recreation opportunities for visitors. \nVisitors to North Bend Park will enjoy the lakeside views and wildlife watching. North Bend Park has a large day use area with picnic shelters and a swim beach, 3 boat launching ramps, an amphitheater, a disc golf course and a paved 1.5 mile bicycle trail. The OSAGE Picnic shelter is the only shelter that can be reserved. The shelter in the day use area is open to the public.\u00a0 \nNorth Bend Park is forested and offers plenty of shade. The shelter is shaded and near an accessible fishing pier and restrooms. \n Wildlife viewing is popular just below Kerr Dam, where waterfowl and Bald Eagles can be observed year around. This area, called Tailrace Park, has a wheelchair accessible canoe/kayak launch into the river, and is part of the Virginia Blueways Trail. \nAbout a half-mile away, at the intersection of Mays Chapel Road and State Route 4, visitors will find the Joseph S.J. Tanner II Environmental Education Center. The center has interpretive programs and exhibits for the public from Memorial Day through Labor Day, on Saturdays and Sundays. \n \u00a0\u00a0 \n Gas, groceries, firewood and restaurants are located within 2 miles and also within 20 minutes in Boydton and South Hill, Virginia. \nPublic lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese. \n \u00a0\u00a0 \n There are 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. Buggs Island, located immediately below the dam, attracts migrating bald eagles in the winter and osprey in the summer, as well as gulls, great blue herons, waterfowl and the occasional river otter.\u00a0 \n \u00a0\u00a0 \n Several trails are available for hiking and biking. The 1.5-mile Liberty Nature Trail and 5.5-mile Robert Munford Trail both offer hikes within a short drive from the campground. \n \u00a0\u00a0 \n The lake is widely known for fishing, with large-mouth bass, striped bass, crappie and flathead catfish available. Virginia Department of Wildlife Resources regulate hunting and fishing on the Virginia side of Kerr Lake. \n",
+      "id": "10286337_asset",
+      "latitude": "36.59481100000000",
+      "links": [
+        {
+          "description": "John H. Kerr Reservoir Facebook Page",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.facebook.com/JohnHKerrReservoirBuggsIslandLake"
+        },
+        {
+          "description": "Virginia State Tourism",
+          "link_type": "",
+          "title": "",
+          "url": "http://www.virginia.org/"
+        },
+        {
+          "description": "Virginia State Road Conditions",
+          "link_type": "",
+          "title": "",
+          "url": "http://www.virginiadot.org"
+        },
+        {
+          "description": "John K. Kerr Dam and Reservoir",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.saw.usace.army.mil/Locations/District-Lakes-and-Dams/John-H-Kerr/"
+        }
+      ],
+      "longitude": "-78.31112899999999",
+      "name": "North Bend Park OSAGE Picnic Shelter",
+      "notices": [
+        {
+          "text": "<p>If you have reserved the shelter and it is already occupied the day of your reservation, please call North Bend Campground at 434.738.0059. <strong>Keep in mind that you are reserving the shelter only.\u00a0</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Vehicle parking first come first served. Shelter reservation holders are reserving the shelter only and are <strong>not guaranteed parking </strong>due to the area being open to the public.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>All vehicles entering the day use area are <strong>required to pay the $7 day use fee</strong> including those who have rented the shelter for the day. You can purchase a day use pass by using the fee machine. If you would like to purchase in advance, please speak to the gatehouse or call the Visitor Assistance Center at 434.738.6143. Please see rules below if you have an America the Beautiful, Golden Age/Access, or Corps Annual Pass.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>This shelter <strong>does</strong> have electricity and a water spigot.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Alcoholic beverages are <strong>prohibited</strong> in all recreation areas.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Off-road vehicles and golf carts are <strong>prohibited</strong>.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Dogs are allowed but must stay on a maximum 6-foot leash.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Golden Age/Access, America the Beautiful Interagency Senior and Access Passes and the Corps Annual Pass are accepted at this park and cardholders receive free entrance to the day use area only and not the campground. <strong>Passes must be displayed correctly. </strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>For a full list of rules and regulations please visit <a href=\"https://www.swf-wc.usace.army.mil/canyon/title36.pdf\" rel=\"nofollow\">Title 36 Rules and Regulations</a> .\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Please read through the <a href=\"https://www.recreation.gov/rules-reservation-policies\" rel=\"nofollow\">fees and cancelation policy</a>  for Recreation.gov.</p>\n",
+          "type": "warning"
+        }
+      ],
+      "org_id": "130",
+      "org_name": "US Army Corps of Engineers",
+      "parent_id": "458",
+      "parent_name": "John H. Kerr Dam and Reservoir",
+      "parent_type": "recarea",
+      "preview_image_url": "https://cdn.recreation.gov/public/2023/09/29/16/48/10286337_fa7e82b0-c9c5-4ae2-b525-f99918386661_700.webp",
+      "price_range": {
+        "amount_max": 75,
+        "amount_min": 75,
+        "per_unit": "day"
+      },
+      "reservable": true,
+      "state_code": "Virginia",
+      "time_zone": "America/New_York",
+      "type": "STANDARD"
+    },
+    {
+      "accessible_campsites_count": 2,
+      "activities": [
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Swimming Site"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Wildlife Viewing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Hunting"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Hiking"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Fishing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Camping"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Biking"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Disc Golf"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Amphitheater"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Birding"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Boating"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Day Use Area"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Evening Programs"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Environmental Education"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Interpretive Programs"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Photography"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Recreation Programs"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Swimming"
+        }
+      ],
+      "addresses": [
+        {
+          "address_type": "Physical",
+          "city": "Boydton",
+          "country_code": "",
+          "postal_code": "23917",
+          "state_code": "VA",
+          "street_address1": "64 North Bend Drive",
+          "street_address2": "",
+          "street_address3": ""
+        }
+      ],
+      "aggregate_cell_coverage": 3.0579999437332153,
+      "average_rating": 4.6554904,
+      "campsite_accessible": 1,
+      "campsite_equipment_name": [
+        "Tent",
+        "RV",
+        "Trailer",
+        "Caravan/Camper Van",
+        "Pickup Camper",
+        "Fifth Wheel",
+        "Pop up"
+      ],
+      "campsite_max_vehicle_length": 50,
+      "campsite_reserve_type": [
+        "Site-Specific"
+      ],
+      "campsite_type_of_use": [
+        "Overnight"
+      ],
+      "campsites_count": "234",
+      "city": "Boydton",
+      "country_code": "United States",
+      "description": "North Bend Park is located on John H. Kerr Reservoir, a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina. North Bend is the largest park on Kerr Lake and is located near Kerr Dam and the Corps Visitor Assistance Center.    Kerr Reservoir, also known as Buggs Island Lake, was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties and two states and offer countless recreation opportunities for visitors. \nBetween 04/01/2024 and 10/31/2024 this location is staffed. Please call (434) 738-0059 to speak with local staff. From 11/01/2024 to 03/31/2025 this location is unstaffed. Please call (434) 738-6143 for general information.Visitors to North Bend Park will enjoy the lakeside views and wildlife watching. More than 200 sites for tents or RVs, and amenities like hot showers, flush toilets and a dump station provide a comfortable camping experience. Each camping area has its own swim beach. North Bend Park also has a large day use area with picnic shelters and a swim beach, 3 boat launching ramps, an amphitheater, a disc golf course and a paved 1.5 mile bicycle trail. \nNorth Bend Park is forested and offers plenty of shade. Wildlife viewing is popular just below Kerr Dam, where waterfowl and Bald Eagles can be observed year around. This area, called Tailrace Park, has a wheelchair accessible canoe/kayak launch into the river, and is part of the Virginia Blueways Trail.About a half-mile away, at the intersection of Mays Chapel Road and State Route 4, visitors will find the Joseph S.J. Tanner II Environmental Education Center. The center has interpretive programs and exhibits for the public from Memorial Day through Labor Day, on Saturdays and Sundays.\n  \nGas, groceries, firewood and restaurants are located within 2 miles and also within 20 minutes in Boydton and South Hill, Virginia.Public lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese.    There are 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. Buggs Island, located immediately below the dam, attracts migrating bald eagles in the winter and osprey in the summer, as well as gulls, great blue herons, waterfowl and the occasional river otter.     Several trails are available for hiking and biking. The 1.5-mile Liberty Nature Trail and 5.5-mile Robert Munford Trail both offer hikes within a short drive from the campground.    The lake is widely known for fishing, with large-mouth bass, striped bass, crappie and flathead catfish available. Virginia Department of Wildlife Resources regulate hunting and fishing on the Virginia side of Kerr Lake. \n",
+      "directions": "<p>The physical address for North Bend Park:  64 North Bend Drive, Boydton VA 23917.  It is located approximately 20 miles west of South Hill, VA.</p>\n",
+      "distance": "98.38",
+      "entity_id": "233563",
+      "entity_type": "campground",
+      "go_live_date": "2018-09-30T00:00:00Z",
+      "html_description": "North Bend Park is located on John H. Kerr Reservoir, a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina. North Bend is the largest park on Kerr Lake and is located near Kerr Dam and the Corps Visitor Assistance Center.    Kerr Reservoir, also known as Buggs Island Lake, was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties and two states and offer countless recreation opportunities for visitors. \nBetween 04/01/2024 and 10/31/2024 this location is staffed. Please call (434) 738-0059 to speak with local staff. From 11/01/2024 to 03/31/2025 this location is unstaffed. Please call (434) 738-6143 for general information.Visitors to North Bend Park will enjoy the lakeside views and wildlife watching. More than 200 sites for tents or RVs, and amenities like hot showers, flush toilets and a dump station provide a comfortable camping experience. Each camping area has its own swim beach. North Bend Park also has a large day use area with picnic shelters and a swim beach, 3 boat launching ramps, an amphitheater, a disc golf course and a paved 1.5 mile bicycle trail. \nNorth Bend Park is forested and offers plenty of shade. Wildlife viewing is popular just below Kerr Dam, where waterfowl and Bald Eagles can be observed year around. This area, called Tailrace Park, has a wheelchair accessible canoe/kayak launch into the river, and is part of the Virginia Blueways Trail.About a half-mile away, at the intersection of Mays Chapel Road and State Route 4, visitors will find the Joseph S.J. Tanner II Environmental Education Center. The center has interpretive programs and exhibits for the public from Memorial Day through Labor Day, on Saturdays and Sundays.\n  \nGas, groceries, firewood and restaurants are located within 2 miles and also within 20 minutes in Boydton and South Hill, Virginia.Public lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese.    There are 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. Buggs Island, located immediately below the dam, attracts migrating bald eagles in the winter and osprey in the summer, as well as gulls, great blue herons, waterfowl and the occasional river otter.     Several trails are available for hiking and biking. The 1.5-mile Liberty Nature Trail and 5.5-mile Robert Munford Trail both offer hikes within a short drive from the campground.    The lake is widely known for fishing, with large-mouth bass, striped bass, crappie and flathead catfish available. Virginia Department of Wildlife Resources regulate hunting and fishing on the Virginia side of Kerr Lake. \n",
+      "id": "233563_asset",
+      "latitude": "36.58833330000000",
+      "links": [
+        {
+          "description": "Virginia State Tourism",
+          "link_type": "Other",
+          "title": "Virginia State Tourism",
+          "url": "http://www.virginia.org/"
+        },
+        {
+          "description": "John H. Kerr Dam and Reservoir",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.saw.usace.army.mil/Locations/District-Lakes-and-Dams/John-H-Kerr/"
+        },
+        {
+          "description": "John H. Kerr Reservoir Facebook Page",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.facebook.com/JohnHKerrReservoirBuggsIslandLake"
+        },
+        {
+          "description": "Virginia State Road Conditions",
+          "link_type": "",
+          "title": "",
+          "url": "http://www.virginiadot.org"
+        }
+      ],
+      "longitude": "-78.32583330000000",
+      "name": "NORTH BEND PARK",
+      "notices": [
+        {
+          "text": "<p>North Bend Campground hours are listed as follows:\u00a0</p><p><strong>\u2022April 1st - April 31st and September 15th - October 31st:</strong></p><p><strong>     Sunday \u2013 Thursday: 9:00 am - 9:00 pm</strong></p><p><strong>     Friday & Saturday: 9:00am \u2013 10:00pm</strong>\u00a0</p><p><strong>\u2022May 1st - September 15th:</strong></p><p><strong>     Every day: 8:00 am - 10:00 pm</strong></p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Most campsites have gravel bases; bring padding for tents. All equipment must be placed within the site perimeter.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p><strong>Check-in is at 4 p.m. and check-out is at 2 p.m.</strong> Campers must drop off their blue camping hangtags at the gatehouse upon checkout.\u00a0Checking in to your campsite after the gatehouse closes is <strong>prohibited.</strong></p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Maximum stay is 14-days within any 30 day period. Changing names on a reservation, changing campsites, or making multiple reservations in order to stay over 14-days is <strong>prohibited!</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Quiet hours are from 10pm to 6 am. <strong>Generators and music must be cut off at 10 pm.\u00a0</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Customers should not have packages or mail sent or delivered to Park.  <strong>Mail and packages will be refused and returned to sender.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Alcoholic beverages and off-road vehicles (golf carts,4-wheelers, etc.) are <strong>prohibited.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Golden Age/Access and America the Beautiful Interagency Senior and Access Passes are accepted at this campground and cardholders receive a 50% discount on camping fees.  <strong>Cardholder must be present at registration, show pass and ID, and camp during entire stay.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>All vehicles entering the day use area are required to pay the $7 day use fee including those who have rented the shelter for the day. The day use fee is waived for current reservation holders.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>For a full list of rules and regulations please visit <a href=\"https://www.saw.usace.army.mil/Portals/59/title36_1.pdf\" rel=\"nofollow\">Title 36</a>\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Please read through the <a href=\"https://www.recreation.gov/rules-reservation-policies\" rel=\"nofollow\">fees and cancelation policy for Recreation.gov</a>\u00a0</p>\n",
+          "type": "warning"
+        }
+      ],
+      "number_of_ratings": 1193,
+      "org_id": "130",
+      "org_name": "US Army Corps of Engineers",
+      "parent_id": "458",
+      "parent_name": "John H. Kerr Dam and Reservoir",
+      "parent_type": "recarea",
+      "preview_image_url": "https://cdn.recreation.gov/public/2020/03/25/17/50/233563_9d0704ef-02a5-44c9-befc-ec046917fb27_700.webp",
+      "price_range": {
+        "amount_max": 125,
+        "amount_min": 24,
+        "per_unit": "night"
+      },
+      "reservable": true,
+      "state_code": "Virginia",
+      "time_zone": "America/New_York",
+      "type": "STANDARD"
+    },
+    {
+      "activities": [
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Birding"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Boating"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Canoeing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Day Use Area"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Fishing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Kayaking"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Photography"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Picnicking"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Swimming"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Swimming Site"
+        }
+      ],
+      "aggregate_cell_coverage": 3,
+      "average_rating": 4,
+      "campsite_reserve_type": [
+        "Site-Specific"
+      ],
+      "campsite_type_of_use": [
+        "Day"
+      ],
+      "campsites_count": "1",
+      "city": "South Hill",
+      "country_code": "United States",
+      "description": "Palmer Point Park is located on John H. Kerr Reservoir, a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina. Kerr Reservoir, also known as Buggs Island Lake, was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties and two states and offer countless recreation opportunities for visitors. \nPalmer Point Park is a fairly open area with a few trees for shade. There is plenty of opprotunity for fishing and lots of sandy beaches for swimming.\u00a0 \nPalmer Point Park is located approximately 30 minutes from South Hill, Virginia. Shopping, gas, and groceries are available.\u00a0 \nPublic lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese. There are 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. The lake is widely known for fishing, with large-mouth bass, striped bass, crappie, flathead catfish, channel catfish and blue catfish available. Virginia Dept of Wildlife Resources regulate hunting and fishing on Kerr Lake on the Virginia side (which is known as Buggs Island Lake) and North Carolina Dept of Wildlife Resources regulate hunting and fishing on Kerr Lake on the North Carolina side. \nThis location is unstaffed. To speak with our main office for general information, please call: (434) 738-6143.Visitors to Palmer Point Park will enjoy the lakeside view. A swimming beach and picnic shelter make the campground ideal for families. There is a life jacket tree with different sized life jackets for your convience.\u00a0 \n",
+      "directions": "<p>The physical address for Palmer Point Park is 899 Palmer Point Road, Boydton, Virginia 23917. South Hill, Virginia is located approximately 20 miles north from Palmer Point.\u00a0</p>\n",
+      "distance": "99.77",
+      "entity_id": "10103189",
+      "entity_type": "campground",
+      "go_live_date": "2021-01-21T20:48:42.919974Z",
+      "html_description": "Palmer Point Park is located on John H. Kerr Reservoir, a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina. Kerr Reservoir, also known as Buggs Island Lake, was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties and two states and offer countless recreation opportunities for visitors. \nPalmer Point Park is a fairly open area with a few trees for shade. There is plenty of opprotunity for fishing and lots of sandy beaches for swimming.\u00a0 \nPalmer Point Park is located approximately 30 minutes from South Hill, Virginia. Shopping, gas, and groceries are available.\u00a0 \nPublic lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese. There are 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. The lake is widely known for fishing, with large-mouth bass, striped bass, crappie, flathead catfish, channel catfish and blue catfish available. Virginia Dept of Wildlife Resources regulate hunting and fishing on Kerr Lake on the Virginia side (which is known as Buggs Island Lake) and North Carolina Dept of Wildlife Resources regulate hunting and fishing on Kerr Lake on the North Carolina side. \nThis location is unstaffed. To speak with our main office for general information, please call: (434) 738-6143.Visitors to Palmer Point Park will enjoy the lakeside view. A swimming beach and picnic shelter make the campground ideal for families. There is a life jacket tree with different sized life jackets for your convience.\u00a0 \n",
+      "id": "10103189_asset",
+      "latitude": "36.56689300000000",
+      "links": [
+        {
+          "description": "John H. Kerr Dam and Reservoir",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.saw.usace.army.mil/Locations/District-Lakes-and-Dams/John-H-Kerr/"
+        },
+        {
+          "description": "Virginia State Tourism",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.virginia.org/"
+        },
+        {
+          "description": "Virginia State Road Conditions",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.virginiadot.org/"
+        },
+        {
+          "description": "John H. Kerr Reservoir Facebook Page",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.facebook.com/JohnHKerrReservoirBuggsIslandLake"
+        }
+      ],
+      "longitude": "-78.28513500000000",
+      "name": "Palmer Point Park",
+      "notices": [
+        {
+          "text": "<p>If you have reserved the shelter and it is already occupied the day of your reservation, please call North Bend Campground at 434.738 .0059. <strong>Keep in mind that you are reserving the shelter only.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Vehicle parking first come first served. Shelter reservation holders are reserving the shelter only and are <strong>not guaranteed parking</strong> due to the area being open to the public.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>All vehicles entering the day use area are <strong>required to pay the $7 day use fee</strong> including those who have rented the shelter for the day. You can purchase a day use pass by using the fee machine. If you would like to purchase in advance, please speak to the gatehouse or call the Visitor Assistance Center at 434.738.6143. Please see rules below if you have an America the Beautiful, Golden Age/Access, or Corps Annual Pass.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Shelter does <strong>not</strong> have electricy.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Vehicles should remain on paved roads only.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Alcoholic beverages, camping and hunting are <strong>prohibited </strong>in the park.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Off-road vehicles and golf carts are <strong>prohibited.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Dogs are allowed but <strong>must</strong> stay on a maximum 6-foot leash and are<strong> prohibited in the designated swimming area.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Golden Age/Access, America the Beautiful Interagency Senior and Access Passes and the Corps Annual Pass are accepted at this park and cardholders receive free entrance to the day use area only and not the campground. <strong>Passes must be displayed correctly. </strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>For a full list of rules and regulations please visit <a href=\"https://www.saw.usace.army.mil/Portals/59/title36_1.pdf\" rel=\"nofollow\">Title 36. </a>\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Please read through the <a href=\"https://www.recreation.gov/rules-reservation-policies\" rel=\"nofollow\">fees and cancelation policy for Recreation.gov</a>\u00a0</p>\n",
+          "type": "warning"
+        }
+      ],
+      "number_of_ratings": 2,
+      "org_id": "130",
+      "org_name": "US Army Corps of Engineers",
+      "parent_id": "458",
+      "parent_name": "John H. Kerr Dam and Reservoir",
+      "parent_type": "recarea",
+      "preview_image_url": "https://cdn.recreation.gov/public/2024/02/16/18/21/10103189_8148aa26-1527-4fa7-a016-a67f21f44f34_700.webp",
+      "price_range": {
+        "amount_max": 50,
+        "amount_min": 50,
+        "per_unit": "day"
+      },
+      "reservable": true,
+      "state_code": "Virginia",
+      "time_zone": "America/New_York",
+      "type": "STANDARD"
+    },
+    {
+      "activities": [
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Day Use Area"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Fishing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Camping"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Accessible Swimming"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Backpacking"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Birding"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Hiking"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Swimming"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Star Gazing"
+        }
+      ],
+      "addresses": [
+        {
+          "address_type": "Default",
+          "city": "NATURAL BRIDGE",
+          "country_code": "USA",
+          "postal_code": "24579",
+          "state_code": "VA",
+          "street_address1": "96 SHERANDO LAKE ROAD, LYNDHURST, VA  22952 (PHYSICAL ADDRESS)",
+          "street_address2": "GLENWOOD AND PEDLAR RANGER DISTRICTS (FOR INFORMATION)",
+          "street_address3": "27 RANGER LANE"
+        }
+      ],
+      "aggregate_cell_coverage": 0.6428571428571429,
+      "average_rating": 4.769231,
+      "campsite_equipment_name": [
+        "Tent"
+      ],
+      "campsite_reserve_type": [
+        "Site-Specific"
+      ],
+      "campsite_type_of_use": [
+        "Overnight"
+      ],
+      "campsites_count": "5",
+      "city": "Lyndhurst",
+      "country_code": "United States",
+      "description": "Sherando Lake Group Camp is a part of the Sherando Lake Recreation Area and is popular with family groups, Boy and Girl Scouts, church groups and other local organizations. The recreation area is situated in the Blue Ridge Mountains and is known locally as the jewel of the Blue Ridge Mountains, where visitors enjoy hiking, fishing, swimming and relaxing.The five tent-only group campsites are located around the outside of the looping road. Each site can accommodate a maximum of 15 guests, or a large group can reserve all 5 sites to fit no more than 75 guests. Each site is delineated with fencing and is equipped with picnic tables, a grill, lantern posts, and a serving table. A bathhouse with flush toilets and showers is located at the upper end of the loop and a vault toilet is located at the lower end of the loop. The bathhouse was replaced during the 2019 season.  Drinking water is available at each site.  Food storage lockers are currently not available, but all food must be secured in a locked vehicle.  Violators are subject to a fine. \nThe group camp is located at the upper end of the Sherando Lake Recreation Area near the 7 acre upper lake. The group campsites are located around the outer portion of the loop with a large grass field on the interior of the loop for activities and games. The open grassy field provides an excellent opportunity for night time star gazing.There are opportunities for gas, groceries, and firewood at convenience stores and local vendors along the state road to Sherando Lake.  Ice can be purchased at the Sherando Lake Visitor Center during operating hours, which vary seasonally. Additional supplies can be obtained in Stuarts Draft, about a 15 minute drive away.\n\nThe Blue Ridge Parkway with its scenic overlooks and ridgetop views is a short 3 mile drive up State Route 664 from the Sherando Lake entrance.  The Wintergreen Resort offers a golf course and ski area within 10 miles of Sherando Lake.The 25 acre Lower Lake offers opportunities for swimming in a designated area with a sand beach, accessible ramp to the water's edge, and a beach bathhouse with changing and shower facilities.  Fishing and boating are also available outside the designated swimming area in the lake.  Fishing is in stocked waters during the spring and fall seasons.  Visitors will need to have the appropriate Virginia fishing license, National Forest stamp and trout stamp.  Boats with gasoline motors are not permitted on the lower lake - electric troll motors, canoes, kayaks, or similar boats only.  A hand-carry ramp is available for access to the lake adjacent to the parking area.\n\nFishing only is available at the 7 acre Upper Lake.  This lake is also stocked during the spring and fall seasons and the appropriate licenses are required.  Boats are allowed, but there is no launch access - hand carry only.  Parking is available at a small area below the group camp area and a walking trail will lead you to the lake.  Swimming is not allowed in the upper lake.\n\nHiking trails surround the area offering everything from a short walk around the lake on the Lakeside and Cliff Trails to a day hike up the mountain on the White Rock Gap Trail and the Blue Ridge Parkway.  For the more adventurous hiker, more challenging day hikes and backpacking trips are available by heading up the Blue Loop Trail to the Torry Ridge Trail to Bald Mountain and beyond.",
+      "directions": "From I-64, take Exit 96 just east of Stuarts Draft. Go south on State Route 624, which becomes State Route 664 at Lyndhurst. Continue south on State Route 664 approximately 8 miles to the entrance for Sherando Lake Recreation Area on the right. The gatehouse is approximately 0.5 miles ahead. If the gatehouse is closed, continue through the recreation area to the group camping area at the end of the road.",
+      "distance": "100.34",
+      "entity_id": "233138",
+      "entity_type": "campground",
+      "go_live_date": "2018-09-30T00:00:00Z",
+      "html_description": "Sherando Lake Group Camp is a part of the Sherando Lake Recreation Area and is popular with family groups, Boy and Girl Scouts, church groups and other local organizations. The recreation area is situated in the Blue Ridge Mountains and is known locally as the jewel of the Blue Ridge Mountains, where visitors enjoy hiking, fishing, swimming and relaxing.The five tent-only group campsites are located around the outside of the looping road. Each site can accommodate a maximum of 15 guests, or a large group can reserve all 5 sites to fit no more than 75 guests. Each site is delineated with fencing and is equipped with picnic tables, a grill, lantern posts, and a serving table. A bathhouse with flush toilets and showers is located at the upper end of the loop and a vault toilet is located at the lower end of the loop. The bathhouse was replaced during the 2019 season.  Drinking water is available at each site.  Food storage lockers are currently not available, but all food must be secured in a locked vehicle.  Violators are subject to a fine. \nThe group camp is located at the upper end of the Sherando Lake Recreation Area near the 7 acre upper lake. The group campsites are located around the outer portion of the loop with a large grass field on the interior of the loop for activities and games. The open grassy field provides an excellent opportunity for night time star gazing.There are opportunities for gas, groceries, and firewood at convenience stores and local vendors along the state road to Sherando Lake.  Ice can be purchased at the Sherando Lake Visitor Center during operating hours, which vary seasonally. Additional supplies can be obtained in Stuarts Draft, about a 15 minute drive away.\n\nThe Blue Ridge Parkway with its scenic overlooks and ridgetop views is a short 3 mile drive up State Route 664 from the Sherando Lake entrance.  The Wintergreen Resort offers a golf course and ski area within 10 miles of Sherando Lake.The 25 acre Lower Lake offers opportunities for swimming in a designated area with a sand beach, accessible ramp to the water's edge, and a beach bathhouse with changing and shower facilities.  Fishing and boating are also available outside the designated swimming area in the lake.  Fishing is in stocked waters during the spring and fall seasons.  Visitors will need to have the appropriate Virginia fishing license, National Forest stamp and trout stamp.  Boats with gasoline motors are not permitted on the lower lake - electric troll motors, canoes, kayaks, or similar boats only.  A hand-carry ramp is available for access to the lake adjacent to the parking area.\n\nFishing only is available at the 7 acre Upper Lake.  This lake is also stocked during the spring and fall seasons and the appropriate licenses are required.  Boats are allowed, but there is no launch access - hand carry only.  Parking is available at a small area below the group camp area and a walking trail will lead you to the lake.  Swimming is not allowed in the upper lake.\n\nHiking trails surround the area offering everything from a short walk around the lake on the Lakeside and Cliff Trails to a day hike up the mountain on the White Rock Gap Trail and the Blue Ridge Parkway.  For the more adventurous hiker, more challenging day hikes and backpacking trips are available by heading up the Blue Loop Trail to the Torry Ridge Trail to Bald Mountain and beyond.",
+      "id": "233138_asset",
+      "latitude": "37.92972220000000",
+      "links": [
+        {
+          "description": "Virginia State Tourism",
+          "link_type": "Other",
+          "title": "Virginia State Tourism",
+          "url": "http://www.virginia.org/"
+        },
+        {
+          "description": "Virginia State Road Conditions",
+          "link_type": "Other",
+          "title": "Virginia State Road Conditions",
+          "url": "http://www.virginiadot.org"
+        }
+      ],
+      "longitude": "-78.97972220000000",
+      "name": "SHERANDO LAKE GROUP CAMP",
+      "notices": [
+        {
+          "text": "No electric, water or sewer hookups available",
+          "type": "warning"
+        },
+        {
+          "text": "No boat ramp available for either the Upper Lake or Lower Lake",
+          "type": "warning"
+        },
+        {
+          "text": "Boaters must wear approved life jackets",
+          "type": "warning"
+        },
+        {
+          "text": "Only electric troll motors, kayaks, canoes or similar boats are allowed on either lake, no gasoline engines.",
+          "type": "warning"
+        },
+        {
+          "text": "Cell phone coverage is unreliable",
+          "type": "warning"
+        },
+        {
+          "text": "<a href=\"http://www.fs.usda.gov/main/gwj/home\" rel=\"nofollow\">Click here</a> for more information on George Washington and Jefferson National Forests ",
+          "type": "warning"
+        },
+        {
+          "text": "<b>Don't Move Firewood: </b>  Help protect our forests! Prevent the spread of tree-killing pests by obtaining firewood at or near your destination and burning it on-site. Moving firewood is illegal in some states.  Visit <a href=\"http://www.dontmovefirewood.org/\" rel=\"nofollow\">dontmovefirewood.org</a> to learn more.",
+          "type": "warning"
+        },
+        {
+          "text": "Interagency Senior or Access Passes are not applicable for the group camp ",
+          "type": "warning"
+        },
+        {
+          "text": "No lifeguards are on duty at the swimming area.  Visitors swim at their own risk.",
+          "type": "warning"
+        },
+        {
+          "text": "Tent camping only.  There are no pads available for pop-up trailers or RV's.",
+          "type": "warning"
+        },
+        {
+          "text": "Pets must be leashed and under the control of the owner at all times.  Pet owners are responsible for cleaning up after the pet.",
+          "type": "warning"
+        },
+        {
+          "text": "Generators must not run more than 2 consecutive hours and not before 8 am or after 10 pm.",
+          "type": "warning"
+        },
+        {
+          "text": "Food storage lockers are currently not available.  All food must be secured in a locked vehicle.   Violators are subject to fine.",
+          "type": "warning"
+        }
+      ],
+      "number_of_ratings": 13,
+      "org_id": "131",
+      "org_name": "USDA Forest Service",
+      "parent_id": "1050",
+      "parent_name": "George Washington & Jefferson National Forest",
+      "parent_type": "recarea",
+      "preview_image_url": "https://cdn.recreation.gov/public/2019/04/16/15/54/233138_c781207b-4bfe-4c1d-a694-f0e23d13e5e0_700.webp",
+      "price_range": {
+        "amount_max": 50,
+        "amount_min": 50,
+        "per_unit": "night"
+      },
+      "reservable": true,
+      "state_code": "Virginia",
+      "time_zone": "America/New_York",
+      "type": "STANDARD"
+    },
+    {
+      "activities": [
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Day Use Area"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Hiking"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Fishing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Boating"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Accessible Swimming"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Picnicking"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Swimming"
+        }
+      ],
+      "addresses": [
+        {
+          "address_type": "Default",
+          "city": "NATURAL BRIDGE STATION",
+          "country_code": "USA",
+          "postal_code": "24579",
+          "state_code": "VA",
+          "street_address1": "96 SHERANDO LAKE ROAD, LYNDHURST, VA, 22952 (PHYSICAL ADDRESS)",
+          "street_address2": "GLENWOOD AND PEDLAR RANGER DISTRICTS (FOR INFORMATION)",
+          "street_address3": "27 RANGER LANE"
+        }
+      ],
+      "aggregate_cell_coverage": 0.25,
+      "average_rating": 4.8,
+      "campsite_max_vehicle_length": 1,
+      "campsite_reserve_type": [
+        "Site-Specific"
+      ],
+      "campsite_type_of_use": [
+        "Day"
+      ],
+      "campsites_count": "1",
+      "city": "Lyndhurst",
+      "country_code": "United States",
+      "description": "Sherando Lake Group Picnic Shelter, also known as the Williams Branch Group Picnic Shelter is a part of the Sherando Lake Recreation Area. The recreation area is often referred to as the jewel of the Blue Ridge Mountains and is a very popular destination where families enjoy picnicking in the shade and relaxing on the sandy beach.The 25 acre Lower Lake offers opportunities for swimming in a designated areas with a sand beach, accessible ramp to the water's edge and a beach bathhouse with changing and shower facilities.  Fishing and boating are also available outside the designated swimming area in the lake.  Fishing is in stocked trout waters during the spring and fall seasons.  Visitors will need to have the appropriate Virginia Fishing license, National Forest stamp and trout stamp.  Boats with gasoline motors are not permitted on the lower lake - electric troll motors, canoes, kayaks, or similar boats only.  A hand-carry ramp is available for access to the lake adjacent to the parking area.\n  \nFishing only is available at the 7 acre Upper Lake.  This lake is also stocked during the spring and fall seasons and the appropriate licenses are required.  Boats are allowed, but there is no launch access - hand carry only.  Parking is available at a small area below the group camp area and a walking trail will lead you to the lake.  Swimming is not allowed in the upper lake.  \n  \nHiking trails surround the area offering everything from a short walk around the lake on the Lakeside and Cliff Trails to a day hike up the mountain on the White Rock Trail and the Blue Ridge Parkway.  For the more adventurous hiker, more challenging day hikes and backpacking trips are available by heading up the Blue Loop Trail to the Torry Ridge Trail to Bald Mountain and beyond.  Bald Mountain used to be the location of a fire lookout tower.\nThe Group Picnic Shelter (also called Williams Branch Picnic Shelter) was constructed by the Civilian Conservation Corps (CCC) in 1936. Several tables and benches were also constructed by the CCC and are still in use under the shelter. The shelter can accommodate up to 50 people. The picnic shelter reservation fee covers access to Sherando Lake for the reservation holder ONLY. All other guests are responsible for the appropriate Day-Use Fee. These fees can be paid onsite. Amenities at the site include a covered shelter with 4 picnic tables, a double pedestal grill, a fireplace under the shelter, additional picnic tables surrounding the shelter, and a bathroom with flush toilets nearby. The shelter can be accessed by vehicle using a short service road and there is parking for 40 cars immediately adjacent to the shelter. The day use area closes at 9 pm or dusk, whichever comes first and the main gate at the state road closes at 10 pm. Visitors not staying overnight in the campground need to exit before the main gate closes at 10 pm.The group picnic shelter is located a short walking distance from the 25 acre lower lake with a sand beach, shaded grassy area and beach bathhouse. The lake is spring and stream-fed by Back Creek, so the water stays refreshingly cool all summer long.There are opportunities for gas, groceries, and firewood at convenience stores and local vendors along the state road to Sherando Lake.  Ice can be purchased at the Sherando Lake Visitor Center during operating hours.  Additional supplies can be obtained in Stuarts Draft, about a 15 minute drive away.\n  \nThe Blue Ridge Pakrway with its scenic overlooks and ridgetop views is a short 3 mile drive up State Route 664 from the Sherando Lake entrance.  The Wintergreen Resort offers a golf course and ski area within 10 miles of Sherando Lake.",
+      "directions": "From I-64, take Exit 96 just east of Stuarts Draft. Go south on State Route 624, which becomes State Route 664 at Lyndhurst. Continue south on State Route 664 approximately 8 miles to the entrance to the Sherando Lake Recreation Area on the right. The gatehouse is approximately 0.5 miles ahead.  If the gatehouse is closed, continue through the recreation area toward the lower lake. The service road entrance to the group picnic shelter is to the left in the sharp curve before you reach the beach parking area.",
+      "distance": "100.34",
+      "entity_id": "233201",
+      "entity_type": "campground",
+      "go_live_date": "2018-09-30T00:00:00Z",
+      "html_description": "Sherando Lake Group Picnic Shelter, also known as the Williams Branch Group Picnic Shelter is a part of the Sherando Lake Recreation Area. The recreation area is often referred to as the jewel of the Blue Ridge Mountains and is a very popular destination where families enjoy picnicking in the shade and relaxing on the sandy beach.The 25 acre Lower Lake offers opportunities for swimming in a designated areas with a sand beach, accessible ramp to the water's edge and a beach bathhouse with changing and shower facilities.  Fishing and boating are also available outside the designated swimming area in the lake.  Fishing is in stocked trout waters during the spring and fall seasons.  Visitors will need to have the appropriate Virginia Fishing license, National Forest stamp and trout stamp.  Boats with gasoline motors are not permitted on the lower lake - electric troll motors, canoes, kayaks, or similar boats only.  A hand-carry ramp is available for access to the lake adjacent to the parking area.\n  \nFishing only is available at the 7 acre Upper Lake.  This lake is also stocked during the spring and fall seasons and the appropriate licenses are required.  Boats are allowed, but there is no launch access - hand carry only.  Parking is available at a small area below the group camp area and a walking trail will lead you to the lake.  Swimming is not allowed in the upper lake.  \n  \nHiking trails surround the area offering everything from a short walk around the lake on the Lakeside and Cliff Trails to a day hike up the mountain on the White Rock Trail and the Blue Ridge Parkway.  For the more adventurous hiker, more challenging day hikes and backpacking trips are available by heading up the Blue Loop Trail to the Torry Ridge Trail to Bald Mountain and beyond.  Bald Mountain used to be the location of a fire lookout tower.\nThe Group Picnic Shelter (also called Williams Branch Picnic Shelter) was constructed by the Civilian Conservation Corps (CCC) in 1936. Several tables and benches were also constructed by the CCC and are still in use under the shelter. The shelter can accommodate up to 50 people. The picnic shelter reservation fee covers access to Sherando Lake for the reservation holder ONLY. All other guests are responsible for the appropriate Day-Use Fee. These fees can be paid onsite. Amenities at the site include a covered shelter with 4 picnic tables, a double pedestal grill, a fireplace under the shelter, additional picnic tables surrounding the shelter, and a bathroom with flush toilets nearby. The shelter can be accessed by vehicle using a short service road and there is parking for 40 cars immediately adjacent to the shelter. The day use area closes at 9 pm or dusk, whichever comes first and the main gate at the state road closes at 10 pm. Visitors not staying overnight in the campground need to exit before the main gate closes at 10 pm.The group picnic shelter is located a short walking distance from the 25 acre lower lake with a sand beach, shaded grassy area and beach bathhouse. The lake is spring and stream-fed by Back Creek, so the water stays refreshingly cool all summer long.There are opportunities for gas, groceries, and firewood at convenience stores and local vendors along the state road to Sherando Lake.  Ice can be purchased at the Sherando Lake Visitor Center during operating hours.  Additional supplies can be obtained in Stuarts Draft, about a 15 minute drive away.\n  \nThe Blue Ridge Pakrway with its scenic overlooks and ridgetop views is a short 3 mile drive up State Route 664 from the Sherando Lake entrance.  The Wintergreen Resort offers a golf course and ski area within 10 miles of Sherando Lake.",
+      "id": "233201_asset",
+      "latitude": "37.92972220000000",
+      "links": [
+        {
+          "description": "Virginia State Tourism",
+          "link_type": "Other",
+          "title": "Virginia State Tourism",
+          "url": "http://www.virginia.org/"
+        },
+        {
+          "description": "Virginia State Road Conditions",
+          "link_type": "Other",
+          "title": "Virginia State Road Conditions",
+          "url": "http://www.virginiadot.org"
+        }
+      ],
+      "longitude": "-78.97972220000000",
+      "name": "SHERANDO LAKE GROUP PICNIC SHELTER",
+      "notices": [
+        {
+          "text": "<p>Note that the reservable Gourp Picnic Shelter (Williams Branch) is approximately 1/4 mile walk from the beach area.  Not to be confused with the Beach Bathhouse Pavilion where the Visitor Center is located.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>The picnic shelter reservation fee covers the day-use fee for the reservation holder's vehicle ONLY (for up to 8 occupants). Additional Guests attending events at the group picnic shelter are responsible for paying the appropriate day use fee. Fee is charge \"per vehicle\" for those carrying 8 or fewer people. A per person fee is charged for vehicles containing 9 or more occupants.</p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>The beach bathhouse pavilion is not reservable</p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>No electricity is available at the shelter</p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>The shelter closes at 9 pm or dusk, whichever comes first and the main gate at the state road is locked at 10 p.m.</p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>No alcohol is allowed at the picnic shelter or at the beach area, including the grassy area above the sand.</p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Cell phone coverage is not reliable</p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Neither the shelter nor the adjacent bathrooms support accessibility standards. The beach bathhouse does support accessibility standards.</p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>No boat ramp available for boat access to the lower lake, hand-carry from the parking lot only</p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Electric troll motors, kayaks, canoes or similar boats are allowed on the Lower Lake - no gasoline powered boats</p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p><a href=\"http://www.fs.usda.gov/main/gwj/home\" rel=\"nofollow\">Click here</a> for more information on George Washington and Jefferson National Forests</p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p><strong>Don't Move Firewood: </strong>Help protect our forests! Prevent the spread of tree-killing pests by obtaining firewood at or near your destination and burning it on-site. Moving firewood is illegal in some states. Visit <a href=\"http://www.dontmovefirewood.org/\" rel=\"nofollow\">dontmovefirewood.org</a> to learn more.</p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Interagency Senior or Access passes are not applicable for the group fee to reserve the shelter.</p>",
+          "type": "warning"
+        },
+        {
+          "text": "No lifeguards are on duty at the swimming area.  Visitors swim at their own risk.",
+          "type": "warning"
+        }
+      ],
+      "number_of_ratings": 5,
+      "org_id": "131",
+      "org_name": "USDA Forest Service",
+      "parent_id": "1050",
+      "parent_name": "George Washington & Jefferson National Forest",
+      "parent_type": "recarea",
+      "preview_image_url": "https://cdn.recreation.gov/public/2019/04/16/16/37/233201_6c782d90-d226-452c-a0db-4b31d3454f29_700.webp",
+      "price_range": {
+        "amount_max": 25,
+        "amount_min": 25,
+        "per_unit": "day"
+      },
+      "reservable": true,
+      "state_code": "Virginia",
+      "time_zone": "America/New_York",
+      "type": "STANDARD"
+    },
+    {
+      "activities": [
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Birding"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Boating"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Canoeing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Day Use Area"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Fishing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Swimming"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Photography"
+        }
+      ],
+      "campsite_reserve_type": [
+        "Site-Specific"
+      ],
+      "campsite_type_of_use": [
+        "Day"
+      ],
+      "campsites_count": "1",
+      "city": "Buffalo Junction",
+      "country_code": "United States",
+      "description": "Buffalo Park is a small day use and campground park, located on John H. Kerr Reservoir. The campground is open May 1 - September 30. The Day Use Park is open year-around. The shelter is reservable from April 1 - October 31.\u00a0 \n Kerr Reservoir, also known as Buggs Island Lake, is a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina. Kerr Reservoir was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties in two states and offer countless recreation opportunities for visitors. \nVisitors to Buffalo Park will enjoy the lakeside views and the quaint park. The day use section of the park has a swim beach, picnic shelter, and a boat ramp. There is also picnic tables and a life jacket loaner station for you to borrow and return life jackets.\u00a0 \nKerr Reservoir has approximately 48,000 acres of hardwood and pine forest and 50,000 acres of water. The picnic shelter in the park has a spectacular view of the lake, where the Roanoke (Staunton) River meets the Dan. \nBuffalo Springs Park is on the Virginia State and National Historic Sites, and is located approximately 7 miles from Buffalo Park. Once a world-renowned source of bottled lithia waters, the little park now offers a picnic pavilion and solitude. People still get their water from the fountain there. \n\n Gas and groceries are available in Clarksville, Virginia, about 15 minutes away. Clarksville holds the distinction of being the only town on Kerr (Buggs Island) Lake. \nPublic lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese. \n \u00a0\u00a0 \n The Army Corps of Engineers manages 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more.\u00a0 \n \u00a0\u00a0\u00a0\u00a0 \n Kerr Lake is widely known for fishing, with large-mouth bass, striped bass, crappie and catfish caught. Fishing and hunting are regulated by the Virginia Department of Game and Inland Fisheries on the Virginia side of the lake. \n",
+      "distance": "101.85",
+      "entity_id": "10286333",
+      "entity_type": "campground",
+      "go_live_date": "2023-09-06T20:18:25.838158Z",
+      "html_description": "Buffalo Park is a small day use and campground park, located on John H. Kerr Reservoir. The campground is open May 1 - September 30. The Day Use Park is open year-around. The shelter is reservable from April 1 - October 31.\u00a0 \n Kerr Reservoir, also known as Buggs Island Lake, is a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina. Kerr Reservoir was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties in two states and offer countless recreation opportunities for visitors. \nVisitors to Buffalo Park will enjoy the lakeside views and the quaint park. The day use section of the park has a swim beach, picnic shelter, and a boat ramp. There is also picnic tables and a life jacket loaner station for you to borrow and return life jackets.\u00a0 \nKerr Reservoir has approximately 48,000 acres of hardwood and pine forest and 50,000 acres of water. The picnic shelter in the park has a spectacular view of the lake, where the Roanoke (Staunton) River meets the Dan. \nBuffalo Springs Park is on the Virginia State and National Historic Sites, and is located approximately 7 miles from Buffalo Park. Once a world-renowned source of bottled lithia waters, the little park now offers a picnic pavilion and solitude. People still get their water from the fountain there. \n\n Gas and groceries are available in Clarksville, Virginia, about 15 minutes away. Clarksville holds the distinction of being the only town on Kerr (Buggs Island) Lake. \nPublic lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese. \n \u00a0\u00a0 \n The Army Corps of Engineers manages 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more.\u00a0 \n \u00a0\u00a0\u00a0\u00a0 \n Kerr Lake is widely known for fishing, with large-mouth bass, striped bass, crappie and catfish caught. Fishing and hunting are regulated by the Virginia Department of Game and Inland Fisheries on the Virginia side of the lake. \n",
+      "id": "10286333_asset",
+      "latitude": "36.66193900000000",
+      "links": [
+        {
+          "description": "John H Kerr Reservoir Facebook Page",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.facebook.com/JohnHKerrReservoirBuggsIslandLake"
+        },
+        {
+          "description": "Virginia State Tourism",
+          "link_type": "",
+          "title": "",
+          "url": "http://www.virginia.org/"
+        },
+        {
+          "description": "Virginia State Road Conditions",
+          "link_type": "",
+          "title": "",
+          "url": "http://www.virginiadot.org"
+        },
+        {
+          "description": "John K. Kerr Dam and Reservoir",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.saw.usace.army.mil/Locations/District-Lakes-and-Dams/John-H-Kerr/"
+        }
+      ],
+      "longitude": "-78.62941100000000",
+      "name": "Buffalo Park Picnic Shelter",
+      "notices": [
+        {
+          "text": "<p>If you have reserved the shelter and it is already occupied the day of your reservation, please call Buffalo Campground at 434.374.2063. <strong>Keep in mind that you are reserving the shelter only. </strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Vehicle parking is first come first served. Shelter reservation holders are reserving the shelter only and are <strong>not guaranteed parking</strong> due to the area being open to the public.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>All vehicles entering the day use area are <strong>required to pay the $7 day use fee</strong> including those who have rented the shelter for the day. You can purchase a day use pass by using the fee machine. If you would like to purchase in advance, please speak to the gatehouse or call the Visitor Assistance Center at 434.738.6143. Please see rules below if you have an America the Beautiful, Golden Age/Access, or Corps Annual Pass.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>This shelter does <strong>not</strong> have electricity.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Alcoholic beverages, camping and hunting are <strong>prohibited</strong> in the day use area.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Off-road vehicles and golf carts are <strong>prohibited.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Dogs are allowed but must stay on a maximum 6-foot leash and are<strong> prohibited in the designated swimming area.</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Golden Age/Access, America the Beautiful Interagency Senior and Access Passes and the Corps Annual Pass are accepted at this park and cardholders receive free entrance to the day use area only and not the campground.\u00a0<strong>Pass must be displayed correctly.</strong>\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>For a full list of rules and regulations please visit <a href=\"https://www.swf-wc.usace.army.mil/canyon/title36.pdf\" rel=\"nofollow\">Title 36 Rules and Regulations.</a>\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Please read through the <a href=\"https://www.recreation.gov/rules-reservation-policies\" rel=\"nofollow\">fees and cancelation policy</a>  for Recreation.gov.</p>\n",
+          "type": "warning"
+        }
+      ],
+      "org_id": "130",
+      "org_name": "US Army Corps of Engineers",
+      "parent_id": "458",
+      "parent_name": "John H. Kerr Dam and Reservoir",
+      "parent_type": "recarea",
+      "preview_image_url": "https://cdn.recreation.gov/public/2024/02/16/20/09/10286333_2234d498-08ad-45b7-8af9-0c4918700270_700.webp",
+      "price_range": {
+        "amount_max": 50,
+        "amount_min": 50,
+        "per_unit": "day"
+      },
+      "reservable": true,
+      "state_code": "Virginia",
+      "time_zone": "America/New_York",
+      "type": "STANDARD"
+    },
+    {
+      "accessible_campsites_count": 2,
+      "activities": [
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Fishing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Camping"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Day Use Area"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Boating"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Canoeing"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Birding"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Swimming"
+        },
+        {
+          "activity_description": "",
+          "activity_fee_description": "",
+          "activity_id": 0,
+          "activity_name": "Water Access"
+        }
+      ],
+      "addresses": [
+        {
+          "address_type": "Default",
+          "city": "BOYDTON",
+          "country_code": "USA",
+          "postal_code": "23917-9801",
+          "state_code": "VA",
+          "street_address1": "VISITOR ASSISTANCE CENTER",
+          "street_address2": "1930 MAYS CHAPEL ROAD",
+          "street_address3": ""
+        }
+      ],
+      "aggregate_cell_coverage": 2.7083333879709244,
+      "average_rating": 4.6545453,
+      "campsite_accessible": 1,
+      "campsite_equipment_name": [
+        "Tent",
+        "RV",
+        "RV/Motorhome",
+        "Trailer",
+        "Caravan/Camper Van",
+        "Pickup Camper",
+        "Fifth Wheel",
+        "Pop up"
+      ],
+      "campsite_max_vehicle_length": 40,
+      "campsite_reserve_type": [
+        "Site-Specific"
+      ],
+      "campsite_type_of_use": [
+        "Overnight"
+      ],
+      "campsites_count": "21",
+      "city": "Buffalo Junction",
+      "country_code": "United States",
+      "description": "Buffalo Park is a small day use and campground park, located on John H. Kerr Reservoir. The campground is open May 1 - September 30. The Day Use Park is open year-around. Kerr, also known as Buggs Island Lake, is a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina. \nKerr Reservoir was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties in two states and offer countless recreation opportunities for visitors.Public lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese.\n  \nThe Army Corps of Engineers manages 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. \n    \nKerr Lake is widely known for fishing, with large-mouth bass, striped bass, crappie and catfish caught. Fishing and hunting are regulated by the Virginia Department of Game and Inland Fisheries on the Virginia side of the lake.Between 05/01/2025 and 09/30/2025 this location is staffed. Please call (434) 374-2063 to speak with local staff. From 10/01/2025 to 04/30/2026 this location is unstaffed. Please call (434) 738-6143 for general information.Visitors to Buffalo Park will enjoy the lakeside views and the quaint park. The campground has 21 sites: 11 shady electric sites (1 is a double) and 10 primitive sites in an open field.  Primitive sites are small with limited shade. Two of the electric sites are paved and are accessible. Amenities include \"family-style\" individual restrooms with hot showers, sink and flush toilets. Park has a small dump station.  Park has a swim beach, picnic shelter, and a boat ramp. \nKerr Reservoir has approximately 48,000 acres of hardwood and pine forest and 50,000 acres of water. Buffalo Park has both shady sites and open field sites. The picnic shelter in the park has a spectacular view of the lake, where the Roanoke (Staunton) River meets the Dan.Buffalo Springs Park is on the Virginia State and National Historic Sites, and is located approximately 7 miles from Buffalo Park. Once a world-renowned source of bottled lithia waters, the little park now offers a picnic pavilion and solitude. People still get their water from the fountain there.\n  \nGas and groceries are available in Clarksville, Virginia, about 15 minutes away. Clarksville holds the distinction of being the only town on Kerr (Buggs Island) Lake.",
+      "directions": "The physical address for Buffalo Park is:  5199 Carter's Point Road, Buffalo Junction, VA  24529.  It is located approximately 10 miles west of Clarksville, VA.",
+      "distance": "101.94",
+      "entity_id": "233442",
+      "entity_type": "campground",
+      "go_live_date": "2018-09-30T00:00:00Z",
+      "html_description": "Buffalo Park is a small day use and campground park, located on John H. Kerr Reservoir. The campground is open May 1 - September 30. The Day Use Park is open year-around. Kerr, also known as Buggs Island Lake, is a 50,000-acre lake that extends 39 miles up the wooded, cove-studded shoreline of the Roanoke River in Virginia and North Carolina. \nKerr Reservoir was created with the construction of the John H. Kerr Dam in 1952. Its 800 miles of wooded shoreline stretch across six counties in two states and offer countless recreation opportunities for visitors.Public lands around the lake are open to hunting with appropriate state licenses. Game species include whitetail deer, wild turkey, bobwhite quail, mourning dove, gray squirrel, cottontail rabbit, fox and raccoon. Resident waterfowl species include wood duck, black duck, mallard and Canadian geese.\n  \nThe Army Corps of Engineers manages 26 Wildlife Management Areas around the lake that provide year-round opportunities for hiking, wildlife viewing, birding and more. \n    \nKerr Lake is widely known for fishing, with large-mouth bass, striped bass, crappie and catfish caught. Fishing and hunting are regulated by the Virginia Department of Game and Inland Fisheries on the Virginia side of the lake.Between 05/01/2025 and 09/30/2025 this location is staffed. Please call (434) 374-2063 to speak with local staff. From 10/01/2025 to 04/30/2026 this location is unstaffed. Please call (434) 738-6143 for general information.Visitors to Buffalo Park will enjoy the lakeside views and the quaint park. The campground has 21 sites: 11 shady electric sites (1 is a double) and 10 primitive sites in an open field.  Primitive sites are small with limited shade. Two of the electric sites are paved and are accessible. Amenities include \"family-style\" individual restrooms with hot showers, sink and flush toilets. Park has a small dump station.  Park has a swim beach, picnic shelter, and a boat ramp. \nKerr Reservoir has approximately 48,000 acres of hardwood and pine forest and 50,000 acres of water. Buffalo Park has both shady sites and open field sites. The picnic shelter in the park has a spectacular view of the lake, where the Roanoke (Staunton) River meets the Dan.Buffalo Springs Park is on the Virginia State and National Historic Sites, and is located approximately 7 miles from Buffalo Park. Once a world-renowned source of bottled lithia waters, the little park now offers a picnic pavilion and solitude. People still get their water from the fountain there.\n  \nGas and groceries are available in Clarksville, Virginia, about 15 minutes away. Clarksville holds the distinction of being the only town on Kerr (Buggs Island) Lake.",
+      "id": "233442_asset",
+      "latitude": "36.66194440000000",
+      "links": [
+        {
+          "description": "Virginia State Tourism",
+          "link_type": "Other",
+          "title": "Virginia State Tourism",
+          "url": "http://www.virginia.org/"
+        },
+        {
+          "description": "Virginia State Road Conditions",
+          "link_type": "Other",
+          "title": "Virginia State Road Conditions",
+          "url": "http://www.virginiadot.org"
+        },
+        {
+          "description": "John K. Kerr Dam and Reservoir",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.saw.usace.army.mil/Locations/District-Lakes-and-Dams/John-H-Kerr/"
+        },
+        {
+          "description": "John H Kerr Reservoir Facebook Page",
+          "link_type": "",
+          "title": "",
+          "url": "https://www.facebook.com/JohnHKerrReservoirBuggsIslandLake"
+        }
+      ],
+      "longitude": "-78.63138890000000",
+      "name": "BUFFALO PARK",
+      "notices": [
+        {
+          "text": "<p>Most campsites have gravel bases; bring padding for tents; all camping equipment must fit within the site perimeters (timbers).\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p><strong>Check-in is at 4 p.m. and check-out is at 2 p.m</strong>. Campers must drop off their blue camping hangtags at the gatehouse upon checkout.\u00a0</p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Maximum stay is 14-days within any 30 day period. Changing names on a reservation, changing campsites, or making multiple reservations in order to stay over 14-days is <strong>prohibited!</strong></p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Quiet hours are from 10pm to 6 am. <strong>Generators and music must be cut off at 10 pm</strong>.\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Customers should <strong>not</strong> have packages or mail sent or delivered to Park.  <strong>Mail and packages will be refused and returned to sender</strong>.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Alcoholic beverages and off-road vehicles (golf carts,4-wheelers, etc.) are <strong>not</strong> allowed.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Golden Age/Access and America the Beautiful Interagency Senior and Access Passes are accepted at this campground and cardholders receive a 50% discount on camping fees.<strong> Cardholder must be present at registration, show pass and ID, and camp during entire stay.</strong></p>",
+          "type": "warning"
+        },
+        {
+          "text": "<p>All vehicles entering the day use area are required to pay the $7 day use fee including those who have rented the shelter for the day.\u00a0The day use fee is waived for current campers.</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>For a full list of rules and regulations please visit <a href=\"https://www.saw.usace.army.mil/Portals/59/title36_1.pdf\" rel=\"nofollow\">Title 36 </a>\u00a0</p>\n",
+          "type": "warning"
+        },
+        {
+          "text": "<p>Please read through the <a href=\"https://www.recreation.gov/rules-reservation-policies\" rel=\"nofollow\">fees and cancelation policy for Recreation.gov</a>.</p>\n",
+          "type": "warning"
+        }
+      ],
+      "number_of_ratings": 110,
+      "org_id": "130",
+      "org_name": "US Army Corps of Engineers",
+      "parent_id": "458",
+      "parent_name": "John H. Kerr Dam and Reservoir",
+      "parent_type": "recarea",
+      "preview_image_url": "https://cdn.recreation.gov/public/2020/03/25/18/29/233442_14d2d9ce-7697-4784-9cf9-331ca9a48e67_700.webp",
+      "price_range": {
+        "amount_max": 68,
+        "amount_min": 24,
+        "per_unit": "night"
+      },
+      "reservable": true,
+      "state_code": "Virginia",
+      "time_zone": "America/New_York",
+      "type": "STANDARD"
+    }
+  ],
+  "size": 20,
+  "spelling_autocorrected": false,
+  "start": "0",
+  "total": 662
+}
