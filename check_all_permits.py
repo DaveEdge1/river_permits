@@ -14,6 +14,10 @@ from dotenv import load_dotenv
 server_env_path = os.path.join(os.path.dirname(__file__), 'server', '.env')
 load_dotenv(server_env_path)
 
+# Debug: Check if SendGrid is configured
+print(f"DEBUG: EMAIL_SERVICE = {os.getenv('EMAIL_SERVICE', 'NOT SET')}")
+print(f"DEBUG: SENDGRID_API_KEY = {'SET' if os.getenv('SENDGRID_API_KEY') else 'NOT SET'}")
+
 # Add parent directory to path to import permit_finder
 sys.path.insert(0, os.path.dirname(__file__))
 
@@ -162,6 +166,10 @@ def main():
                 sms_enabled=False,
                 email_to=user_email
             )
+
+            # Debug: Show which email service is being used
+            print(f"    Email service: {notifier.email_service}")
+            print(f"    SendGrid configured: {notifier.sendgrid_client is not None}")
 
             # Send notification
             try:
