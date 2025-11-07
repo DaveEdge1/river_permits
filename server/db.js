@@ -211,6 +211,12 @@ const userQueries = {
     }
   },
 
+  setAdmin: {
+    run: (id, isAdmin = 1) => {
+      return run('UPDATE users SET is_admin = ? WHERE id = ?', [isAdmin, id]);
+    }
+  },
+
   delete: {
     run: (id) => {
       return run('DELETE FROM users WHERE id = ?', [id]);

@@ -35,8 +35,7 @@ async function main() {
   }
 
   // Update user to admin
-  const { run } = require('./db');
-  run('UPDATE users SET is_admin = 1 WHERE id = ?', [user.id]);
+  userQueries.setAdmin.run(user.id, 1);
 
   console.log('✓ User updated successfully!');
   console.log(`  Email: ${email}`);
