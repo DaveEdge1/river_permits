@@ -10,13 +10,16 @@ from datetime import datetime
 from collections import defaultdict
 from dotenv import load_dotenv
 
+# Debug: Check environment BEFORE loading .env
+print(f"DEBUG BEFORE load_dotenv: EMAIL_SERVICE = {os.getenv('EMAIL_SERVICE', 'NOT SET')}")
+
 # Load environment variables from server/.env (override existing vars)
 server_env_path = os.path.join(os.path.dirname(__file__), 'server', '.env')
 load_dotenv(server_env_path, override=True)
 
-# Debug: Check if SendGrid is configured
-print(f"DEBUG: EMAIL_SERVICE = {os.getenv('EMAIL_SERVICE', 'NOT SET')}")
-print(f"DEBUG: SENDGRID_API_KEY = {'SET' if os.getenv('SENDGRID_API_KEY') else 'NOT SET'}")
+# Debug: Check if SendGrid is configured AFTER loading .env
+print(f"DEBUG AFTER load_dotenv: EMAIL_SERVICE = {os.getenv('EMAIL_SERVICE', 'NOT SET')}")
+print(f"DEBUG AFTER load_dotenv: SENDGRID_API_KEY = {'SET' if os.getenv('SENDGRID_API_KEY') else 'NOT SET'}")
 
 # Add parent directory to path to import permit_finder
 sys.path.insert(0, os.path.dirname(__file__))
