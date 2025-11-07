@@ -81,10 +81,16 @@ class Notifier:
         """
         if not self.email_enabled:
             logger.info("Email notifications disabled")
+            print("    ! Email notifications are disabled")
             return False
 
         if not all([self.email_from, self.email_to, self.email_password]):
-            logger.error("Email configuration incomplete")
+            missing = []
+            if not self.email_from: missing.append("EMAIL_FROM")
+            if not self.email_to: missing.append("EMAIL_TO")
+            if not self.email_password: missing.append("EMAIL_PASSWORD")
+            logger.error(f"Email configuration incomplete. Missing: {', '.join(missing)}")
+            print(f"    ! Email configuration incomplete. Missing: {', '.join(missing)}")
             return False
 
         try:
@@ -99,16 +105,31 @@ class Notifier:
             msg.attach(MIMEText(body, mime_type))
 
             # Send email
+            print(f"    → Connecting to {self.smtp_server}:{self.smtp_port}...")
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
                 server.starttls()
+                print(f"    → Logging in as {self.email_from}...")
                 server.login(self.email_from, self.email_password)
+                print(f"    → Sending email to {self.email_to}...")
                 server.send_message(msg)
 
             logger.info(f"Email sent successfully to {self.email_to}")
             return True
 
+        except smtplib.SMTPAuthenticationError as e:
+            logger.error(f"SMTP Authentication failed: {e}")
+            print(f"    ! SMTP Authentication failed: Check EMAIL_FROM and EMAIL_PASSWORD")
+            print(f"       Error: {e}")
+            return False
+        except smtplib.SMTPException as e:
+            logger.error(f"SMTP error: {e}")
+            print(f"    ! SMTP error: {e}")
+            return False
         except Exception as e:
             logger.error(f"Failed to send email: {e}")
+            print(f"    ! Failed to send email: {e}")
+            import traceback
+            print(f"       {traceback.format_exc()}")
             return False
 
     def send_sms(self, message: str) -> bool:

@@ -179,10 +179,12 @@ def main():
                 if success:
                     print(f"    ✓ Notification sent successfully")
                 else:
-                    print(f"    ✗ Failed to send notification")
+                    print(f"    ✗ Failed to send notification (check email configuration)")
 
             except Exception as e:
+                import traceback
                 print(f"    ✗ Error sending notification: {e}")
+                print(f"       Details: {traceback.format_exc()}")
 
     print("\n" + "=" * 60)
     print("Check Complete")
