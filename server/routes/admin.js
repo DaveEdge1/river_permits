@@ -9,6 +9,9 @@ const path = require('path');
 const { userQueries } = require('../db');
 const { requireAdmin, hashPassword } = require('../auth');
 
+// Python virtual environment path
+const PYTHON_PATH = path.join(__dirname, '..', '..', 'myenv', 'bin', 'python3');
+
 // All routes require admin authentication
 router.use(requireAdmin);
 
@@ -172,7 +175,7 @@ router.post('/check-permits', (req, res) => {
     console.log('Admin triggered manual permit check');
 
     // Run Python script
-    const pythonProcess = spawn('python3', [scriptPath]);
+    const pythonProcess = spawn(PYTHON_PATH, [scriptPath]);
 
     let output = '';
     let errorOutput = '';
@@ -227,7 +230,7 @@ router.post('/view-availability', (req, res) => {
     console.log('Admin viewing current availability');
 
     // Run Python script
-    const pythonProcess = spawn('python3', [scriptPath]);
+    const pythonProcess = spawn(PYTHON_PATH, [scriptPath]);
 
     let output = '';
     let errorOutput = '';
