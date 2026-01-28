@@ -49,7 +49,8 @@ android {
         buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
+        // 1.5.7 is compatible with Kotlin 1.9.21
+        kotlinCompilerExtensionVersion = "1.5.7"
     }
     packaging {
         resources {
