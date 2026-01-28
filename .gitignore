@@ -1,5 +1,6 @@
 # Environment variables
 .env
+server/.env
 
 # Configuration with sensitive data
 config.json
@@ -30,6 +31,8 @@ wheels/
 venv/
 ENV/
 env/
+my_env/
+myenv/
 
 # IDE
 .vscode/
@@ -59,3 +62,9 @@ yarn-error.log*
 database/*.db
 database/*.db-journal
 database/*.db-wal
+
+# android
+*.gradle
+android-app/.gradle/
+android-app/.gradle
+*.kt

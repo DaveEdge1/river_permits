@@ -1,0 +1,571 @@
+
+> river-permits-server@1.0.0 start
+> node server.js
+
+Database loaded from disk
+Database initialized successfully
+
+--- Email Configuration Check ---
+✓ Email: SendGrid configured
+  From: grooverbookings@gmail.com
+---------------------------------
+
+--- Push Notification Check ---
+FCM: Firebase Admin SDK initialized successfully
+✓ Push: Firebase Cloud Messaging enabled
+✓ JWT: Custom secret configured
+-------------------------------
+
+=================================================
+Scheduler Initialized
+Checking permits every 15 minutes
+Cron expression: */15 * * * *
+=================================================
+
+=================================================
+River Permits Server
+=================================================
+Server running on port 3000
+Environment: development
+FCM Push Notifications: Enabled
+=================================================
+[Scheduler] Running initial check on startup...
+
+[2026-01-28T19:20:05.995Z] Running permit check...
+INFO:permit_finder:Checking facility 250014 from 2025-11-07 to 2025-12-05
+INFO:permit_finder:Checking facility 250986 from 2025-11-07 to 2025-11-14
+INFO:permit_finder:Checking facility 250014 from 2026-01-01 to 2026-09-30
+INFO:permit_finder:Found availability on 2026-01-01 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-02 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-03 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-04 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-05 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-06 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-07 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-08 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-09 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-10 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-11 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-12 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-13 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-14 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-15 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-16 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-17 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-18 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-19 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-20 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-21 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-22 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-23 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-24 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-25 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-26 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-27 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-28 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-29 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-30 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-31 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-30 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-01-31 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-01-30 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-01-31 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-01 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-02 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-03 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-04 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-05 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-06 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-07 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-08 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-09 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-10 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-11 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-12 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-13 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-14 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-15 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-16 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-17 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-18 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-19 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-20 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-21 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-22 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-23 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-24 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-25 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-26 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-28 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-01 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-02 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-03 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-04 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-05 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-06 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-07 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-08 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-09 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-10 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-11 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-12 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-13 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-14 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-15 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-16 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-17 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-18 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-19 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-20 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-21 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-22 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-23 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-24 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-25 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-26 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-28 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-01 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-02 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-03 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-04 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-05 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-06 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-07 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-08 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-09 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-10 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-11 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-12 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-13 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-14 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-15 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-16 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-17 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-18 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-19 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-20 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-21 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-22 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-23 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-24 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-25 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-26 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-28 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-03-01 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-03-02 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-03-05 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-03-01 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-03-02 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-03-05 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-03-01 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-03-02 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-03-05 (Gates of Lodore, Green River)
+DEBUG BEFORE load_dotenv: EMAIL_SERVICE = sendgrid
+DEBUG AFTER load_dotenv: EMAIL_SERVICE = sendgrid
+DEBUG AFTER load_dotenv: SENDGRID_API_KEY = SET
+============================================================
+Multi-User Permit Check - 2026-01-28 19:20:06
+============================================================
+Checking 3 permit(s)
+
+Checking: Dinosaur National Monument (Gates of Lodore, Yampa River) (User: dce725@gmail.com)
+  No available permits found
+
+Checking: San Juan River (User: dce725@gmail.com)
+  No available permits found
+
+Checking: Dinosaur National Monument (Gates of Lodore, Yampa River) (User: etyson.scott@gmail.com)
+  Found 125 available permit(s)
+  All available permits already notified
+
+============================================================
+Sending Notifications
+============================================================
+No new permits to notify about
+[Scheduler] Check completed with code 0
+
+
+[2026-01-28T19:30:00.770Z] Running permit check...
+INFO:permit_finder:Checking facility 250014 from 2025-11-07 to 2025-12-05
+INFO:permit_finder:Checking facility 250986 from 2025-11-07 to 2025-11-14
+INFO:permit_finder:Checking facility 250014 from 2026-01-01 to 2026-09-30
+INFO:permit_finder:Found availability on 2026-01-01 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-02 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-03 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-04 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-05 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-06 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-07 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-08 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-09 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-10 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-11 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-12 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-13 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-14 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-15 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-16 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-17 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-18 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-19 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-20 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-21 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-22 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-23 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-24 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-25 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-26 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-27 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-28 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-29 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-30 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-31 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-30 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-01-31 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-01-30 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-01-31 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-01 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-02 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-03 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-04 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-05 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-06 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-07 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-08 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-09 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-10 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-11 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-12 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-13 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-14 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-15 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-16 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-17 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-18 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-19 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-20 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-21 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-22 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-23 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-24 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-25 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-26 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-28 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-01 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-02 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-03 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-04 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-05 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-06 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-07 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-08 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-09 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-10 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-11 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-12 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-13 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-14 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-15 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-16 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-17 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-18 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-19 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-20 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-21 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-22 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-23 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-24 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-25 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-26 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-28 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-01 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-02 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-03 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-04 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-05 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-06 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-07 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-08 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-09 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-10 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-11 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-12 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-13 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-14 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-15 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-16 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-17 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-18 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-19 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-20 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-21 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-22 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-23 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-24 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-25 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-26 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-28 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-03-01 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-03-02 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-03-05 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-03-01 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-03-02 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-03-05 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-03-01 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-03-02 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-03-05 (Gates of Lodore, Green River)
+DEBUG BEFORE load_dotenv: EMAIL_SERVICE = sendgrid
+DEBUG AFTER load_dotenv: EMAIL_SERVICE = sendgrid
+DEBUG AFTER load_dotenv: SENDGRID_API_KEY = SET
+============================================================
+Multi-User Permit Check - 2026-01-28 19:30:00
+============================================================
+Checking 3 permit(s)
+
+Checking: Dinosaur National Monument (Gates of Lodore, Yampa River) (User: dce725@gmail.com)
+  No available permits found
+
+Checking: San Juan River (User: dce725@gmail.com)
+  No available permits found
+
+Checking: Dinosaur National Monument (Gates of Lodore, Yampa River) (User: etyson.scott@gmail.com)
+  Found 125 available permit(s)
+  All available permits already notified
+
+============================================================
+Sending Notifications
+============================================================
+No new permits to notify about
+[Scheduler] Check completed with code 0
+
+
+[2026-01-28T19:45:00.994Z] Running permit check...
+INFO:permit_finder:Checking facility 250014 from 2025-11-07 to 2025-12-05
+INFO:permit_finder:Checking facility 250986 from 2026-03-01 to 2026-03-15
+INFO:permit_finder:Found availability on 2026-03-01 (Mexican Hat to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-02 (Mexican Hat to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-03 (Mexican Hat to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-04 (Mexican Hat to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-05 (Mexican Hat to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-06 (Mexican Hat to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-07 (Mexican Hat to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-08 (Mexican Hat to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-09 (Mexican Hat to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-10 (Mexican Hat to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-11 (Mexican Hat to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-12 (Mexican Hat to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-13 (Mexican Hat to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-14 (Mexican Hat to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-01 (Sand Island to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-02 (Sand Island to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-03 (Sand Island to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-04 (Sand Island to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-05 (Sand Island to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-06 (Sand Island to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-07 (Sand Island to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-10 (Sand Island to Clay Hills)
+INFO:permit_finder:Found availability on 2026-03-01 (Sand Island to Mexican Hat)
+INFO:permit_finder:Found availability on 2026-03-02 (Sand Island to Mexican Hat)
+INFO:permit_finder:Found availability on 2026-03-03 (Sand Island to Mexican Hat)
+INFO:permit_finder:Found availability on 2026-03-04 (Sand Island to Mexican Hat)
+INFO:permit_finder:Found availability on 2026-03-05 (Sand Island to Mexican Hat)
+INFO:permit_finder:Found availability on 2026-03-06 (Sand Island to Mexican Hat)
+INFO:permit_finder:Found availability on 2026-03-07 (Sand Island to Mexican Hat)
+INFO:permit_finder:Found availability on 2026-03-08 (Sand Island to Mexican Hat)
+INFO:permit_finder:Found availability on 2026-03-09 (Sand Island to Mexican Hat)
+INFO:permit_finder:Found availability on 2026-03-10 (Sand Island to Mexican Hat)
+INFO:permit_finder:Found availability on 2026-03-11 (Sand Island to Mexican Hat)
+INFO:permit_finder:Found availability on 2026-03-13 (Sand Island to Mexican Hat)
+INFO:permit_finder:Checking facility 250014 from 2026-01-01 to 2026-09-30
+INFO:permit_finder:Found availability on 2026-01-01 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-02 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-03 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-04 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-05 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-06 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-07 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-08 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-09 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-10 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-11 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-12 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-13 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-14 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-15 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-16 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-17 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-18 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-19 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-20 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-21 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-22 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-23 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-24 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-25 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-26 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-27 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-28 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-29 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-30 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-31 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-01-30 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-01-31 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-01-30 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-01-31 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-01 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-02 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-03 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-04 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-05 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-06 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-07 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-08 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-09 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-10 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-11 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-12 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-13 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-14 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-15 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-16 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-17 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-18 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-19 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-20 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-21 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-22 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-23 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-24 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-25 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-26 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-28 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-02-01 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-02 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-03 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-04 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-05 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-06 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-07 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-08 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-09 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-10 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-11 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-12 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-13 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-14 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-15 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-16 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-17 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-18 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-19 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-20 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-21 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-22 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-23 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-24 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-25 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-26 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-28 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-02-01 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-02 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-03 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-04 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-05 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-06 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-07 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-08 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-09 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-10 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-11 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-12 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-13 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-14 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-15 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-16 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-17 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-18 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-19 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-20 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-21 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-22 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-23 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-24 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-25 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-26 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-02-28 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-03-01 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-03-02 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-03-05 (Combined Yampa/Green Segment)
+INFO:permit_finder:Found availability on 2026-03-01 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-03-02 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-03-05 (Deerlodge Park, Yampa River)
+INFO:permit_finder:Found availability on 2026-03-01 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-03-02 (Gates of Lodore, Green River)
+INFO:permit_finder:Found availability on 2026-03-05 (Gates of Lodore, Green River)
+WARNING:fcm_notifier:FCM: firebase-admin package not installed
+INFO:notifier:SendGrid API client initialized
+ERROR:notifier:Failed to send email via SendGrid: HTTP Error 401: Unauthorized
+DEBUG BEFORE load_dotenv: EMAIL_SERVICE = sendgrid
+DEBUG AFTER load_dotenv: EMAIL_SERVICE = sendgrid
+DEBUG AFTER load_dotenv: SENDGRID_API_KEY = SET
+============================================================
+Multi-User Permit Check - 2026-01-28 19:45:01
+============================================================
+Checking 3 permit(s)
+
+Checking: Dinosaur National Monument (Gates of Lodore, Yampa River) (User: dce725@gmail.com)
+  No available permits found
+
+Checking: San Juan River (User: dce725@gmail.com)
+  Found 34 available permit(s)
+  34 NEW permit(s) (not yet notified)
+
+Checking: Dinosaur National Monument (Gates of Lodore, Yampa River) (User: etyson.scott@gmail.com)
+  Found 125 available permit(s)
+  All available permits already notified
+
+============================================================
+Sending Notifications
+============================================================
+    FCM: firebase-admin package not installed (pip install firebase-admin)
+FCM Push Notifications: Disabled
+
+User: dce725@gmail.com
+  Preferences: push=True, email=True
+  Sending notification for: San Juan River (34 dates)
+    DEBUG: Attempting to initialize SendGrid...
+    DEBUG: email_service = sendgrid
+    DEBUG: sendgrid_api_key = SET (starts with SG.MgvpIR-)
+    DEBUG: SendGrid module imported successfully
+    DEBUG: SendGrid client created successfully
+    Email service: sendgrid
+    SendGrid configured: True
+    → Sending email via SendGrid...
+    → From: grooverbookings@gmail.com
+    → To: dce725@gmail.com
+    ! Failed to send email via SendGrid: HTTP Error 401: Unauthorized
+       Traceback (most recent call last):
+  File "/root/river_permits/notifier.py", line 161, in _send_email_sendgrid
+    response = self.sendgrid_client.send(mail)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/river_permits/my_env/lib/python3.12/site-packages/sendgrid/base_interface.py", line 63, in send
+    return self.client.mail.send.post(request_body=message)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/river_permits/my_env/lib/python3.12/site-packages/python_http_client/client.py", line 277, in http_request
+    self._make_request(opener, request, timeout=timeout)
+  File "/root/river_permits/my_env/lib/python3.12/site-packages/python_http_client/client.py", line 184, in _make_request
+    raise exc
+python_http_client.exceptions.UnauthorizedError: HTTP Error 401: Unauthorized
+
+    ✗ Failed to send email (check email configuration)
+    ✗ No notification sent - will retry on next check
+
+============================================================
+Check Complete
+============================================================
+[Scheduler] Check completed with code 0
+
+Admin viewing current availability
+View availability completed successfully
+Admin viewing current availability
+View availability completed successfully

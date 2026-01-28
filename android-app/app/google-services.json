@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "807713118178",
+    "project_id": "groover-ce80f",
+    "storage_bucket": "groover-ce80f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807713118178:android:0c61f2153e777520ae4bbb",
+        "android_client_info": {
+          "package_name": "com.riverpermits.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEcAIPB4wKgZVcCcqjCNXH6D2kUY2u_KA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
