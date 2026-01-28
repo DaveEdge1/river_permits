@@ -2,6 +2,7 @@
 """
 Multi-user permit checker
 Checks all enabled permits for all active users and sends notifications
+Supports both email (SMTP/SendGrid) and push notifications (FCM)
 """
 import sqlite3
 import sys
@@ -26,6 +27,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from permit_finder import PermitFinder
 from notifier import Notifier
+from fcm_notifier import FCMNotifier, get_user_device_tokens, deactivate_tokens, is_fcm_enabled
 
 DB_PATH = os.path.join(os.path.dirname(__file__), 'database', 'permits.db')
 
@@ -36,7 +38,7 @@ def get_all_enabled_permits():
     cursor = conn.cursor()
 
     cursor.execute("""
-        SELECT p.*, u.email
+        SELECT p.*, u.email, u.push_enabled, u.email_enabled
         FROM permits p
         JOIN users u ON p.user_id = u.id
         WHERE p.enabled = 1 AND u.is_active = 1
@@ -150,60 +152,100 @@ def main():
         print("No new permits to notify about")
         return
 
+    # Initialize FCM notifier (if configured)
+    fcm_notifier = FCMNotifier()
+    fcm_available = is_fcm_enabled()
+    print(f"FCM Push Notifications: {'Enabled' if fcm_available else 'Disabled'}")
+
     for user_id, permit_notifications in notifications_by_user.items():
-        # Get user email
+        # Get user info
         user_permit = next(p for p in permits if p['user_id'] == user_id)
         user_email = user_permit['email']
+        push_enabled = user_permit.get('push_enabled', 1) == 1
+        email_enabled = user_permit.get('email_enabled', 1) == 1
 
         print(f"\nUser: {user_email}")
+        print(f"  Preferences: push={push_enabled}, email={email_enabled}")
 
-        # Send one email per permit with available dates
+        # Get device tokens for push notifications
+        device_tokens = []
+        if push_enabled and fcm_available:
+            device_tokens = get_user_device_tokens(user_id, DB_PATH)
+            print(f"  Device tokens: {len(device_tokens)}")
+
+        # Send one notification per permit with available dates
         for permit_id, available_permits in permit_notifications.items():
             permit = next(p for p in permits if p['id'] == permit_id)
 
             print(f"  Sending notification for: {permit['name']} ({len(available_permits)} dates)")
 
-            # Create notifier for this user
-            notifier = Notifier(
-                email_enabled=True,
-                sms_enabled=False,
-                email_to=user_email
-            )
+            notification_sent = False
 
-            # Debug: Show which email service is being used
-            print(f"    Email service: {notifier.email_service}")
-            print(f"    SendGrid configured: {notifier.sendgrid_client is not None}")
+            # Send push notification (if enabled and tokens available)
+            if push_enabled and device_tokens:
+                try:
+                    result = fcm_notifier.send_permit_notification(
+                        tokens=device_tokens,
+                        permit_name=permit['name'],
+                        available_permits=available_permits
+                    )
 
-            # Send notification
-            try:
-                success = notifier.notify_permits_found(
-                    permit_name=permit['name'],
-                    available_permits=available_permits
+                    if result['success_count'] > 0:
+                        print(f"    ✓ Push notification sent to {result['success_count']} device(s)")
+                        notification_sent = True
+
+                    # Deactivate any failed tokens
+                    if result['failed_tokens']:
+                        deactivate_tokens(result['failed_tokens'], DB_PATH)
+
+                except Exception as e:
+                    print(f"    ✗ Push notification error: {e}")
+
+            # Send email notification (if enabled)
+            if email_enabled:
+                # Create notifier for this user
+                notifier = Notifier(
+                    email_enabled=True,
+                    sms_enabled=False,
+                    email_to=user_email
                 )
 
-                if success:
-                    print(f"    ✓ Notification sent successfully")
+                # Debug: Show which email service is being used
+                print(f"    Email service: {notifier.email_service}")
+                print(f"    SendGrid configured: {notifier.sendgrid_client is not None}")
 
-                    # ONLY record notification if email was sent successfully
-                    for avail in available_permits:
-                        record_notification(
-                            conn,
-                            user_id,
-                            permit_id,
-                            avail['date'],
-                            avail['division_id'],
-                            avail.get('division_name', f"Division {avail['division_id']}"),
-                            avail.get('details', {}).get('remaining', 0)
-                        )
-                else:
-                    print(f"    ✗ Failed to send notification (check email configuration)")
-                    print(f"    → Will retry on next check")
+                # Send notification
+                try:
+                    success = notifier.notify_permits_found(
+                        permit_name=permit['name'],
+                        available_permits=available_permits
+                    )
 
-            except Exception as e:
-                import traceback
-                print(f"    ✗ Error sending notification: {e}")
-                print(f"       Details: {traceback.format_exc()}")
-                print(f"    → Will retry on next check")
+                    if success:
+                        print(f"    ✓ Email notification sent successfully")
+                        notification_sent = True
+                    else:
+                        print(f"    ✗ Failed to send email (check email configuration)")
+
+                except Exception as e:
+                    import traceback
+                    print(f"    ✗ Email notification error: {e}")
+                    print(f"       Details: {traceback.format_exc()}")
+
+            # Record notification if ANY notification method succeeded
+            if notification_sent:
+                for avail in available_permits:
+                    record_notification(
+                        conn,
+                        user_id,
+                        permit_id,
+                        avail['date'],
+                        avail['division_id'],
+                        avail.get('division_name', f"Division {avail['division_id']}"),
+                        avail.get('details', {}).get('remaining', 0)
+                    )
+            else:
+                print(f"    ✗ No notification sent - will retry on next check")
 
     conn.close()
 
