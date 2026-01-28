@@ -1,5 +1,6 @@
 # Environment variables
 .env
+server/.env
 
 # Configuration with sensitive data
 config.json
@@ -30,6 +31,8 @@ wheels/
 venv/
 ENV/
 env/
+my_env/
+myenv/
 
 # IDE
 .vscode/
