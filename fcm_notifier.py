@@ -182,7 +182,8 @@ class FCMNotifier:
         self,
         tokens: List[str],
         permit_name: str,
-        available_permits: List[Dict]
+        available_permits: List[Dict],
+        facility_id: Optional[str] = None
     ) -> Dict:
         """
         Send permit availability notification
@@ -191,6 +192,7 @@ class FCMNotifier:
             tokens: List of FCM device tokens
             permit_name: Name of the permit/river
             available_permits: List of available permit dicts
+            facility_id: Recreation.gov facility ID for direct linking
 
         Returns:
             Dict with success_count, failure_count
@@ -214,6 +216,10 @@ class FCMNotifier:
                 for p in available_permits[:5]  # Limit to 5 for payload size
             ])
         }
+
+        # Include facility_id for direct linking to recreation.gov
+        if facility_id:
+            data['facility_id'] = str(facility_id)
 
         return self.send_to_tokens(tokens, title, body, data)
 

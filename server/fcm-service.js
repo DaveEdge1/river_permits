@@ -167,9 +167,10 @@ async function sendPushToUser(userId, title, body, data = {}) {
  * @param {number} userId - User ID
  * @param {string} permitName - Name of the permit/river
  * @param {Array} availablePermits - Array of available permit objects
+ * @param {string} facilityId - Recreation.gov facility ID for direct linking
  * @returns {Object} { successCount, failureCount }
  */
-async function sendPermitNotification(userId, permitName, availablePermits) {
+async function sendPermitNotification(userId, permitName, availablePermits, facilityId = null) {
   const permitCount = availablePermits.length;
   const title = `${permitCount} Permit${permitCount > 1 ? 's' : ''} Available!`;
   const body = `New availability for: ${permitName}`;
@@ -187,6 +188,11 @@ async function sendPermitNotification(userId, permitName, availablePermits) {
       remaining: p.details?.remaining || 0
     })))
   };
+
+  // Include facility_id for direct linking to recreation.gov
+  if (facilityId) {
+    data.facility_id = String(facilityId);
+  }
 
   return sendPushToUser(userId, title, body, data);
 }
