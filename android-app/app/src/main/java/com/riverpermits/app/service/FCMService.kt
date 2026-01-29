@@ -63,15 +63,21 @@ class FCMService : FirebaseMessagingService() {
         val type = data["type"]
         val permitName = data["permit_name"]
         val permitCount = data["permit_count"]
+        val permitsJson = data["permits"]
+        val facilityId = data["facility_id"]
 
         when (type) {
             "permit_available", "permit_alert" -> {
                 Log.d(TAG, "Permit notification: $permitCount permits for $permitName")
-                // Show notification if not already shown via notification payload
+                // Show notification with permit data
                 if (permitName != null && permitCount != null) {
                     showNotification(
                         title = "$permitCount Permits Available!",
-                        body = "New availability for: $permitName"
+                        body = "New availability for: $permitName",
+                        permitName = permitName,
+                        permitCount = permitCount.toIntOrNull() ?: 0,
+                        permitsJson = permitsJson,
+                        facilityId = facilityId
                     )
                 }
             }
@@ -81,7 +87,14 @@ class FCMService : FirebaseMessagingService() {
         }
     }
 
-    private fun showNotification(title: String, body: String) {
+    private fun showNotification(
+        title: String,
+        body: String,
+        permitName: String? = null,
+        permitCount: Int = 0,
+        permitsJson: String? = null,
+        facilityId: String? = null
+    ) {
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         // Create notification channel for Android 8.0+
@@ -98,11 +111,22 @@ class FCMService : FirebaseMessagingService() {
         }
 
         // Create intent to open app when notification is tapped
+        // Include permit data so the app can show the availability screen
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            // Add permit data to intent
+            if (permitName != null && permitCount > 0) {
+                putExtra("permit_name", permitName)
+                putExtra("permit_count", permitCount)
+                putExtra("permits_json", permitsJson)
+                putExtra("facility_id", facilityId)
+            }
         }
+
+        // Use unique request code for each notification to ensure different intents
+        val requestCode = System.currentTimeMillis().toInt()
         val pendingIntent = PendingIntent.getActivity(
-            this, 0, intent,
+            this, requestCode, intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
@@ -117,7 +141,7 @@ class FCMService : FirebaseMessagingService() {
             .build()
 
         // Show notification with unique ID based on current time
-        notificationManager.notify(System.currentTimeMillis().toInt(), notification)
+        notificationManager.notify(requestCode, notification)
         Log.d(TAG, "Notification displayed: $title - $body")
     }
 
