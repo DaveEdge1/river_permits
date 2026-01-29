@@ -61,24 +61,28 @@ class FCMService : FirebaseMessagingService() {
 
     private fun handleDataMessage(data: Map<String, String>) {
         val type = data["type"]
-        val permitName = data["permit_name"]
-        val permitCount = data["permit_count"]
-        val permitsJson = data["permits"]
-        val facilityId = data["facility_id"]
 
         when (type) {
             "permit_available", "permit_alert" -> {
-                Log.d(TAG, "Permit notification: $permitCount permits for $permitName")
-                // Show notification with permit data
-                if (permitName != null && permitCount != null) {
+                // New multi-river format
+                val totalCount = data["total_count"]
+                val riverCount = data["river_count"]
+                val riversJson = data["rivers"]
+
+                if (riversJson != null && totalCount != null) {
+                    Log.d(TAG, "Multi-river notification: $totalCount permits across $riverCount rivers")
                     showNotification(
-                        title = "$permitCount Permits Available!",
-                        body = "New availability for: $permitName",
-                        permitName = permitName,
-                        permitCount = permitCount.toIntOrNull() ?: 0,
-                        permitsJson = permitsJson,
-                        facilityId = facilityId
+                        title = "$totalCount Permits Available!",
+                        body = if ((riverCount?.toIntOrNull() ?: 1) > 1)
+                            "New availability for $riverCount rivers"
+                        else
+                            "New availability",
+                        totalCount = totalCount.toIntOrNull() ?: 0,
+                        riverCount = riverCount?.toIntOrNull() ?: 1,
+                        riversJson = riversJson
                     )
+                } else {
+                    Log.d(TAG, "Received permit_alert with no rivers data")
                 }
             }
             else -> {
@@ -90,10 +94,9 @@ class FCMService : FirebaseMessagingService() {
     private fun showNotification(
         title: String,
         body: String,
-        permitName: String? = null,
-        permitCount: Int = 0,
-        permitsJson: String? = null,
-        facilityId: String? = null
+        totalCount: Int = 0,
+        riverCount: Int = 0,
+        riversJson: String? = null
     ) {
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
@@ -111,15 +114,14 @@ class FCMService : FirebaseMessagingService() {
         }
 
         // Create intent to open app when notification is tapped
-        // Include permit data so the app can show the availability screen
+        // Include rivers data so the app can show the availability screen
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            // Add permit data to intent
-            if (permitName != null && permitCount > 0) {
-                putExtra("permit_name", permitName)
-                putExtra("permit_count", permitCount)
-                putExtra("permits_json", permitsJson)
-                putExtra("facility_id", facilityId)
+            // Add rivers data to intent
+            if (totalCount > 0 && riversJson != null) {
+                putExtra("total_count", totalCount)
+                putExtra("river_count", riverCount)
+                putExtra("rivers_json", riversJson)
             }
         }
 
