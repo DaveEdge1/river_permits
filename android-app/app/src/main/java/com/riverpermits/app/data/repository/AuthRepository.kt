@@ -3,11 +3,11 @@ package com.riverpermits.app.data.repository
 import com.google.gson.Gson
 import com.riverpermits.app.data.local.TokenManager
 import com.riverpermits.app.data.model.ApiResult
-import com.riverpermits.app.data.model.ErrorResponse
-import com.riverpermits.app.data.model.LoginRequest
-import com.riverpermits.app.data.model.LoginResponse
-import com.riverpermits.app.data.model.RefreshTokenRequest
-import com.riverpermits.app.data.remote.ApiService
+import com.riverpermits.app.data.remote.api.ApiService
+import com.riverpermits.app.data.remote.dto.ErrorResponse
+import com.riverpermits.app.data.remote.dto.LoginRequest
+import com.riverpermits.app.data.remote.dto.LoginResponse
+import com.riverpermits.app.data.remote.dto.RefreshRequest
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -54,7 +54,7 @@ class AuthRepository @Inject constructor(
         return try {
             val refreshToken = tokenManager.getRefreshTokenSync()
             if (refreshToken != null) {
-                apiService.logout(RefreshTokenRequest(refreshToken))
+                apiService.logout(RefreshRequest(refreshToken))
             }
             tokenManager.clearTokens()
             ApiResult.Success(Unit)
@@ -70,7 +70,7 @@ class AuthRepository @Inject constructor(
             val refreshToken = tokenManager.getRefreshTokenSync()
                 ?: return ApiResult.Error("No refresh token")
 
-            val response = apiService.refreshToken(RefreshTokenRequest(refreshToken))
+            val response = apiService.refreshToken(RefreshRequest(refreshToken))
 
             if (response.isSuccessful) {
                 val body = response.body()

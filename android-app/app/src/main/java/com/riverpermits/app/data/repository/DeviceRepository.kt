@@ -4,8 +4,8 @@ import android.os.Build
 import android.util.Log
 import com.riverpermits.app.data.local.TokenManager
 import com.riverpermits.app.data.model.ApiResult
-import com.riverpermits.app.data.model.DeviceRegistrationRequest
-import com.riverpermits.app.data.remote.ApiService
+import com.riverpermits.app.data.remote.api.ApiService
+import com.riverpermits.app.data.remote.dto.RegisterDeviceRequest
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -27,13 +27,13 @@ class DeviceRepository @Inject constructor(
             }
 
             val deviceName = "${Build.MANUFACTURER} ${Build.MODEL}"
-            val request = DeviceRegistrationRequest(
+            val request = RegisterDeviceRequest(
                 token = fcmToken,
                 deviceName = deviceName,
                 platform = "android"
             )
 
-            val response = apiService.registerDevice("Bearer $accessToken", request)
+            val response = apiService.registerDevice(request)
 
             if (response.isSuccessful) {
                 Log.d(TAG, "Device registered successfully")
@@ -50,10 +50,7 @@ class DeviceRepository @Inject constructor(
 
     suspend fun unregisterDevice(fcmToken: String): ApiResult<Unit> {
         return try {
-            val accessToken = tokenManager.getAccessTokenSync()
-                ?: return ApiResult.Error("Not authenticated")
-
-            val response = apiService.unregisterDevice("Bearer $accessToken", fcmToken)
+            val response = apiService.unregisterDevice(fcmToken)
 
             if (response.isSuccessful) {
                 Log.d(TAG, "Device unregistered successfully")
