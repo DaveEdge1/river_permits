@@ -19,6 +19,7 @@ class AuthRepository @Inject constructor(
 ) {
     val isLoggedIn: Flow<Boolean> = tokenManager.isLoggedIn
     val userEmail: Flow<String?> = tokenManager.userEmail
+    val isAdmin: Flow<Boolean> = tokenManager.isAdmin
 
     suspend fun login(email: String, password: String): ApiResult<LoginResponse> {
         return try {
@@ -30,7 +31,8 @@ class AuthRepository @Inject constructor(
                     tokenManager.saveTokens(
                         accessToken = body.accessToken,
                         refreshToken = body.refreshToken,
-                        email = body.user.email
+                        email = body.user.email,
+                        isAdmin = body.user.isAdmin
                     )
                     ApiResult.Success(body)
                 } else {

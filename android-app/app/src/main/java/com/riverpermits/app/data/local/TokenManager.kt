@@ -3,6 +3,7 @@ package com.riverpermits.app.data.local
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
@@ -26,6 +27,7 @@ class TokenManager @Inject constructor(
         private val ACCESS_TOKEN_KEY = stringPreferencesKey("access_token")
         private val REFRESH_TOKEN_KEY = stringPreferencesKey("refresh_token")
         private val USER_EMAIL_KEY = stringPreferencesKey("user_email")
+        private val IS_ADMIN_KEY = booleanPreferencesKey("is_admin")
     }
 
     val accessToken: Flow<String?> = context.dataStore.data.map { preferences ->
@@ -40,13 +42,18 @@ class TokenManager @Inject constructor(
         preferences[USER_EMAIL_KEY]
     }
 
+    val isAdmin: Flow<Boolean> = context.dataStore.data.map { preferences ->
+        preferences[IS_ADMIN_KEY] ?: false
+    }
+
     val isLoggedIn: Flow<Boolean> = accessToken.map { it != null }
 
-    suspend fun saveTokens(accessToken: String, refreshToken: String, email: String) {
+    suspend fun saveTokens(accessToken: String, refreshToken: String, email: String, isAdmin: Boolean = false) {
         context.dataStore.edit { preferences ->
             preferences[ACCESS_TOKEN_KEY] = accessToken
             preferences[REFRESH_TOKEN_KEY] = refreshToken
             preferences[USER_EMAIL_KEY] = email
+            preferences[IS_ADMIN_KEY] = isAdmin
         }
     }
 
@@ -61,6 +68,7 @@ class TokenManager @Inject constructor(
             preferences.remove(ACCESS_TOKEN_KEY)
             preferences.remove(REFRESH_TOKEN_KEY)
             preferences.remove(USER_EMAIL_KEY)
+            preferences.remove(IS_ADMIN_KEY)
         }
     }
 
@@ -70,5 +78,9 @@ class TokenManager @Inject constructor(
 
     suspend fun getRefreshTokenSync(): String? {
         return context.dataStore.data.first()[REFRESH_TOKEN_KEY]
+    }
+
+    suspend fun getIsAdminSync(): Boolean {
+        return context.dataStore.data.first()[IS_ADMIN_KEY] ?: false
     }
 }

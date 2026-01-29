@@ -16,6 +16,7 @@ const adminRoutes = require('./routes/admin');
 const mobileAuthRoutes = require('./routes/mobile-auth');
 const devicesRoutes = require('./routes/devices');
 const mobilePermitsRoutes = require('./routes/mobile-permits');
+const mobileAdminRoutes = require('./routes/mobile-admin');
 const { initializeFCM, isFCMEnabled } = require('./fcm-service');
 
 const app = express();
@@ -49,6 +50,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/auth/mobile', mobileAuthRoutes);
 app.use('/api/devices', devicesRoutes);
 app.use('/api/mobile/permits', mobilePermitsRoutes);
+app.use('/api/mobile/admin', mobileAdminRoutes);
 
 // Root route - redirect to login
 app.get('/', (req, res) => {

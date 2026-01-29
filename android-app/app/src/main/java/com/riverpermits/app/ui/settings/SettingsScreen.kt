@@ -20,6 +20,7 @@ import com.riverpermits.app.R
 fun SettingsScreen(
     onNavigateBack: () -> Unit,
     onLogout: () -> Unit,
+    onNavigateToAdmin: () -> Unit = {},
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -126,6 +127,27 @@ fun SettingsScreen(
                 },
                 modifier = Modifier.clickable { showLogoutDialog = true }
             )
+
+            // Admin section (only visible to admins)
+            if (uiState.isAdmin) {
+                Divider()
+
+                Text(
+                    text = "Admin",
+                    style = MaterialTheme.typography.titleSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(16.dp)
+                )
+
+                ListItem(
+                    headlineContent = { Text("Admin Tools") },
+                    supportingContent = { Text("Test notifications and other admin features") },
+                    leadingContent = {
+                        Icon(Icons.Default.Build, contentDescription = null)
+                    },
+                    modifier = Modifier.clickable { onNavigateToAdmin() }
+                )
+            }
 
             Spacer(modifier = Modifier.weight(1f))
 
