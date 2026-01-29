@@ -23,7 +23,7 @@ android {
         }
 
         // API Base URL - change this to your server address
-        buildConfigField("String", "API_BASE_URL", "\"http://64.227.48.163:3000\"")
+        buildConfigField("String", "API_BASE_URL", "\"http://64.227.48.163\"")
     }
 
     buildTypes {
