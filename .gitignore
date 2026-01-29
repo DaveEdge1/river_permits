@@ -67,4 +67,5 @@ database/*.db-wal
 *.gradle
 android-app/.gradle/
 android-app/.gradle
-*.kt
+android-app/local.properties
+android-app/app/google-services.json
