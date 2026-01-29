@@ -7,7 +7,7 @@ const express = require('express');
 const router = express.Router();
 const { spawn } = require('child_process');
 const path = require('path');
-const { notificationQueries, permitQueries, deviceTokenQueries } = require('../db');
+const { notificationQueries, permitQueries, deviceTokenQueries, run } = require('../db');
 const { requireJwtAuth } = require('../jwt-auth');
 const { sendPermitNotification } = require('../fcm-service');
 
@@ -58,25 +58,22 @@ router.post('/test-notify', async (req, res) => {
     console.log(`Admin ${req.userEmail} triggered test-notify`);
 
     // Step 1: Clear notification history for this user
-    const db = require('better-sqlite3')(path.join(__dirname, '..', '..', 'database', 'permits.db'));
-    const clearResult = db.prepare('DELETE FROM notifications WHERE user_id = ?').run(userId);
+    const clearResult = run('DELETE FROM notifications WHERE user_id = ?', [userId]);
     console.log(`Cleared ${clearResult.changes} notifications for user ${userId}`);
 
     // Step 2: Get user's enabled permits
     const permits = permitQueries.findByUserId.all(userId).filter(p => p.enabled === 1);
 
     if (permits.length === 0) {
-      db.close();
       return res.json({
         success: true,
         message: 'No enabled permits to check',
         permitsChecked: 0,
         availablePermits: 0,
-        notificationSent: false
+        notificationSent: false,
+        notificationsCleared: clearResult.changes
       });
     }
-
-    db.close();
 
     // Step 3: Run the permit check script
     const pythonPath = getPythonPath();
