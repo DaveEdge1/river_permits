@@ -1,14 +1,18 @@
 package com.riverpermits.app.data.remote
 
+import com.riverpermits.app.data.model.DeviceRegistrationRequest
+import com.riverpermits.app.data.model.DeviceRegistrationResponse
 import com.riverpermits.app.data.model.LoginRequest
 import com.riverpermits.app.data.model.LoginResponse
 import com.riverpermits.app.data.model.RefreshTokenRequest
 import com.riverpermits.app.data.model.RefreshTokenResponse
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 /**
  * Retrofit API service for River Permits backend
@@ -39,4 +43,22 @@ interface ApiService {
      */
     @GET("api/auth/mobile/verify")
     suspend fun verifyToken(@Header("Authorization") token: String): Response<Unit>
+
+    /**
+     * Register device for push notifications
+     */
+    @POST("api/devices/register")
+    suspend fun registerDevice(
+        @Header("Authorization") token: String,
+        @Body request: DeviceRegistrationRequest
+    ): Response<DeviceRegistrationResponse>
+
+    /**
+     * Unregister device token
+     */
+    @DELETE("api/devices/{token}")
+    suspend fun unregisterDevice(
+        @Header("Authorization") authToken: String,
+        @Path("token") deviceToken: String
+    ): Response<Unit>
 }
