@@ -1,6 +1,7 @@
 package com.riverpermits.app.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +15,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.riverpermits.app.ui.admin.AdminScreen
 import com.riverpermits.app.ui.dashboard.DashboardScreen
 import com.riverpermits.app.ui.login.LoginScreen
 import com.riverpermits.app.ui.login.LoginViewModel
@@ -42,6 +44,7 @@ sealed class Screen(val route: String) {
     data object Login : Screen("login")
     data object Dashboard : Screen("dashboard")
     data object Settings : Screen("settings")
+    data object Admin : Screen("admin")
 }
 
 @Composable
@@ -88,6 +91,19 @@ fun RiverPermitsApp() {
                     navController.navigate(Screen.Login.route) {
                         popUpTo(0) { inclusive = true }
                     }
+                },
+                onNavigateToAdmin = {
+                    Log.d("MainActivity", "Navigating to Admin screen")
+                    navController.navigate(Screen.Admin.route)
+                }
+            )
+        }
+
+        composable(Screen.Admin.route) {
+            Log.d("MainActivity", "AdminScreen composable loading")
+            AdminScreen(
+                onNavigateBack = {
+                    navController.popBackStack()
                 }
             )
         }
