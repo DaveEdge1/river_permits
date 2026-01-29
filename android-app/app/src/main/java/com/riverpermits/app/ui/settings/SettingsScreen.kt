@@ -90,7 +90,7 @@ fun SettingsScreen(
                 }
             )
 
-            HorizontalDivider()
+            Divider()
 
             // Account section
             Text(
