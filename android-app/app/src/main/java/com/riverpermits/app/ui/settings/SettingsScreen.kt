@@ -21,7 +21,7 @@ import com.riverpermits.app.R
 fun SettingsScreen(
     onNavigateBack: () -> Unit,
     onLogout: () -> Unit,
-    onNavigateToAdmin: () -> Unit = {},
+    onNavigateToAdmin: () -> Unit,
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -142,8 +142,9 @@ fun SettingsScreen(
 
                 Surface(
                     onClick = {
-                        Log.d("SettingsScreen", "Admin Tools clicked!")
+                        Log.d("SettingsScreen", "Admin Tools clicked! Calling onNavigateToAdmin...")
                         onNavigateToAdmin()
+                        Log.d("SettingsScreen", "onNavigateToAdmin() completed")
                     },
                     modifier = Modifier.fillMaxWidth()
                 ) {
