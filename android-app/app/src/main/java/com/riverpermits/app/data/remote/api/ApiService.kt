@@ -59,4 +59,12 @@ interface ApiService {
 
     @PUT("api/devices/preferences")
     suspend fun updatePreferences(@Body request: UpdatePreferencesRequest): Response<SuccessResponse>
+
+    // ==================== Admin ====================
+
+    @POST("api/mobile/admin/test-notify")
+    suspend fun testNotify(): Response<TestNotifyResponse>
+
+    @GET("api/mobile/admin/status")
+    suspend fun getAdminStatus(): Response<AdminStatusResponse>
 }

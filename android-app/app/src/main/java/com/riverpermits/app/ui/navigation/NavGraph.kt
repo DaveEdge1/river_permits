@@ -7,6 +7,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.riverpermits.app.ui.admin.AdminScreen
 import com.riverpermits.app.ui.auth.LoginScreen
 import com.riverpermits.app.ui.auth.LoginViewModel
 import com.riverpermits.app.ui.dashboard.DashboardScreen
@@ -19,6 +20,7 @@ sealed class Screen(val route: String) {
     data object Login : Screen("login")
     data object Dashboard : Screen("dashboard")
     data object Settings : Screen("settings")
+    data object Admin : Screen("admin")
 }
 
 /**
@@ -60,6 +62,17 @@ fun NavGraph(
                     navController.navigate(Screen.Login.route) {
                         popUpTo(0) { inclusive = true }
                     }
+                },
+                onNavigateToAdmin = {
+                    navController.navigate(Screen.Admin.route)
+                }
+            )
+        }
+
+        composable(Screen.Admin.route) {
+            AdminScreen(
+                onNavigateBack = {
+                    navController.popBackStack()
                 }
             )
         }
