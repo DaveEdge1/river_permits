@@ -1,14 +1,18 @@
 package com.riverpermits.app.ui.auth
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.messaging.FirebaseMessaging
 import com.riverpermits.app.data.model.ApiResult
 import com.riverpermits.app.data.repository.AuthRepository
+import com.riverpermits.app.data.repository.DeviceRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 data class LoginUiState(
@@ -21,7 +25,8 @@ data class LoginUiState(
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
+    private val deviceRepository: DeviceRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(LoginUiState())
@@ -67,6 +72,9 @@ class LoginViewModel @Inject constructor(
 
             when (result) {
                 is ApiResult.Success -> {
+                    // Register FCM token after successful login
+                    registerFcmToken()
+
                     _uiState.value = _uiState.value.copy(
                         isLoading = false,
                         isLoggedIn = true,
@@ -86,7 +94,31 @@ class LoginViewModel @Inject constructor(
         }
     }
 
+    private suspend fun registerFcmToken() {
+        try {
+            val token = FirebaseMessaging.getInstance().token.await()
+            Log.d(TAG, "FCM token obtained: ${token.take(20)}...")
+
+            val result = deviceRepository.registerDevice(token)
+            when (result) {
+                is ApiResult.Success -> {
+                    Log.d(TAG, "FCM token registered successfully")
+                }
+                is ApiResult.Error -> {
+                    Log.e(TAG, "Failed to register FCM token: ${result.message}")
+                }
+                ApiResult.Loading -> {}
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to get FCM token", e)
+        }
+    }
+
     fun clearError() {
         _uiState.value = _uiState.value.copy(errorMessage = null)
+    }
+
+    companion object {
+        private const val TAG = "LoginViewModel"
     }
 }
