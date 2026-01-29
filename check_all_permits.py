@@ -187,7 +187,8 @@ def main():
                     result = fcm_notifier.send_permit_notification(
                         tokens=device_tokens,
                         permit_name=permit['name'],
-                        available_permits=available_permits
+                        available_permits=available_permits,
+                        facility_id=permit.get('facility_id')
                     )
 
                     if result['success_count'] > 0:
