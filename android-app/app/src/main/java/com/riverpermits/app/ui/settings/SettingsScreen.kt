@@ -139,14 +139,21 @@ fun SettingsScreen(
                     modifier = Modifier.padding(16.dp)
                 )
 
-                ListItem(
-                    headlineContent = { Text("Admin Tools") },
-                    supportingContent = { Text("Test notifications and other admin features") },
-                    leadingContent = {
-                        Icon(Icons.Default.Build, contentDescription = null)
-                    },
-                    modifier = Modifier.clickable { onNavigateToAdmin() }
-                )
+                Surface(
+                    onClick = onNavigateToAdmin,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    ListItem(
+                        headlineContent = { Text("Admin Tools") },
+                        supportingContent = { Text("Test notifications and other admin features") },
+                        leadingContent = {
+                            Icon(Icons.Default.Build, contentDescription = null)
+                        },
+                        trailingContent = {
+                            Icon(Icons.Default.ChevronRight, contentDescription = null)
+                        }
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.weight(1f))
