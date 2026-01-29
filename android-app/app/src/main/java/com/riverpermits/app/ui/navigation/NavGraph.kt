@@ -1,5 +1,6 @@
 package com.riverpermits.app.ui.navigation
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -64,12 +65,14 @@ fun NavGraph(
                     }
                 },
                 onNavigateToAdmin = {
+                    Log.d("NavGraph", "Navigating to Admin screen")
                     navController.navigate(Screen.Admin.route)
                 }
             )
         }
 
         composable(Screen.Admin.route) {
+            Log.d("NavGraph", "AdminScreen composable loading")
             AdminScreen(
                 onNavigateBack = {
                     navController.popBackStack()
