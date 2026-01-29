@@ -119,7 +119,7 @@ fun SettingsScreen(
                 },
                 leadingContent = {
                     Icon(
-                        Icons.AutoMirrored.Filled.ExitToApp,
+                        Icons.Filled.ExitToApp,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.error
                     )
