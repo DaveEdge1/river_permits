@@ -39,6 +39,11 @@ function requireAdmin(req, res, next) {
 }
 
 // All routes require JWT auth + admin role
+router.use((req, res, next) => {
+  console.log(`[mobile-admin] Route hit: ${req.method} ${req.path}`);
+  console.log('[mobile-admin] Auth header:', req.headers.authorization ? 'present' : 'missing');
+  next();
+});
 router.use(requireJwtAuth);
 router.use(requireAdmin);
 
