@@ -264,13 +264,21 @@ class FCMNotifier:
             body = f"New availability for {river_count} rivers"
 
         # Build data payload with all rivers
+        # FCM has a 4KB payload limit, so we limit permits per river
+        MAX_PERMITS_PER_RIVER = 5
+
         rivers_payload = []
         for river in rivers_data:
             permits = river.get('permits', [])
+            total_for_river = len(permits)
+            # Only include first MAX_PERMITS_PER_RIVER permits to stay under size limit
+            limited_permits = permits[:MAX_PERMITS_PER_RIVER]
+
             rivers_payload.append({
                 'permit_name': river.get('permit_name', 'Unknown'),
                 'facility_id': str(river.get('facility_id', '')) if river.get('facility_id') else '',
-                'permit_count': len(permits),
+                'permit_count': total_for_river,  # Total count (for display)
+                'has_more': total_for_river > MAX_PERMITS_PER_RIVER,
                 'permits': [
                     {
                         'date': p.get('date'),
@@ -278,7 +286,7 @@ class FCMNotifier:
                         'division_name': p.get('division_name', f"Division {p.get('division_id', '?')}"),
                         'remaining': p.get('details', {}).get('remaining', 0)
                     }
-                    for p in permits  # Include all permits, not just 5
+                    for p in limited_permits
                 ]
             })
 

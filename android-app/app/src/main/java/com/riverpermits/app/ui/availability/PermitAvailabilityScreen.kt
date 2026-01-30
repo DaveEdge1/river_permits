@@ -31,7 +31,8 @@ data class RiverData(
     val permitName: String,
     val facilityId: String?,
     val permitCount: Int,
-    val permits: List<PermitAvailability>
+    val permits: List<PermitAvailability>,
+    val hasMore: Boolean = false
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -181,6 +182,31 @@ fun PermitAvailabilityScreen(
 
                             items(permits.sortedBy { it.date }) { availability ->
                                 AvailabilityRow(availability)
+                            }
+                        }
+
+                        // Show "and X more" message if there are additional permits not shown
+                        if (river.hasMore) {
+                            val additionalCount = river.permitCount - river.permits.size
+                            item {
+                                Card(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(top = 8.dp),
+                                    colors = CardDefaults.cardColors(
+                                        containerColor = MaterialTheme.colorScheme.tertiaryContainer
+                                    )
+                                ) {
+                                    Text(
+                                        text = "...and $additionalCount more dates available",
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onTertiaryContainer,
+                                        textAlign = TextAlign.Center,
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .padding(12.dp)
+                                    )
+                                }
                             }
                         }
                     } else {
@@ -344,7 +370,8 @@ private fun parseRiversJson(json: String?): List<RiverData> {
                     permitName = riverObj.optString("permit_name", "Unknown River"),
                     facilityId = riverObj.optString("facility_id", "").ifEmpty { null },
                     permitCount = riverObj.optInt("permit_count", permits.size),
-                    permits = permits
+                    permits = permits,
+                    hasMore = riverObj.optBoolean("has_more", false)
                 )
             )
         }
