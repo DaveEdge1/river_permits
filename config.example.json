@@ -5,8 +5,7 @@
       "facility_id": "233262",
       "start_date": "2025-05-01",
       "end_date": "2025-09-30",
-      "min_people": 1,
-      "max_people": 16,
+      "party_size": 1,
       "enabled": true
     },
     {
@@ -14,8 +13,7 @@
       "facility_id": "234068",
       "start_date": "2025-06-15",
       "end_date": "2025-08-31",
-      "min_people": 1,
-      "max_people": 24,
+      "party_size": 1,
       "enabled": true
     },
     {
@@ -23,8 +21,7 @@
       "facility_id": "251982",
       "start_date": "2025-05-15",
       "end_date": "2025-09-15",
-      "min_people": 1,
-      "max_people": 16,
+      "party_size": 1,
       "enabled": false
     }
   ],

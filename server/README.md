@@ -198,7 +198,7 @@ For Gmail, you need an [App Password](https://support.google.com/accounts/answer
 - `river_name` - Human-readable river name
 - `facility_id` - Recreation.gov facility ID
 - `start_date`, `end_date` - Date range
-- `min_people`, `max_people` - Party size
+- `party_size` - Minimum party size
 - `enabled` - Monitoring status
 - `created_at`, `updated_at` - Timestamps
 

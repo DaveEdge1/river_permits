@@ -18,8 +18,7 @@ data class PermitEditorUiState(
     val selectedRiver: RiverDto? = null,
     val startDate: String = "",
     val endDate: String = "",
-    val minPeople: Int = 1,
-    val maxPeople: Int = 12,
+    val partySize: Int = 1,
     val enabled: Boolean = true,
     val rivers: List<RiverDto> = emptyList(),
     val isLoading: Boolean = false,
@@ -79,8 +78,7 @@ class PermitEditorViewModel @Inject constructor(
                     name = it.name,
                     startDate = it.startDate,
                     endDate = it.endDate,
-                    minPeople = it.minPeople,
-                    maxPeople = it.maxPeople,
+                    partySize = it.partySize,
                     enabled = it.enabled
                 )
                 // Set selected river when rivers are loaded
@@ -111,16 +109,8 @@ class PermitEditorViewModel @Inject constructor(
         _uiState.value = _uiState.value.copy(endDate = date, error = null)
     }
 
-    fun updateMinPeople(min: Int) {
-        val newMin = min.coerceIn(1, 50)
-        val newMax = maxOf(_uiState.value.maxPeople, newMin)
-        _uiState.value = _uiState.value.copy(minPeople = newMin, maxPeople = newMax)
-    }
-
-    fun updateMaxPeople(max: Int) {
-        val newMax = max.coerceIn(1, 50)
-        val newMin = minOf(_uiState.value.minPeople, newMax)
-        _uiState.value = _uiState.value.copy(minPeople = newMin, maxPeople = newMax)
+    fun updatePartySize(size: Int) {
+        _uiState.value = _uiState.value.copy(partySize = size.coerceIn(1, 50))
     }
 
     fun updateEnabled(enabled: Boolean) {
@@ -154,8 +144,7 @@ class PermitEditorViewModel @Inject constructor(
                     facilityId = state.selectedRiver.facilityId,
                     startDate = state.startDate,
                     endDate = state.endDate,
-                    minPeople = state.minPeople,
-                    maxPeople = state.maxPeople,
+                    partySize = state.partySize,
                     enabled = state.enabled
                 )
             } else {
@@ -164,8 +153,7 @@ class PermitEditorViewModel @Inject constructor(
                     facilityId = state.selectedRiver.facilityId,
                     startDate = state.startDate,
                     endDate = state.endDate,
-                    minPeople = state.minPeople,
-                    maxPeople = state.maxPeople
+                    partySize = state.partySize
                 ).map { Unit }
             }
 

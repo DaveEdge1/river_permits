@@ -24,8 +24,6 @@
     <string name="start_date">Start Date</string>
     <string name="end_date">End Date</string>
     <string name="party_size">Party Size</string>
-    <string name="min_people">Min</string>
-    <string name="max_people">Max</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>

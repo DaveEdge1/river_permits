@@ -164,8 +164,7 @@ def main(test_mode=False):
                     facility_id=str(permit['facility_id']),
                     start_date=permit['start_date'],
                     end_date=permit['end_date'],
-                    min_people=permit['min_people'],
-                    max_people=permit['max_people']
+                    party_size=permit.get('party_size', 1)
                 )
 
             if available:

@@ -43,8 +43,7 @@ class PermitRepository @Inject constructor(
         facilityId: String,
         startDate: String,
         endDate: String,
-        minPeople: Int,
-        maxPeople: Int
+        partySize: Int
     ): Result<Int> {
         return try {
             val request = PermitRequest(
@@ -52,8 +51,7 @@ class PermitRepository @Inject constructor(
                 facilityId = facilityId,
                 startDate = startDate,
                 endDate = endDate,
-                minPeople = minPeople,
-                maxPeople = maxPeople,
+                partySize = partySize,
                 enabled = true
             )
 
@@ -78,8 +76,7 @@ class PermitRepository @Inject constructor(
         facilityId: String,
         startDate: String,
         endDate: String,
-        minPeople: Int,
-        maxPeople: Int,
+        partySize: Int,
         enabled: Boolean
     ): Result<Unit> {
         return try {
@@ -88,8 +85,7 @@ class PermitRepository @Inject constructor(
                 facilityId = facilityId,
                 startDate = startDate,
                 endDate = endDate,
-                minPeople = minPeople,
-                maxPeople = maxPeople,
+                partySize = partySize,
                 enabled = enabled
             )
 
@@ -169,8 +165,7 @@ private fun PermitDto.toEntity() = PermitEntity(
     riverName = riverName,
     startDate = startDate,
     endDate = endDate,
-    minPeople = minPeople,
-    maxPeople = maxPeople,
+    partySize = partySize,
     enabled = enabled == 1,
     createdAt = createdAt,
     updatedAt = updatedAt,

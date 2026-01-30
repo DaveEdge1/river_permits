@@ -44,8 +44,7 @@ router.post('/', (req, res) => {
       facility_id,
       start_date,
       end_date,
-      min_people = 1,
-      max_people = 25,
+      party_size = 1,
       enabled = 1
     } = req.body;
 
@@ -75,8 +74,7 @@ router.post('/', (req, res) => {
       facility_id,
       start_date,
       end_date,
-      min_people,
-      max_people,
+      party_size,
       enabled ? 1 : 0
     );
 
@@ -102,8 +100,7 @@ router.put('/:id', (req, res) => {
       facility_id,
       start_date,
       end_date,
-      min_people,
-      max_people,
+      party_size,
       enabled
     } = req.body;
 
@@ -132,8 +129,7 @@ router.put('/:id', (req, res) => {
       facility_id,
       start_date,
       end_date,
-      min_people || 1,
-      max_people || 25,
+      party_size || 1,
       enabled ? 1 : 0,
       permitId,
       req.session.userId

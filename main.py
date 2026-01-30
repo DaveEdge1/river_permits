@@ -172,8 +172,7 @@ class RiverPermitMonitor:
         facility_id = permit_config.get('facility_id')
         start_date = permit_config.get('start_date')
         end_date = permit_config.get('end_date')
-        min_people = permit_config.get('min_people', 1)
-        max_people = permit_config.get('max_people', 99)
+        party_size = permit_config.get('party_size', 1)
 
         if not all([facility_id, start_date, end_date]):
             logger.error(f"Incomplete configuration for {name}")
@@ -186,8 +185,7 @@ class RiverPermitMonitor:
             facility_id=facility_id,
             start_date=start_date,
             end_date=end_date,
-            min_people=min_people,
-            max_people=max_people
+            party_size=party_size
         )
 
         if available:

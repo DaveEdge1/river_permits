@@ -115,10 +115,8 @@ fun AddPermitScreen(
                 // Party Size
                 item {
                     PartySizeSection(
-                        minPeople = uiState.minPeople,
-                        maxPeople = uiState.maxPeople,
-                        onMinChange = viewModel::updateMinPeople,
-                        onMaxChange = viewModel::updateMaxPeople
+                        partySize = uiState.partySize,
+                        onPartySizeChange = viewModel::updatePartySize
                     )
                 }
 
@@ -332,10 +330,8 @@ private fun DatePickerDialog(
 
 @Composable
 private fun PartySizeSection(
-    minPeople: Int,
-    maxPeople: Int,
-    onMinChange: (Int) -> Unit,
-    onMaxChange: (Int) -> Unit
+    partySize: Int,
+    onPartySizeChange: (Int) -> Unit
 ) {
     Column {
         Text(
@@ -344,33 +340,17 @@ private fun PartySizeSection(
             modifier = Modifier.padding(bottom = 8.dp)
         )
 
-        Row(
+        OutlinedTextField(
+            value = partySize.toString(),
+            onValueChange = { it.toIntOrNull()?.let(onPartySizeChange) },
+            label = { Text("Number of people") },
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            // Min People
-            OutlinedTextField(
-                value = minPeople.toString(),
-                onValueChange = { it.toIntOrNull()?.let(onMinChange) },
-                label = { Text("Min") },
-                modifier = Modifier.weight(1f),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                singleLine = true
-            )
-
-            // Max People
-            OutlinedTextField(
-                value = maxPeople.toString(),
-                onValueChange = { it.toIntOrNull()?.let(onMaxChange) },
-                label = { Text("Max") },
-                modifier = Modifier.weight(1f),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                singleLine = true
-            )
-        }
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            singleLine = true
+        )
 
         Text(
-            text = "Number of people in your party",
+            text = "Minimum number of people in your party",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(top = 4.dp)

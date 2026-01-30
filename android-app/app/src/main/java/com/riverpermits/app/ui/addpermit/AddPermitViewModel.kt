@@ -20,8 +20,7 @@ data class AddPermitUiState(
     val permitName: String = "",
     val startDate: LocalDate = LocalDate.now(),
     val endDate: LocalDate = LocalDate.now().plusMonths(3),
-    val minPeople: Int = 1,
-    val maxPeople: Int = 15,
+    val partySize: Int = 1,
     val isLoading: Boolean = false,
     val isLoadingRivers: Boolean = false,
     val error: String? = null,
@@ -87,12 +86,8 @@ class AddPermitViewModel @Inject constructor(
         _uiState.value = _uiState.value.copy(endDate = date)
     }
 
-    fun updateMinPeople(count: Int) {
-        _uiState.value = _uiState.value.copy(minPeople = count.coerceIn(1, _uiState.value.maxPeople))
-    }
-
-    fun updateMaxPeople(count: Int) {
-        _uiState.value = _uiState.value.copy(maxPeople = count.coerceIn(_uiState.value.minPeople, 50))
+    fun updatePartySize(count: Int) {
+        _uiState.value = _uiState.value.copy(partySize = count.coerceIn(1, 50))
     }
 
     fun createPermit() {
@@ -120,8 +115,7 @@ class AddPermitViewModel @Inject constructor(
                 facilityId = state.selectedRiver.facilityId,
                 startDate = state.startDate.format(dateFormatter),
                 endDate = state.endDate.format(dateFormatter),
-                minPeople = state.minPeople,
-                maxPeople = state.maxPeople
+                partySize = state.partySize
             )
 
             when (result) {

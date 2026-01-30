@@ -214,7 +214,7 @@ fun PermitCard(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Text(
-                        text = "${permit.minPeople} - ${permit.maxPeople}",
+                        text = "${permit.partySize}",
                         style = MaterialTheme.typography.bodySmall
                     )
                 }

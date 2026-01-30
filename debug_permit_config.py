@@ -117,7 +117,7 @@ def main():
         print(f"User: {permit['email']}")
         print(f"Facility ID: {permit['facility_id']}")
         print(f"Date Range: {permit['start_date']} to {permit['end_date']}")
-        print(f"Party Size: {permit['min_people']} - {permit['max_people']} people")
+        print(f"Party Size: {permit.get('party_size', 1)} people")
         print(f"Enabled: {permit['enabled'] == 1}")
         print('=' * 70)
 

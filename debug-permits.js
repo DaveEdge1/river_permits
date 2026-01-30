@@ -21,8 +21,7 @@ async function main() {
       pm.facility_name,
       pm.start_date,
       pm.end_date,
-      pm.min_people,
-      pm.max_people,
+      pm.party_size,
       u.email
     FROM permit_monitors pm
     JOIN users u ON pm.user_id = u.id
@@ -49,7 +48,7 @@ async function main() {
     console.log(`  Facility: ${monitor.facility_name}`);
     console.log(`  Facility ID: ${monitor.facility_id}`);
     console.log(`  Date Range: ${monitor.start_date} to ${monitor.end_date}`);
-    console.log(`  Party Size: ${monitor.min_people} - ${monitor.max_people} people`);
+    console.log(`  Party Size: ${monitor.party_size || 1} people`);
     console.log();
   });
 }

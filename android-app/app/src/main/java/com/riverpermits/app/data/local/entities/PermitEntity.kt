@@ -26,11 +26,8 @@ data class PermitEntity(
     @ColumnInfo(name = "end_date")
     val endDate: String,
 
-    @ColumnInfo(name = "min_people")
-    val minPeople: Int,
-
-    @ColumnInfo(name = "max_people")
-    val maxPeople: Int,
+    @ColumnInfo(name = "party_size")
+    val partySize: Int,
 
     val enabled: Boolean,
 
