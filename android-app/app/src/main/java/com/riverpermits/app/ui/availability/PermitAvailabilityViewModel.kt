@@ -1,6 +1,7 @@
 package com.riverpermits.app.ui.availability
 
 import android.util.Log
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.riverpermits.app.data.remote.api.ApiService
@@ -17,23 +18,32 @@ data class AvailabilityUiState(
     val rivers: List<AvailabilityRiverDto> = emptyList(),
     val totalCount: Int = 0,
     val riverCount: Int = 0,
-    val error: String? = null
+    val error: String? = null,
+    val facilityId: String? = null
 )
 
 @HiltViewModel
 class PermitAvailabilityViewModel @Inject constructor(
-    private val apiService: ApiService
+    private val apiService: ApiService,
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(AvailabilityUiState())
     val uiState: StateFlow<AvailabilityUiState> = _uiState.asStateFlow()
+
+    // Get optional facilityId from navigation arguments
+    private val facilityId: String? = savedStateHandle.get<String>("facilityId")
+
+    init {
+        _uiState.value = _uiState.value.copy(facilityId = facilityId)
+    }
 
     fun loadAvailability() {
         viewModelScope.launch {
             _uiState.value = _uiState.value.copy(isLoading = true, error = null)
 
             try {
-                val response = apiService.getAvailability()
+                val response = apiService.getAvailability(facilityId)
 
                 if (response.isSuccessful) {
                     val body = response.body()

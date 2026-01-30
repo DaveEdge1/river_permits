@@ -23,17 +23,17 @@ import java.time.format.DateTimeFormatter
 @Composable
 fun AddPermitScreen(
     onNavigateBack: () -> Unit,
-    onPermitCreated: () -> Unit,
+    onPermitSaved: (String) -> Unit,
     viewModel: AddPermitViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
     val displayDateFormatter = remember { DateTimeFormatter.ofPattern("MMM d, yyyy") }
 
-    // Handle success - navigate back
-    LaunchedEffect(uiState.isSuccess) {
-        if (uiState.isSuccess) {
-            onPermitCreated()
+    // Handle success - navigate to availability for this river
+    LaunchedEffect(uiState.isSuccess, uiState.selectedRiver) {
+        if (uiState.isSuccess && uiState.selectedRiver != null) {
+            onPermitSaved(uiState.selectedRiver.facilityId)
         }
     }
 
