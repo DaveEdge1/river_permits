@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">River Permits</string>
+    <string name="app_name">Groover Bookings</string>
 
     <!-- Login Screen -->
-    <string name="login_title">River Permits</string>
+    <string name="login_title">Groover Bookings</string>
     <string name="login_subtitle">Monitor permit availability</string>
     <string name="email_label">Email</string>
     <string name="password_label">Password</string>
