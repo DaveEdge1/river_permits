@@ -27,6 +27,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.riverpermits.app.ui.addpermit.AddPermitScreen
 import com.riverpermits.app.ui.admin.AdminScreen
 import com.riverpermits.app.ui.availability.PermitAvailabilityScreen
 import com.riverpermits.app.ui.dashboard.DashboardScreen
@@ -126,6 +127,7 @@ sealed class Screen(val route: String) {
     data object Dashboard : Screen("dashboard")
     data object Settings : Screen("settings")
     data object Admin : Screen("admin")
+    data object AddPermit : Screen("add_permit")
     data object PermitAvailability : Screen("permit_availability/{totalCount}/{riverCount}?riversJson={riversJson}") {
         fun createRoute(totalCount: Int, riverCount: Int, riversJson: String): String {
             val encodedJson = URLEncoder.encode(riversJson, "UTF-8")
@@ -190,6 +192,9 @@ fun RiverPermitsApp(notificationDataFlow: StateFlow<NotificationData?>) {
                 onNavigateToSettings = {
                     navController.navigate(Screen.Settings.route)
                 },
+                onNavigateToAddPermit = {
+                    navController.navigate(Screen.AddPermit.route)
+                },
                 notificationData = notificationData,
                 onNavigateToAvailability = { data ->
                     val route = Screen.PermitAvailability.createRoute(
@@ -223,6 +228,17 @@ fun RiverPermitsApp(notificationDataFlow: StateFlow<NotificationData?>) {
             Log.d("MainActivity", "AdminScreen composable loading")
             AdminScreen(
                 onNavigateBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(Screen.AddPermit.route) {
+            AddPermitScreen(
+                onNavigateBack = {
+                    navController.popBackStack()
+                },
+                onPermitCreated = {
                     navController.popBackStack()
                 }
             )
