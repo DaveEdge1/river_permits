@@ -240,12 +240,16 @@ router.put('/:id', requireJwtAuth, (req, res) => {
 
 /**
  * DELETE /api/mobile/permits/:id
- * Delete a permit
+ * Delete a permit and its notification history
  */
 router.delete('/:id', requireJwtAuth, (req, res) => {
   try {
     const permitId = parseInt(req.params.id);
 
+    // Delete notifications for this permit first
+    notificationQueries.deleteByPermitId.run(permitId);
+
+    // Then delete the permit
     const result = permitQueries.delete.run(permitId, req.userId);
 
     if (result.changes === 0) {
@@ -342,23 +346,33 @@ router.get('/notifications', requireJwtAuth, (req, res) => {
 
 /**
  * GET /api/mobile/permits/availability
- * Get current availability for all user's enabled permits
+ * Get current availability for user's permits
+ * Optional query param: facilityId - filter to a specific facility
  */
 router.get('/availability', requireJwtAuth, async (req, res) => {
   try {
-    // Get user's enabled permits
-    const permits = permitQueries.findByUserId.all(req.userId);
-    const enabledPermits = permits.filter(p => p.enabled === 1);
+    const { facilityId } = req.query;
 
-    if (enabledPermits.length === 0) {
-      return res.json({ rivers: [], totalCount: 0 });
+    // Get user's permits
+    const permits = permitQueries.findByUserId.all(req.userId);
+
+    // Filter permits - if facilityId provided, get that permit; otherwise get all enabled
+    let targetPermits;
+    if (facilityId) {
+      targetPermits = permits.filter(p => p.facility_id === facilityId);
+    } else {
+      targetPermits = permits.filter(p => p.enabled === 1);
+    }
+
+    if (targetPermits.length === 0) {
+      return res.json({ rivers: [], totalCount: 0, riverCount: 0 });
     }
 
     const riverResults = [];
     let totalCount = 0;
 
     // Check availability for each permit
-    for (const permit of enabledPermits) {
+    for (const permit of targetPermits) {
       const river = rivers.find(r => r.id === permit.facility_id);
       const riverName = river ? river.name : permit.name;
 

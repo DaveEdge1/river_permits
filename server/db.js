@@ -382,6 +382,12 @@ const notificationQueries = {
     run: () => {
       return run('DELETE FROM notifications WHERE notified_at < datetime("now", "-90 days")');
     }
+  },
+
+  deleteByPermitId: {
+    run: (permitId) => {
+      return run('DELETE FROM notifications WHERE permit_id = ?', [permitId]);
+    }
   }
 };
 

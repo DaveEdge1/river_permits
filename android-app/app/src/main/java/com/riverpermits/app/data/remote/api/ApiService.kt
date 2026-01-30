@@ -47,7 +47,9 @@ interface ApiService {
     suspend fun getNotifications(): Response<NotificationsResponse>
 
     @GET("api/mobile/permits/availability")
-    suspend fun getAvailability(): Response<AvailabilityResponse>
+    suspend fun getAvailability(
+        @Query("facilityId") facilityId: String? = null
+    ): Response<AvailabilityResponse>
 
     // ==================== Devices ====================
 

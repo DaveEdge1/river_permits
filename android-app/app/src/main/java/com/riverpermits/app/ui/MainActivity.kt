@@ -130,7 +130,13 @@ sealed class Screen(val route: String) {
     data object AddPermit : Screen("add_permit/{permitId}") {
         fun createRoute(permitId: Int = 0) = "add_permit/$permitId"
     }
-    data object PermitAvailabilitySimple : Screen("permit_availability")
+    data object PermitAvailabilitySimple : Screen("permit_availability?facilityId={facilityId}") {
+        fun createRoute(facilityId: String? = null) = if (facilityId != null) {
+            "permit_availability?facilityId=$facilityId"
+        } else {
+            "permit_availability"
+        }
+    }
     data object PermitAvailability : Screen("permit_availability/{totalCount}/{riverCount}?riversJson={riversJson}") {
         fun createRoute(totalCount: Int, riverCount: Int, riversJson: String): String {
             val encodedJson = URLEncoder.encode(riversJson, "UTF-8")
@@ -202,7 +208,7 @@ fun RiverPermitsApp(notificationDataFlow: StateFlow<NotificationData?>) {
                     navController.navigate(Screen.AddPermit.createRoute(permitId))
                 },
                 onNavigateToAvailabilityDirect = {
-                    navController.navigate(Screen.PermitAvailabilitySimple.route)
+                    navController.navigate(Screen.PermitAvailabilitySimple.createRoute())
                 },
                 notificationData = notificationData,
                 onNavigateToAvailability = { data ->
@@ -252,14 +258,27 @@ fun RiverPermitsApp(notificationDataFlow: StateFlow<NotificationData?>) {
                 onNavigateBack = {
                     navController.popBackStack()
                 },
-                onPermitCreated = {
-                    navController.popBackStack()
+                onPermitSaved = { facilityId ->
+                    // Navigate to availability for this specific river
+                    navController.navigate(Screen.PermitAvailabilitySimple.createRoute(facilityId)) {
+                        // Pop the add/edit screen from the back stack
+                        popUpTo(Screen.Dashboard.route) { inclusive = false }
+                    }
                 }
             )
         }
 
-        // Simple route for direct access (fetches from API)
-        composable(Screen.PermitAvailabilitySimple.route) {
+        // Simple route for direct access (fetches from API), with optional facilityId filter
+        composable(
+            route = Screen.PermitAvailabilitySimple.route,
+            arguments = listOf(
+                navArgument("facilityId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                }
+            )
+        ) {
             PermitAvailabilityScreen(
                 onNavigateBack = {
                     navController.popBackStack()
