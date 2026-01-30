@@ -19,7 +19,7 @@ router.get('/', requireJwtAuth, (req, res) => {
 
     // Add river name to each permit
     const permitsWithRiverNames = permits.map(permit => {
-      const river = rivers.find(r => r.facilityId === permit.facility_id);
+      const river = rivers.find(r => r.id === permit.facility_id);
       return {
         ...permit,
         riverName: river ? river.name : 'Unknown River',
@@ -65,8 +65,8 @@ router.post('/', requireJwtAuth, (req, res) => {
       });
     }
 
-    // Validate facility ID exists
-    const river = rivers.find(r => r.facilityId === facilityId);
+    // Validate facility ID exists (rivers use 'id' property)
+    const river = rivers.find(r => r.id === facilityId);
     if (!river) {
       return res.status(400).json({ error: 'Invalid facility ID' });
     }
@@ -225,7 +225,13 @@ router.patch('/:id/toggle', requireJwtAuth, (req, res) => {
  * Get list of available rivers
  */
 router.get('/rivers', requireJwtAuth, (req, res) => {
-  res.json({ rivers });
+  // Map river data to match expected DTO format (id -> facilityId)
+  const mappedRivers = rivers.map(r => ({
+    name: r.name,
+    facilityId: r.id,
+    description: r.description || r.location
+  }));
+  res.json({ rivers: mappedRivers });
 });
 
 /**
