@@ -246,15 +246,17 @@ router.delete('/:id', requireJwtAuth, (req, res) => {
   try {
     const permitId = parseInt(req.params.id);
 
-    // Delete notifications for this permit first
+    // First verify the permit exists and belongs to this user
+    const existing = permitQueries.findById.get(permitId);
+    if (!existing || existing.user_id !== req.userId) {
+      return res.status(404).json({ error: 'Permit not found' });
+    }
+
+    // Delete notifications for this permit (safe now that we've verified ownership)
     notificationQueries.deleteByPermitId.run(permitId);
 
     // Then delete the permit
-    const result = permitQueries.delete.run(permitId, req.userId);
-
-    if (result.changes === 0) {
-      return res.status(404).json({ error: 'Permit not found' });
-    }
+    permitQueries.delete.run(permitId, req.userId);
 
     res.json({
       success: true,
