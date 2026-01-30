@@ -24,6 +24,7 @@ import com.riverpermits.app.ui.NotificationData
 fun DashboardScreen(
     onNavigateToSettings: () -> Unit,
     onNavigateToAddPermit: () -> Unit = {},
+    onNavigateToAvailabilityDirect: () -> Unit = {},
     notificationData: NotificationData? = null,
     onNavigateToAvailability: ((NotificationData) -> Unit)? = null,
     viewModel: DashboardViewModel = hiltViewModel()
@@ -107,7 +108,7 @@ fun DashboardScreen(
                         contentPadding = PaddingValues(16.dp),
                         verticalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
-                        // Show availability banner if there's notification data
+                        // Show notification banner if there's notification data
                         if (notificationData != null && onNavigateToAvailability != null) {
                             item {
                                 AvailabilityBanner(
@@ -116,6 +117,11 @@ fun DashboardScreen(
                                     onClick = { onNavigateToAvailability(notificationData) }
                                 )
                             }
+                        }
+
+                        // Always show Check Availability button
+                        item {
+                            CheckAvailabilityButton(onClick = onNavigateToAvailabilityDirect)
                         }
 
                         items(uiState.permits, key = { it.id }) { permit ->
@@ -321,6 +327,58 @@ fun AvailabilityBanner(
                 imageVector = Icons.Default.ChevronRight,
                 contentDescription = "View details",
                 tint = MaterialTheme.colorScheme.onPrimaryContainer
+            )
+        }
+    }
+}
+
+@Composable
+fun CheckAvailabilityButton(
+    onClick: () -> Unit
+) {
+    OutlinedCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
+        colors = CardDefaults.outlinedCardColors(
+            containerColor = MaterialTheme.colorScheme.surface
+        )
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.weight(1f)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Search,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(24.dp)
+                )
+                Spacer(modifier = Modifier.width(12.dp))
+                Column {
+                    Text(
+                        text = "Check Availability",
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Text(
+                        text = "See all available permits for your rivers",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+            Icon(
+                imageVector = Icons.Default.ChevronRight,
+                contentDescription = "Check availability",
+                tint = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }

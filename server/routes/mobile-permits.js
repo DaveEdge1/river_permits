@@ -9,6 +9,85 @@ const { permitQueries, notificationQueries } = require('../db');
 const { requireJwtAuth } = require('../jwt-auth');
 const rivers = require('../rivers');
 
+// Helper function to fetch availability from recreation.gov
+async function fetchAvailability(facilityId, startDate, endDate) {
+  const results = [];
+
+  try {
+    // Fetch facility info to get division names
+    const facilityUrl = `https://www.recreation.gov/api/permits/${facilityId}`;
+    const facilityResponse = await fetch(facilityUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+      }
+    });
+
+    let divisionNames = {};
+    if (facilityResponse.ok) {
+      const facilityData = await facilityResponse.json();
+      if (facilityData.payload && facilityData.payload.divisions) {
+        for (const [divId, divInfo] of Object.entries(facilityData.payload.divisions)) {
+          divisionNames[divId] = divInfo.name || 'Unknown Section';
+        }
+      }
+    }
+
+    // Parse dates
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+    // Check each month in the date range
+    let current = new Date(start.getFullYear(), start.getMonth(), 1);
+    const endMonth = new Date(end.getFullYear(), end.getMonth(), 1);
+
+    while (current <= endMonth) {
+      const monthStr = current.toISOString();
+      const availUrl = `https://www.recreation.gov/api/permits/${facilityId}/availability/month?start_date=${monthStr}`;
+
+      const availResponse = await fetch(availUrl, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        }
+      });
+
+      if (availResponse.ok) {
+        const availData = await availResponse.json();
+
+        if (availData.payload && availData.payload.availability) {
+          for (const [divisionId, divisionInfo] of Object.entries(availData.payload.availability)) {
+            if (!divisionInfo || !divisionInfo.date_availability) continue;
+
+            for (const [dateStr, permitInfo] of Object.entries(divisionInfo.date_availability)) {
+              const permitDate = new Date(dateStr);
+
+              // Check if date is in our range
+              if (permitDate >= start && permitDate <= end) {
+                const remaining = permitInfo.remaining || 0;
+
+                if (remaining > 0) {
+                  results.push({
+                    date: dateStr.substring(0, 10),
+                    division_id: divisionId,
+                    division_name: divisionNames[divisionId] || 'Unknown Section',
+                    remaining: remaining
+                  });
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // Move to next month
+      current.setMonth(current.getMonth() + 1);
+    }
+  } catch (error) {
+    console.error(`Error fetching availability for ${facilityId}:`, error);
+  }
+
+  return results;
+}
+
 /**
  * GET /api/mobile/permits
  * Get all permits for the authenticated user
@@ -258,6 +337,57 @@ router.get('/notifications', requireJwtAuth, (req, res) => {
   } catch (error) {
     console.error('Get notifications error:', error);
     res.status(500).json({ error: 'Failed to get notifications' });
+  }
+});
+
+/**
+ * GET /api/mobile/permits/availability
+ * Get current availability for all user's enabled permits
+ */
+router.get('/availability', requireJwtAuth, async (req, res) => {
+  try {
+    // Get user's enabled permits
+    const permits = permitQueries.findByUserId.all(req.userId);
+    const enabledPermits = permits.filter(p => p.enabled === 1);
+
+    if (enabledPermits.length === 0) {
+      return res.json({ rivers: [], totalCount: 0 });
+    }
+
+    const riverResults = [];
+    let totalCount = 0;
+
+    // Check availability for each permit
+    for (const permit of enabledPermits) {
+      const river = rivers.find(r => r.id === permit.facility_id);
+      const riverName = river ? river.name : permit.name;
+
+      const availability = await fetchAvailability(
+        permit.facility_id,
+        permit.start_date,
+        permit.end_date
+      );
+
+      if (availability.length > 0) {
+        totalCount += availability.length;
+        riverResults.push({
+          permit_name: riverName,
+          facility_id: permit.facility_id,
+          permit_count: availability.length,
+          permits: availability,
+          has_more: false
+        });
+      }
+    }
+
+    res.json({
+      rivers: riverResults,
+      totalCount: totalCount,
+      riverCount: riverResults.length
+    });
+  } catch (error) {
+    console.error('Get availability error:', error);
+    res.status(500).json({ error: 'Failed to get availability' });
   }
 });
 

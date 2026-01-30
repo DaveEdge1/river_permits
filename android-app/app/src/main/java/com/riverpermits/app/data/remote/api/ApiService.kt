@@ -46,6 +46,9 @@ interface ApiService {
     @GET("api/mobile/permits/notifications")
     suspend fun getNotifications(): Response<NotificationsResponse>
 
+    @GET("api/mobile/permits/availability")
+    suspend fun getAvailability(): Response<AvailabilityResponse>
+
     // ==================== Devices ====================
 
     @POST("api/devices/register")

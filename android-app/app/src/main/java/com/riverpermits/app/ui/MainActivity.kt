@@ -128,6 +128,7 @@ sealed class Screen(val route: String) {
     data object Settings : Screen("settings")
     data object Admin : Screen("admin")
     data object AddPermit : Screen("add_permit")
+    data object PermitAvailabilitySimple : Screen("permit_availability")
     data object PermitAvailability : Screen("permit_availability/{totalCount}/{riverCount}?riversJson={riversJson}") {
         fun createRoute(totalCount: Int, riverCount: Int, riversJson: String): String {
             val encodedJson = URLEncoder.encode(riversJson, "UTF-8")
@@ -195,6 +196,9 @@ fun RiverPermitsApp(notificationDataFlow: StateFlow<NotificationData?>) {
                 onNavigateToAddPermit = {
                     navController.navigate(Screen.AddPermit.route)
                 },
+                onNavigateToAvailabilityDirect = {
+                    navController.navigate(Screen.PermitAvailabilitySimple.route)
+                },
                 notificationData = notificationData,
                 onNavigateToAvailability = { data ->
                     val route = Screen.PermitAvailability.createRoute(
@@ -244,6 +248,16 @@ fun RiverPermitsApp(notificationDataFlow: StateFlow<NotificationData?>) {
             )
         }
 
+        // Simple route for direct access (fetches from API)
+        composable(Screen.PermitAvailabilitySimple.route) {
+            PermitAvailabilityScreen(
+                onNavigateBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        // Route with notification data (passed as arguments)
         composable(
             route = Screen.PermitAvailability.route,
             arguments = listOf(
