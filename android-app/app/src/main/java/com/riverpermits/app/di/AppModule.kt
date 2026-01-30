@@ -77,7 +77,9 @@ object AppModule {
             context,
             AppDatabase::class.java,
             "river_permits.db"
-        ).build()
+        )
+            .addMigrations(AppDatabase.MIGRATION_1_2)
+            .build()
     }
 
     @Provides
