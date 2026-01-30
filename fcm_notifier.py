@@ -279,6 +279,8 @@ def get_user_device_tokens(user_id: int, db_path: str) -> List[str]:
     """
     import sqlite3
 
+    print(f"    DEBUG: get_user_device_tokens(user_id={user_id}, db_path={db_path})")
+
     try:
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
@@ -294,12 +296,14 @@ def get_user_device_tokens(user_id: int, db_path: str) -> List[str]:
         """, (user_id,))
 
         tokens = [row[0] for row in cursor.fetchall()]
+        print(f"    DEBUG: Found {len(tokens)} tokens")
         conn.close()
 
         return tokens
 
     except Exception as e:
         logger.error(f"Failed to get device tokens: {e}")
+        print(f"    DEBUG: Exception getting tokens: {e}")
         return []
 
 
