@@ -138,6 +138,15 @@ def main(test_mode=False):
     # Connect to database for notifications tracking
     conn = sqlite3.connect(DB_PATH)
 
+    # In test mode, clear previous test notifications so fake data triggers again
+    if test_mode:
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM notifications WHERE division_id = 'TEST001'")
+        deleted = cursor.rowcount
+        conn.commit()
+        if deleted > 0:
+            print(f"Cleared {deleted} previous test notification(s)")
+
     # Track notifications to send per user
     notifications_by_user = defaultdict(lambda: defaultdict(list))
 
