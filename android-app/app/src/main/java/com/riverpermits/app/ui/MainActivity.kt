@@ -127,7 +127,9 @@ sealed class Screen(val route: String) {
     data object Dashboard : Screen("dashboard")
     data object Settings : Screen("settings")
     data object Admin : Screen("admin")
-    data object AddPermit : Screen("add_permit")
+    data object AddPermit : Screen("add_permit/{permitId}") {
+        fun createRoute(permitId: Int = 0) = "add_permit/$permitId"
+    }
     data object PermitAvailabilitySimple : Screen("permit_availability")
     data object PermitAvailability : Screen("permit_availability/{totalCount}/{riverCount}?riversJson={riversJson}") {
         fun createRoute(totalCount: Int, riverCount: Int, riversJson: String): String {
@@ -194,7 +196,10 @@ fun RiverPermitsApp(notificationDataFlow: StateFlow<NotificationData?>) {
                     navController.navigate(Screen.Settings.route)
                 },
                 onNavigateToAddPermit = {
-                    navController.navigate(Screen.AddPermit.route)
+                    navController.navigate(Screen.AddPermit.createRoute(0))
+                },
+                onNavigateToEditPermit = { permitId ->
+                    navController.navigate(Screen.AddPermit.createRoute(permitId))
                 },
                 onNavigateToAvailabilityDirect = {
                     navController.navigate(Screen.PermitAvailabilitySimple.route)
@@ -237,7 +242,12 @@ fun RiverPermitsApp(notificationDataFlow: StateFlow<NotificationData?>) {
             )
         }
 
-        composable(Screen.AddPermit.route) {
+        composable(
+            route = Screen.AddPermit.route,
+            arguments = listOf(
+                navArgument("permitId") { type = NavType.IntType }
+            )
+        ) {
             AddPermitScreen(
                 onNavigateBack = {
                     navController.popBackStack()
