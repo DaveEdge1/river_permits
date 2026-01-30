@@ -186,7 +186,7 @@ class FCMNotifier:
         facility_id: Optional[str] = None
     ) -> Dict:
         """
-        Send permit availability notification
+        Send permit availability notification for a single river (legacy)
 
         Args:
             tokens: List of FCM device tokens
@@ -197,29 +197,65 @@ class FCMNotifier:
         Returns:
             Dict with success_count, failure_count
         """
-        permit_count = len(available_permits)
-        title = f"{permit_count} Permit{'s' if permit_count > 1 else ''} Available!"
-        body = f"New availability for: {permit_name}"
+        # Convert to multi-river format and delegate
+        rivers_data = [{
+            'permit_name': permit_name,
+            'facility_id': facility_id,
+            'permits': available_permits
+        }]
+        return self.send_multi_river_notification(tokens, rivers_data)
 
-        # Build data payload (include first few permits)
+    def send_multi_river_notification(
+        self,
+        tokens: List[str],
+        rivers_data: List[Dict]
+    ) -> Dict:
+        """
+        Send permit availability notification for multiple rivers
+
+        Args:
+            tokens: List of FCM device tokens
+            rivers_data: List of dicts with permit_name, facility_id, permits
+
+        Returns:
+            Dict with success_count, failure_count
+        """
+        # Calculate totals
+        total_permits = sum(len(r.get('permits', [])) for r in rivers_data)
+        river_count = len(rivers_data)
+
+        if river_count == 1:
+            title = f"{total_permits} Permit{'s' if total_permits > 1 else ''} Available!"
+            body = f"New availability for: {rivers_data[0].get('permit_name', 'Unknown')}"
+        else:
+            title = f"{total_permits} Permit{'s' if total_permits > 1 else ''} Available!"
+            body = f"New availability for {river_count} rivers"
+
+        # Build data payload with all rivers
+        rivers_payload = []
+        for river in rivers_data:
+            permits = river.get('permits', [])
+            rivers_payload.append({
+                'permit_name': river.get('permit_name', 'Unknown'),
+                'facility_id': str(river.get('facility_id', '')) if river.get('facility_id') else '',
+                'permit_count': len(permits),
+                'permits': [
+                    {
+                        'date': p.get('date'),
+                        'division_id': p.get('division_id'),
+                        'division_name': p.get('division_name', f"Division {p.get('division_id', '?')}"),
+                        'remaining': p.get('details', {}).get('remaining', 0)
+                    }
+                    for p in permits  # Include all permits, not just 5
+                ]
+            })
+
         data = {
             'type': 'permit_alert',
-            'permit_name': permit_name,
-            'permit_count': str(permit_count),
-            'permits': json.dumps([
-                {
-                    'date': p.get('date'),
-                    'division_id': p.get('division_id'),
-                    'division_name': p.get('division_name', f"Division {p.get('division_id', '?')}"),
-                    'remaining': p.get('details', {}).get('remaining', 0)
-                }
-                for p in available_permits[:5]  # Limit to 5 for payload size
-            ])
+            'total_count': str(total_permits),
+            'river_count': str(river_count),
+            'rivers': json.dumps(rivers_payload)
         }
-
-        # Include facility_id for direct linking to recreation.gov
-        if facility_id:
-            data['facility_id'] = str(facility_id)
 
         return self.send_to_tokens(tokens, title, body, data)
 

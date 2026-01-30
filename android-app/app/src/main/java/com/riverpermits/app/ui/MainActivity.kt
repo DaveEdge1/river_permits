@@ -84,14 +84,13 @@ class MainActivity : ComponentActivity() {
     private fun extractNotificationData(intent: Intent?): NotificationData? {
         if (intent == null) return null
 
-        val permitName = intent.getStringExtra("permit_name")
-        val permitCount = intent.getIntExtra("permit_count", 0)
-        val permitsJson = intent.getStringExtra("permits_json")
-        val facilityId = intent.getStringExtra("facility_id")
+        val totalCount = intent.getIntExtra("total_count", 0)
+        val riverCount = intent.getIntExtra("river_count", 0)
+        val riversJson = intent.getStringExtra("rivers_json")
 
-        return if (permitName != null && permitCount > 0) {
-            Log.d("MainActivity", "Notification data received: $permitName, $permitCount permits")
-            NotificationData(permitName, permitCount, permitsJson, facilityId)
+        return if (totalCount > 0 && riversJson != null) {
+            Log.d("MainActivity", "Notification data received: $totalCount permits across $riverCount rivers")
+            NotificationData(totalCount, riverCount, riversJson)
         } else {
             null
         }
@@ -109,10 +108,9 @@ class MainActivity : ComponentActivity() {
 }
 
 data class NotificationData(
-    val permitName: String,
-    val permitCount: Int,
-    val permitsJson: String?,
-    val facilityId: String?
+    val totalCount: Int,
+    val riverCount: Int,
+    val riversJson: String
 )
 
 sealed class Screen(val route: String) {
@@ -120,12 +118,10 @@ sealed class Screen(val route: String) {
     data object Dashboard : Screen("dashboard")
     data object Settings : Screen("settings")
     data object Admin : Screen("admin")
-    data object PermitAvailability : Screen("permit_availability/{permitName}/{permitCount}?permitsJson={permitsJson}&facilityId={facilityId}") {
-        fun createRoute(permitName: String, permitCount: Int, permitsJson: String?, facilityId: String?): String {
-            val encodedName = URLEncoder.encode(permitName, "UTF-8")
-            val encodedJson = permitsJson?.let { URLEncoder.encode(it, "UTF-8") } ?: ""
-            val encodedFacilityId = facilityId ?: ""
-            return "permit_availability/$encodedName/$permitCount?permitsJson=$encodedJson&facilityId=$encodedFacilityId"
+    data object PermitAvailability : Screen("permit_availability/{totalCount}/{riverCount}?riversJson={riversJson}") {
+        fun createRoute(totalCount: Int, riverCount: Int, riversJson: String): String {
+            val encodedJson = URLEncoder.encode(riversJson, "UTF-8")
+            return "permit_availability/$totalCount/$riverCount?riversJson=$encodedJson"
         }
     }
 }
@@ -151,10 +147,9 @@ fun RiverPermitsApp(notificationData: NotificationData? = null) {
         if (notificationData != null && uiState.isLoggedIn && !hasNavigatedToNotification.value) {
             hasNavigatedToNotification.value = true
             val route = Screen.PermitAvailability.createRoute(
-                permitName = notificationData.permitName,
-                permitCount = notificationData.permitCount,
-                permitsJson = notificationData.permitsJson,
-                facilityId = notificationData.facilityId
+                totalCount = notificationData.totalCount,
+                riverCount = notificationData.riverCount,
+                riversJson = notificationData.riversJson
             )
             navController.navigate(route)
         }
@@ -211,36 +206,25 @@ fun RiverPermitsApp(notificationData: NotificationData? = null) {
         composable(
             route = Screen.PermitAvailability.route,
             arguments = listOf(
-                navArgument("permitName") { type = NavType.StringType },
-                navArgument("permitCount") { type = NavType.IntType },
-                navArgument("permitsJson") {
-                    type = NavType.StringType
-                    defaultValue = ""
-                    nullable = true
-                },
-                navArgument("facilityId") {
+                navArgument("totalCount") { type = NavType.IntType },
+                navArgument("riverCount") { type = NavType.IntType },
+                navArgument("riversJson") {
                     type = NavType.StringType
                     defaultValue = ""
                     nullable = true
                 }
             )
         ) { backStackEntry ->
-            val permitName = backStackEntry.arguments?.getString("permitName")?.let {
-                URLDecoder.decode(it, "UTF-8")
-            } ?: ""
-            val permitCount = backStackEntry.arguments?.getInt("permitCount") ?: 0
-            val permitsJson = backStackEntry.arguments?.getString("permitsJson")?.let {
+            val totalCount = backStackEntry.arguments?.getInt("totalCount") ?: 0
+            val riverCount = backStackEntry.arguments?.getInt("riverCount") ?: 0
+            val riversJson = backStackEntry.arguments?.getString("riversJson")?.let {
                 if (it.isNotEmpty()) URLDecoder.decode(it, "UTF-8") else null
-            }
-            val facilityId = backStackEntry.arguments?.getString("facilityId")?.let {
-                if (it.isNotEmpty()) it else null
             }
 
             PermitAvailabilityScreen(
-                permitName = permitName,
-                permitCount = permitCount,
-                permitsJson = permitsJson,
-                facilityId = facilityId,
+                totalCount = totalCount,
+                riverCount = riverCount,
+                riversJson = riversJson,
                 onNavigateBack = {
                     navController.popBackStack()
                 }

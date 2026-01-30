@@ -173,47 +173,60 @@ def main():
             device_tokens = get_user_device_tokens(user_id, DB_PATH)
             print(f"  Device tokens: {len(device_tokens)}")
 
-        # Send one notification per permit with available dates
+        # Build consolidated rivers data for single push notification
+        rivers_data = []
+        permits_to_record = []  # Track which permits to record after notification
+
         for permit_id, available_permits in permit_notifications.items():
             permit = next(p for p in permits if p['id'] == permit_id)
+            print(f"  River: {permit['name']} ({len(available_permits)} dates)")
 
-            print(f"  Sending notification for: {permit['name']} ({len(available_permits)} dates)")
+            rivers_data.append({
+                'permit_name': permit['name'],
+                'facility_id': permit.get('facility_id'),
+                'permits': available_permits
+            })
 
-            notification_sent = False
+            # Track for recording later
+            permits_to_record.append({
+                'permit_id': permit_id,
+                'available_permits': available_permits
+            })
 
-            # Send push notification (if enabled and tokens available)
-            if push_enabled and device_tokens:
-                try:
-                    result = fcm_notifier.send_permit_notification(
-                        tokens=device_tokens,
-                        permit_name=permit['name'],
-                        available_permits=available_permits,
-                        facility_id=permit.get('facility_id')
-                    )
+        push_notification_sent = False
+        email_notification_sent = False
 
-                    if result['success_count'] > 0:
-                        print(f"    ✓ Push notification sent to {result['success_count']} device(s)")
-                        notification_sent = True
+        # Send SINGLE push notification with all rivers (if enabled and tokens available)
+        if push_enabled and device_tokens and rivers_data:
+            try:
+                result = fcm_notifier.send_multi_river_notification(
+                    tokens=device_tokens,
+                    rivers_data=rivers_data
+                )
 
-                    # Deactivate any failed tokens
-                    if result['failed_tokens']:
-                        deactivate_tokens(result['failed_tokens'], DB_PATH)
+                if result['success_count'] > 0:
+                    total_permits = sum(len(r['permits']) for r in rivers_data)
+                    print(f"    ✓ Push notification sent to {result['success_count']} device(s) ({len(rivers_data)} rivers, {total_permits} permits)")
+                    push_notification_sent = True
 
-                except Exception as e:
-                    print(f"    ✗ Push notification error: {e}")
+                # Deactivate any failed tokens
+                if result['failed_tokens']:
+                    deactivate_tokens(result['failed_tokens'], DB_PATH)
 
-            # Send email notification (if enabled)
-            if email_enabled:
+            except Exception as e:
+                print(f"    ✗ Push notification error: {e}")
+
+        # Send email notifications (one per river for detailed info)
+        if email_enabled:
+            for permit_id, available_permits in permit_notifications.items():
+                permit = next(p for p in permits if p['id'] == permit_id)
+
                 # Create notifier for this user
                 notifier = Notifier(
                     email_enabled=True,
                     sms_enabled=False,
                     email_to=user_email
                 )
-
-                # Debug: Show which email service is being used
-                print(f"    Email service: {notifier.email_service}")
-                print(f"    SendGrid configured: {notifier.sendgrid_client is not None}")
 
                 # Send notification
                 try:
@@ -223,30 +236,29 @@ def main():
                     )
 
                     if success:
-                        print(f"    ✓ Email notification sent successfully")
-                        notification_sent = True
+                        print(f"    ✓ Email sent for {permit['name']}")
+                        email_notification_sent = True
                     else:
-                        print(f"    ✗ Failed to send email (check email configuration)")
+                        print(f"    ✗ Failed to send email for {permit['name']}")
 
                 except Exception as e:
-                    import traceback
-                    print(f"    ✗ Email notification error: {e}")
-                    print(f"       Details: {traceback.format_exc()}")
+                    print(f"    ✗ Email error for {permit['name']}: {e}")
 
-            # Record notification if ANY notification method succeeded
-            if notification_sent:
-                for avail in available_permits:
+        # Record notifications if ANY notification method succeeded
+        if push_notification_sent or email_notification_sent:
+            for record in permits_to_record:
+                for avail in record['available_permits']:
                     record_notification(
                         conn,
                         user_id,
-                        permit_id,
+                        record['permit_id'],
                         avail['date'],
                         avail['division_id'],
                         avail.get('division_name', f"Division {avail['division_id']}"),
                         avail.get('details', {}).get('remaining', 0)
                     )
-            else:
-                print(f"    ✗ No notification sent - will retry on next check")
+        else:
+            print(f"    ✗ No notification sent - will retry on next check")
 
     conn.close()
 
