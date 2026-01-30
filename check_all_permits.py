@@ -3,11 +3,16 @@
 Multi-user permit checker
 Checks all enabled permits for all active users and sends notifications
 Supports both email (SMTP/SendGrid) and push notifications (FCM)
+
+Usage:
+  python check_all_permits.py          # Normal mode - queries recreation.gov
+  python check_all_permits.py --test   # Test mode - injects fake availability
 """
 import sqlite3
 import sys
 import os
-from datetime import datetime
+import argparse
+from datetime import datetime, timedelta
 from collections import defaultdict
 from dotenv import load_dotenv
 
@@ -71,13 +76,50 @@ def record_notification(conn, user_id, permit_id, date, division_id, division_na
 
     conn.commit()
 
-def main():
+
+def generate_fake_availability(permit):
+    """
+    Generate fake permit availability for testing.
+    Creates 3 fake available dates within the permit's date range.
+    """
+    start = datetime.strptime(permit['start_date'], "%Y-%m-%d")
+    end = datetime.strptime(permit['end_date'], "%Y-%m-%d")
+
+    # Generate 3 dates spread across the range
+    total_days = (end - start).days
+    if total_days < 3:
+        dates = [start + timedelta(days=i) for i in range(total_days + 1)]
+    else:
+        interval = total_days // 3
+        dates = [
+            start + timedelta(days=interval),
+            start + timedelta(days=interval * 2),
+            start + timedelta(days=interval * 3 - 1)
+        ]
+
+    # Create fake availability entries
+    fake_availability = []
+    for i, date in enumerate(dates[:3]):  # Max 3 dates
+        fake_availability.append({
+            'date': date.strftime("%Y-%m-%d"),
+            'facility_id': str(permit['facility_id']),
+            'division_id': 'TEST001',
+            'division_name': 'Test Launch Point',
+            'details': {'remaining': (i + 1) * 2}  # 2, 4, 6 remaining
+        })
+
+    return fake_availability
+
+
+def main(test_mode=False):
     print("=" * 60)
     print(f"Multi-User Permit Check - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    if test_mode:
+        print("*** TEST MODE - Using fake availability data ***")
     print("=" * 60)
 
-    # Initialize permit finder
-    finder = PermitFinder()
+    # Initialize permit finder (only used in normal mode)
+    finder = PermitFinder() if not test_mode else None
 
     # Get all enabled permits
     permits = get_all_enabled_permits()
@@ -104,13 +146,18 @@ def main():
         print(f"\nChecking: {permit['name']} (User: {permit['email']})")
 
         try:
-            available = finder.check_permit_availability(
-                facility_id=str(permit['facility_id']),
-                start_date=permit['start_date'],
-                end_date=permit['end_date'],
-                min_people=permit['min_people'],
-                max_people=permit['max_people']
-            )
+            # In test mode, use fake availability data
+            if test_mode:
+                available = generate_fake_availability(permit)
+                print(f"  [TEST] Generated {len(available)} fake permits")
+            else:
+                available = finder.check_permit_availability(
+                    facility_id=str(permit['facility_id']),
+                    start_date=permit['start_date'],
+                    end_date=permit['end_date'],
+                    min_people=permit['min_people'],
+                    max_people=permit['max_people']
+                )
 
             if available:
                 print(f"  Found {len(available)} available permit(s)")
@@ -267,4 +314,9 @@ def main():
     print("=" * 60)
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description='Check permit availability and send notifications')
+    parser.add_argument('--test', action='store_true',
+                        help='Test mode: use fake availability data instead of querying recreation.gov')
+    args = parser.parse_args()
+
+    main(test_mode=args.test)

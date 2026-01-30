@@ -63,7 +63,7 @@ interface ApiService {
     // ==================== Admin ====================
 
     @POST("api/mobile/admin/test-notify")
-    suspend fun testNotify(): Response<TestNotifyResponse>
+    suspend fun testNotify(@Query("test") testMode: Boolean = false): Response<TestNotifyResponse>
 
     @GET("api/mobile/admin/status")
     suspend fun getAdminStatus(): Response<AdminStatusResponse>

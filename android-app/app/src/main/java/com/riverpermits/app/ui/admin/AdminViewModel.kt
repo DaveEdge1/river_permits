@@ -34,7 +34,7 @@ class AdminViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(AdminUiState())
     val uiState: StateFlow<AdminUiState> = _uiState.asStateFlow()
 
-    fun testNotify() {
+    fun testNotify(testMode: Boolean = false) {
         viewModelScope.launch {
             _uiState.value = _uiState.value.copy(
                 isLoading = true,
@@ -42,7 +42,7 @@ class AdminViewModel @Inject constructor(
                 testNotifyResult = null
             )
 
-            when (val result = adminRepository.testNotify()) {
+            when (val result = adminRepository.testNotify(testMode)) {
                 is ApiResult.Success -> {
                     _uiState.value = _uiState.value.copy(
                         isLoading = false,

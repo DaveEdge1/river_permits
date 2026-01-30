@@ -49,38 +49,38 @@ router.use(requireAdmin);
 
 /**
  * POST /api/mobile/admin/test-notify
- * Clear notification history for user and trigger permit check with notification
+ * Trigger permit check with notification
  * Returns immediately and runs the check in the background
+ *
+ * Query params:
+ *   test=true - Use fake availability data (for testing notifications)
  */
 router.post('/test-notify', async (req, res) => {
   try {
     const userId = req.userId;
+    const useTestMode = req.query.test === 'true' || req.body.test === true;
 
-    console.log(`Admin ${req.userEmail} triggered test-notify`);
+    console.log(`Admin ${req.userEmail} triggered test-notify (testMode: ${useTestMode})`);
 
-    // Step 1: Clear notification history for this user
-    const clearResult = run('DELETE FROM notifications WHERE user_id = ?', [userId]);
-    console.log(`Cleared ${clearResult.changes} notifications for user ${userId}`);
-
-    // Step 2: Get user's enabled permits
+    // Get user's enabled permits
     const permits = permitQueries.findByUserId.all(userId).filter(p => p.enabled === 1);
 
     if (permits.length === 0) {
       return res.json({
         success: true,
         message: 'No enabled permits to check',
-        permitsChecked: 0,
-        notificationsCleared: clearResult.changes
+        permitsChecked: 0
       });
     }
 
-    // Step 3: Run the permit check script in the BACKGROUND
+    // Run the permit check script in the BACKGROUND
     const pythonPath = getPythonPath();
     const scriptPath = path.join(__dirname, '..', '..', 'check_all_permits.py');
+    const scriptArgs = useTestMode ? [scriptPath, '--test'] : [scriptPath];
 
-    console.log(`Running permit check in background with: ${pythonPath} ${scriptPath}`);
+    console.log(`Running permit check in background with: ${pythonPath} ${scriptArgs.join(' ')}`);
 
-    const pythonProcess = spawn(pythonPath, [scriptPath], {
+    const pythonProcess = spawn(pythonPath, scriptArgs, {
       env: { ...process.env },
       detached: true,
       stdio: 'ignore'
@@ -92,9 +92,11 @@ router.post('/test-notify', async (req, res) => {
     // Return immediately - notification will be sent by the script
     res.json({
       success: true,
-      message: 'Permit check started. You will receive a notification if permits are available.',
+      message: useTestMode
+        ? 'Test permit check started with FAKE data. You will receive a notification shortly.'
+        : 'Permit check started. You will receive a notification if permits are available.',
       permitsChecked: permits.length,
-      notificationsCleared: clearResult.changes
+      testMode: useTestMode
     });
 
   } catch (error) {

@@ -10,9 +10,9 @@ import javax.inject.Singleton
 class AdminRepository @Inject constructor(
     private val apiService: ApiService
 ) {
-    suspend fun testNotify(): ApiResult<TestNotifyResponse> {
+    suspend fun testNotify(testMode: Boolean = false): ApiResult<TestNotifyResponse> {
         return try {
-            val response = apiService.testNotify()
+            val response = apiService.testNotify(testMode)
             if (response.isSuccessful) {
                 val body = response.body()
                 if (body != null) {
