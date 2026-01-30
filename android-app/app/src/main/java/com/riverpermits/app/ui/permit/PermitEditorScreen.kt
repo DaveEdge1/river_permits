@@ -126,62 +126,29 @@ fun PermitEditorScreen(
                     text = stringResource(R.string.party_size),
                     style = MaterialTheme.typography.titleSmall
                 )
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    // Min people
-                    Column(modifier = Modifier.weight(1f)) {
-                        Text(
-                            text = stringResource(R.string.min_people),
-                            style = MaterialTheme.typography.bodySmall
-                        )
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                // Party size
+                Column {
+                    Text(
+                        text = stringResource(R.string.party_size),
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        IconButton(
+                            onClick = { viewModel.updatePartySize(uiState.partySize - 1) }
                         ) {
-                            IconButton(
-                                onClick = { viewModel.updateMinPeople(uiState.minPeople - 1) }
-                            ) {
-                                Icon(Icons.Default.Remove, contentDescription = "Decrease")
-                            }
-                            Text(
-                                text = uiState.minPeople.toString(),
-                                style = MaterialTheme.typography.titleLarge
-                            )
-                            IconButton(
-                                onClick = { viewModel.updateMinPeople(uiState.minPeople + 1) }
-                            ) {
-                                Icon(Icons.Default.Add, contentDescription = "Increase")
-                            }
+                            Icon(Icons.Default.Remove, contentDescription = "Decrease")
                         }
-                    }
-
-                    // Max people
-                    Column(modifier = Modifier.weight(1f)) {
                         Text(
-                            text = stringResource(R.string.max_people),
-                            style = MaterialTheme.typography.bodySmall
+                            text = uiState.partySize.toString(),
+                            style = MaterialTheme.typography.titleLarge
                         )
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        IconButton(
+                            onClick = { viewModel.updatePartySize(uiState.partySize + 1) }
                         ) {
-                            IconButton(
-                                onClick = { viewModel.updateMaxPeople(uiState.maxPeople - 1) }
-                            ) {
-                                Icon(Icons.Default.Remove, contentDescription = "Decrease")
-                            }
-                            Text(
-                                text = uiState.maxPeople.toString(),
-                                style = MaterialTheme.typography.titleLarge
-                            )
-                            IconButton(
-                                onClick = { viewModel.updateMaxPeople(uiState.maxPeople + 1) }
-                            ) {
-                                Icon(Icons.Default.Add, contentDescription = "Increase")
-                            }
+                            Icon(Icons.Default.Add, contentDescription = "Increase")
                         }
                     }
                 }

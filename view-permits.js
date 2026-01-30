@@ -28,7 +28,7 @@ async function main() {
     console.log(`  User: ${permit.email}`);
     console.log(`  Facility ID: ${permit.facility_id}`);
     console.log(`  Date Range: ${permit.start_date} to ${permit.end_date}`);
-    console.log(`  Party Size: ${permit.min_people} - ${permit.max_people} people`);
+    console.log(`  Party Size: ${permit.party_size || 1} people`);
     console.log(`  Enabled: ${permit.enabled === 1 ? 'Yes' : 'No'}`);
     console.log();
   });

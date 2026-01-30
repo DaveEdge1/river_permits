@@ -38,8 +38,7 @@ class PermitFinder:
         facility_id: str,
         start_date: str,
         end_date: str,
-        min_people: int = 1,
-        max_people: int = 99
+        party_size: int = 1
     ) -> List[Dict]:
         """
         Check for available permits within the specified parameters
@@ -48,8 +47,7 @@ class PermitFinder:
             facility_id: Recreation.gov facility ID for the river permit
             start_date: Start date in YYYY-MM-DD format
             end_date: End date in YYYY-MM-DD format
-            min_people: Minimum party size
-            max_people: Maximum party size
+            party_size: Minimum party size
 
         Returns:
             List of available permit entries
@@ -102,7 +100,7 @@ class PermitFinder:
                                     # Check if date is within our range
                                     if start <= check_date.replace(tzinfo=None) <= end:
                                         # Check if this permit is available
-                                        if self._is_permit_available(permit_info, min_people, max_people):
+                                        if self._is_permit_available(permit_info, party_size):
                                             # Get human-readable division name
                                             division_name = self.get_division_name(facility_id, division_id)
 
@@ -138,14 +136,13 @@ class PermitFinder:
             logger.error(f"Error in check_permit_availability: {e}")
             return []
 
-    def _is_permit_available(self, permit_info: Dict, min_people: int, max_people: int) -> bool:
+    def _is_permit_available(self, permit_info: Dict, party_size: int = 1) -> bool:
         """
         Check if a permit slot is available and meets party size requirements
 
         Args:
             permit_info: Permit information from API
-            min_people: Minimum party size
-            max_people: Maximum party size
+            party_size: Minimum party size
 
         Returns:
             True if permit is available and meets criteria

@@ -79,14 +79,22 @@ function createTables() {
       facility_id TEXT NOT NULL,
       start_date TEXT NOT NULL,
       end_date TEXT NOT NULL,
-      min_people INTEGER DEFAULT 1,
-      max_people INTEGER DEFAULT 25,
+      party_size INTEGER DEFAULT 1,
       enabled INTEGER DEFAULT 1,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
     )
   `);
+
+  // Migration: Add party_size column if it doesn't exist (for existing databases)
+  try {
+    db.run(`ALTER TABLE permits ADD COLUMN party_size INTEGER DEFAULT 1`);
+    // Migrate existing data: copy min_people to party_size
+    db.run(`UPDATE permits SET party_size = min_people WHERE party_size IS NULL OR party_size = 1`);
+  } catch (e) {
+    // Column already exists, ignore error
+  }
 
   // Notifications table
   db.run(`
@@ -280,10 +288,10 @@ const userQueries = {
 // Permit queries
 const permitQueries = {
   create: {
-    run: (userId, name, facilityId, startDate, endDate, minPeople, maxPeople, enabled) => {
+    run: (userId, name, facilityId, startDate, endDate, partySize, enabled) => {
       return run(
-        'INSERT INTO permits (user_id, name, facility_id, start_date, end_date, min_people, max_people, enabled) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-        [userId, name, facilityId, startDate, endDate, minPeople, maxPeople, enabled]
+        'INSERT INTO permits (user_id, name, facility_id, start_date, end_date, party_size, enabled) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        [userId, name, facilityId, startDate, endDate, partySize, enabled]
       );
     }
   },
@@ -313,13 +321,13 @@ const permitQueries = {
   },
 
   update: {
-    run: (name, facilityId, startDate, endDate, minPeople, maxPeople, enabled, id, userId) => {
+    run: (name, facilityId, startDate, endDate, partySize, enabled, id, userId) => {
       return run(
         `UPDATE permits
          SET name = ?, facility_id = ?, start_date = ?, end_date = ?,
-             min_people = ?, max_people = ?, enabled = ?, updated_at = CURRENT_TIMESTAMP
+             party_size = ?, enabled = ?, updated_at = CURRENT_TIMESTAMP
          WHERE id = ? AND user_id = ?`,
-        [name, facilityId, startDate, endDate, minPeople, maxPeople, enabled, id, userId]
+        [name, facilityId, startDate, endDate, partySize, enabled, id, userId]
       );
     }
   },

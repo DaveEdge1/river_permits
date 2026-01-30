@@ -11,8 +11,7 @@ data class PermitDto(
     val riverName: String?,
     val startDate: String,
     val endDate: String,
-    val minPeople: Int,
-    val maxPeople: Int,
+    val partySize: Int,
     val enabled: Int,
     val createdAt: String?,
     val updatedAt: String?
@@ -29,8 +28,7 @@ data class PermitRequest(
     val facilityId: String,
     val startDate: String,
     val endDate: String,
-    val minPeople: Int,
-    val maxPeople: Int,
+    val partySize: Int,
     val enabled: Boolean = true
 )
 

@@ -118,7 +118,7 @@ function renderPermits() {
           </div>
           <div class="detail-item">
             <div class="detail-label">Party Size</div>
-            <div class="detail-value">${permit.min_people} - ${permit.max_people} people</div>
+            <div class="detail-value">${permit.party_size} people</div>
           </div>
           <div class="detail-item">
             <div class="detail-label">Created</div>
@@ -195,8 +195,7 @@ async function savePermit(e) {
     facility_id: document.getElementById('riverSelect').value,
     start_date: document.getElementById('startDate').value,
     end_date: document.getElementById('endDate').value,
-    min_people: parseInt(document.getElementById('minPeople').value),
-    max_people: parseInt(document.getElementById('maxPeople').value),
+    party_size: parseInt(document.getElementById('partySize').value),
     enabled: document.getElementById('enabled').checked
   };
 
@@ -238,8 +237,7 @@ function editPermit(id) {
   document.getElementById('permitName').value = permit.name;
   document.getElementById('startDate').value = permit.start_date;
   document.getElementById('endDate').value = permit.end_date;
-  document.getElementById('minPeople').value = permit.min_people;
-  document.getElementById('maxPeople').value = permit.max_people;
+  document.getElementById('partySize').value = permit.party_size;
   document.getElementById('enabled').checked = permit.enabled;
 
   showModal('permitModal');

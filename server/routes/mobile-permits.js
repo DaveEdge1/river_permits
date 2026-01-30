@@ -28,8 +28,7 @@ router.get('/', requireJwtAuth, (req, res) => {
         facilityId: permit.facility_id,
         startDate: permit.start_date,
         endDate: permit.end_date,
-        minPeople: permit.min_people,
-        maxPeople: permit.max_people,
+        partySize: permit.party_size,
         createdAt: permit.created_at,
         updatedAt: permit.updated_at
       };
@@ -53,8 +52,7 @@ router.post('/', requireJwtAuth, (req, res) => {
       facilityId,
       startDate,
       endDate,
-      minPeople,
-      maxPeople,
+      partySize,
       enabled
     } = req.body;
 
@@ -82,10 +80,9 @@ router.post('/', requireJwtAuth, (req, res) => {
     }
 
     // Validate party size
-    const min = minPeople || 1;
-    const max = maxPeople || 25;
-    if (min < 1 || max > 50 || min > max) {
-      return res.status(400).json({ error: 'Invalid party size range' });
+    const size = partySize || 1;
+    if (size < 1 || size > 50) {
+      return res.status(400).json({ error: 'Invalid party size' });
     }
 
     // Create the permit
@@ -95,8 +92,7 @@ router.post('/', requireJwtAuth, (req, res) => {
       facilityId,
       startDate,
       endDate,
-      min,
-      max,
+      size,
       enabled !== false ? 1 : 0
     );
 
@@ -123,8 +119,7 @@ router.put('/:id', requireJwtAuth, (req, res) => {
       facilityId,
       startDate,
       endDate,
-      minPeople,
-      maxPeople,
+      partySize,
       enabled
     } = req.body;
 
@@ -139,8 +134,7 @@ router.put('/:id', requireJwtAuth, (req, res) => {
     const updatedFacilityId = facilityId || existing.facility_id;
     const updatedStartDate = startDate || existing.start_date;
     const updatedEndDate = endDate || existing.end_date;
-    const updatedMinPeople = minPeople !== undefined ? minPeople : existing.min_people;
-    const updatedMaxPeople = maxPeople !== undefined ? maxPeople : existing.max_people;
+    const updatedPartySize = partySize !== undefined ? partySize : existing.party_size;
     const updatedEnabled = enabled !== undefined ? (enabled ? 1 : 0) : existing.enabled;
 
     // Update the permit
@@ -149,8 +143,7 @@ router.put('/:id', requireJwtAuth, (req, res) => {
       updatedFacilityId,
       updatedStartDate,
       updatedEndDate,
-      updatedMinPeople,
-      updatedMaxPeople,
+      updatedPartySize,
       updatedEnabled,
       permitId,
       req.userId

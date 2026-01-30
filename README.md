@@ -74,8 +74,7 @@ Edit `config.json` with your desired permits:
       "facility_id": "233262",
       "start_date": "2025-05-01",
       "end_date": "2025-09-30",
-      "min_people": 1,
-      "max_people": 16,
+      "party_size": 1,
       "enabled": true
     }
   ],
@@ -240,8 +239,7 @@ TWILIO_TO_NUMBER=+1234567890
 - `facility_id`: Recreation.gov facility ID
 - `start_date`: Start of date range to check (YYYY-MM-DD)
 - `end_date`: End of date range to check (YYYY-MM-DD)
-- `min_people`: Minimum party size
-- `max_people`: Maximum party size
+- `party_size`: Minimum party size
 - `enabled`: Whether to check this permit (true/false)
 
 ### Notification Preferences
