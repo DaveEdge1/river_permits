@@ -75,3 +75,31 @@ data class NotificationDto(
 data class NotificationsResponse(
     val notifications: List<NotificationDto>
 )
+
+// Availability DTOs
+data class AvailabilityPermitDto(
+    val date: String,
+    @SerializedName("division_id")
+    val divisionId: String,
+    @SerializedName("division_name")
+    val divisionName: String,
+    val remaining: Int
+)
+
+data class AvailabilityRiverDto(
+    @SerializedName("permit_name")
+    val permitName: String,
+    @SerializedName("facility_id")
+    val facilityId: String?,
+    @SerializedName("permit_count")
+    val permitCount: Int,
+    val permits: List<AvailabilityPermitDto>,
+    @SerializedName("has_more")
+    val hasMore: Boolean = false
+)
+
+data class AvailabilityResponse(
+    val rivers: List<AvailabilityRiverDto>,
+    val totalCount: Int,
+    val riverCount: Int
+)
