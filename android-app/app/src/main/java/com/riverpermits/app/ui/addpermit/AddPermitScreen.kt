@@ -32,8 +32,9 @@ fun AddPermitScreen(
 
     // Handle success - navigate to availability for this river
     LaunchedEffect(uiState.isSuccess, uiState.selectedRiver) {
-        if (uiState.isSuccess && uiState.selectedRiver != null) {
-            onPermitSaved(uiState.selectedRiver.facilityId)
+        val river = uiState.selectedRiver
+        if (uiState.isSuccess && river != null) {
+            onPermitSaved(river.facilityId)
         }
     }
 
