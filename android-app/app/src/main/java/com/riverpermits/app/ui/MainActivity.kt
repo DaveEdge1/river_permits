@@ -18,6 +18,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -34,6 +35,9 @@ import com.riverpermits.app.ui.login.LoginViewModel
 import com.riverpermits.app.ui.settings.SettingsScreen
 import com.riverpermits.app.ui.theme.RiverPermitsTheme
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import java.net.URLDecoder
 import java.net.URLEncoder
 
@@ -50,8 +54,9 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    // Store notification data from intent
-    private var notificationData: NotificationData? = null
+    // Use StateFlow so Compose can observe changes
+    private val _notificationData = MutableStateFlow<NotificationData?>(null)
+    val notificationData: StateFlow<NotificationData?> = _notificationData.asStateFlow()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +65,7 @@ class MainActivity : ComponentActivity() {
         askNotificationPermission()
 
         // Check if opened from notification
-        notificationData = extractNotificationData(intent)
+        _notificationData.value = extractNotificationData(intent)
 
         setContent {
             RiverPermitsTheme {
@@ -76,9 +81,11 @@ class MainActivity : ComponentActivity() {
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        // Handle notification tap when app is already running
-        notificationData = extractNotificationData(intent)
         setIntent(intent)
+        // Update StateFlow - Compose will observe this change
+        val newData = extractNotificationData(intent)
+        Log.d("MainActivity", "onNewIntent: notification data = $newData")
+        _notificationData.value = newData
     }
 
     private fun extractNotificationData(intent: Intent?): NotificationData? {
@@ -89,9 +96,10 @@ class MainActivity : ComponentActivity() {
         val riversJson = intent.getStringExtra("rivers_json")
 
         return if (totalCount > 0 && riversJson != null) {
-            Log.d("MainActivity", "Notification data received: $totalCount permits across $riverCount rivers")
+            Log.d("MainActivity", "Notification data extracted: $totalCount permits across $riverCount rivers")
             NotificationData(totalCount, riverCount, riversJson)
         } else {
+            Log.d("MainActivity", "No notification data in intent")
             null
         }
     }
@@ -127,13 +135,16 @@ sealed class Screen(val route: String) {
 }
 
 @Composable
-fun RiverPermitsApp(notificationData: NotificationData? = null) {
+fun RiverPermitsApp(notificationDataFlow: StateFlow<NotificationData?>) {
     val navController = rememberNavController()
     val loginViewModel: LoginViewModel = hiltViewModel()
     val uiState by loginViewModel.uiState.collectAsState()
 
-    // Track if we've handled the notification navigation
-    val hasNavigatedToNotification = remember { mutableStateOf(false) }
+    // Observe notification data from StateFlow
+    val notificationData by notificationDataFlow.collectAsState()
+
+    // Track navigation version to allow re-navigation on new notifications
+    var lastNavigatedNotification by remember { mutableStateOf<NotificationData?>(null) }
 
     // Determine start destination based on login state
     val startDestination = if (uiState.isLoggedIn) {
@@ -144,14 +155,19 @@ fun RiverPermitsApp(notificationData: NotificationData? = null) {
 
     // Navigate to availability screen if opened from notification
     LaunchedEffect(notificationData, uiState.isLoggedIn) {
-        if (notificationData != null && uiState.isLoggedIn && !hasNavigatedToNotification.value) {
-            hasNavigatedToNotification.value = true
+        val data = notificationData
+        if (data != null && uiState.isLoggedIn && data != lastNavigatedNotification) {
+            Log.d("MainActivity", "Navigating to PermitAvailability: ${data.totalCount} permits")
+            lastNavigatedNotification = data
             val route = Screen.PermitAvailability.createRoute(
-                totalCount = notificationData.totalCount,
-                riverCount = notificationData.riverCount,
-                riversJson = notificationData.riversJson
+                totalCount = data.totalCount,
+                riverCount = data.riverCount,
+                riversJson = data.riversJson
             )
-            navController.navigate(route)
+            navController.navigate(route) {
+                // Pop up to dashboard so back button goes there
+                popUpTo(Screen.Dashboard.route) { inclusive = false }
+            }
         }
     }
 
