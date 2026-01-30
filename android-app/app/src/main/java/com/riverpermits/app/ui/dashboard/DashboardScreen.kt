@@ -23,6 +23,7 @@ import com.riverpermits.app.ui.NotificationData
 @Composable
 fun DashboardScreen(
     onNavigateToSettings: () -> Unit,
+    onNavigateToAddPermit: () -> Unit = {},
     notificationData: NotificationData? = null,
     onNavigateToAvailability: ((NotificationData) -> Unit)? = null,
     viewModel: DashboardViewModel = hiltViewModel()
@@ -60,7 +61,7 @@ fun DashboardScreen(
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { /* TODO: Add permit */ },
+                onClick = onNavigateToAddPermit,
                 containerColor = MaterialTheme.colorScheme.primary
             ) {
                 Icon(Icons.Default.Add, contentDescription = "Add permit")
