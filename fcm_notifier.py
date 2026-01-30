@@ -150,15 +150,21 @@ class FCMNotifier:
             for idx, resp in enumerate(response.responses):
                 if not resp.success:
                     error_code = getattr(resp.exception, 'code', None)
+                    error_msg = str(resp.exception) if resp.exception else 'Unknown'
+                    print(f"    FCM: Token {idx} failed - code: {error_code}, error: {error_msg}")
+                    logger.info(f"FCM: Token failed - code: {error_code}, error: {error_msg}")
 
-                    # Check if token is invalid
+                    # Only deactivate for specific permanent errors
                     if error_code in [
                         'INVALID_ARGUMENT',
                         'NOT_FOUND',
                         'UNREGISTERED'
                     ]:
                         failed_tokens.append(tokens[idx])
-                        logger.info(f"FCM: Token invalid/unregistered: {tokens[idx][:20]}...")
+                        logger.info(f"FCM: Token marked for deactivation: {tokens[idx][:20]}...")
+                        print(f"    FCM: Token will be deactivated (permanent error)")
+                else:
+                    print(f"    FCM: Token {idx} - SUCCESS")
 
             logger.info(f"FCM: Sent {response.success_count}/{len(tokens)} notifications")
             print(f"    FCM: Sent {response.success_count}/{len(tokens)} push notifications")
