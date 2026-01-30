@@ -18,12 +18,39 @@ abstract class AppDatabase : RoomDatabase() {
     companion object {
         val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(db: SupportSQLiteDatabase) {
-                // Add party_size column with default value
-                db.execSQL("ALTER TABLE permits ADD COLUMN party_size INTEGER NOT NULL DEFAULT 1")
-                // Copy min_people values to party_size
-                db.execSQL("UPDATE permits SET party_size = min_people")
-                // Note: SQLite doesn't support dropping columns easily, so we leave the old columns
-                // They will be ignored by Room since they're not in the entity anymore
+                // SQLite doesn't support dropping columns, so we need to recreate the table
+                // 1. Create new table with correct schema
+                db.execSQL("""
+                    CREATE TABLE permits_new (
+                        id INTEGER PRIMARY KEY NOT NULL,
+                        user_id INTEGER NOT NULL,
+                        name TEXT NOT NULL,
+                        facility_id TEXT NOT NULL,
+                        river_name TEXT,
+                        start_date TEXT NOT NULL,
+                        end_date TEXT NOT NULL,
+                        party_size INTEGER NOT NULL,
+                        enabled INTEGER NOT NULL,
+                        created_at TEXT,
+                        updated_at TEXT,
+                        sync_status TEXT NOT NULL DEFAULT 'SYNCED'
+                    )
+                """.trimIndent())
+
+                // 2. Copy data from old table (using min_people as party_size)
+                db.execSQL("""
+                    INSERT INTO permits_new (id, user_id, name, facility_id, river_name,
+                        start_date, end_date, party_size, enabled, created_at, updated_at, sync_status)
+                    SELECT id, user_id, name, facility_id, river_name,
+                        start_date, end_date, min_people, enabled, created_at, updated_at, sync_status
+                    FROM permits
+                """.trimIndent())
+
+                // 3. Drop old table
+                db.execSQL("DROP TABLE permits")
+
+                // 4. Rename new table to original name
+                db.execSQL("ALTER TABLE permits_new RENAME TO permits")
             }
         }
     }
