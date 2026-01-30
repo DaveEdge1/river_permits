@@ -149,22 +149,48 @@ class FCMNotifier:
             # Process responses to find failed tokens
             for idx, resp in enumerate(response.responses):
                 if not resp.success:
-                    error_code = getattr(resp.exception, 'code', None)
-                    error_msg = str(resp.exception) if resp.exception else 'Unknown'
-                    print(f"    FCM: Token {idx} failed - code: {error_code}, error: {error_msg}")
+                    # Get error details - Firebase SDK may use different attribute names
+                    exc = resp.exception
+                    error_code = None
+                    error_msg = str(exc) if exc else 'Unknown'
+
+                    # Try different ways to get the error code
+                    if exc:
+                        # Try .code attribute (older SDK)
+                        error_code = getattr(exc, 'code', None)
+                        # Try ._code attribute
+                        if not error_code:
+                            error_code = getattr(exc, '_code', None)
+                        # Try getting from cause
+                        if not error_code and hasattr(exc, '__cause__') and exc.__cause__:
+                            error_code = getattr(exc.__cause__, 'code', None)
+
+                    print(f"    FCM: Token {idx} failed")
+                    print(f"         Exception type: {type(exc).__name__ if exc else 'None'}")
+                    print(f"         Error code: {error_code}")
+                    print(f"         Error message: {error_msg}")
                     logger.info(f"FCM: Token failed - code: {error_code}, error: {error_msg}")
 
-                    # Only deactivate for specific permanent errors
-                    if error_code in [
-                        'INVALID_ARGUMENT',
-                        'NOT_FOUND',
-                        'UNREGISTERED'
-                    ]:
+                    # Only deactivate for UNREGISTERED tokens (token no longer valid)
+                    # Be conservative - other errors might be transient
+                    should_deactivate = False
+                    if error_code:
+                        error_code_str = str(error_code).upper()
+                        # Check for unregistered token errors (various formats)
+                        if any(x in error_code_str for x in ['UNREGISTERED', 'NOT_FOUND', 'NOT-REGISTERED']):
+                            should_deactivate = True
+                        # Also check the error message for unregistered indicators
+                        if 'not registered' in error_msg.lower() or 'unregistered' in error_msg.lower():
+                            should_deactivate = True
+
+                    if should_deactivate:
                         failed_tokens.append(tokens[idx])
                         logger.info(f"FCM: Token marked for deactivation: {tokens[idx][:20]}...")
-                        print(f"    FCM: Token will be deactivated (permanent error)")
+                        print(f"         -> Token will be deactivated (unregistered)")
+                    else:
+                        print(f"         -> Token NOT deactivated (may be transient error)")
                 else:
-                    print(f"    FCM: Token {idx} - SUCCESS")
+                    print(f"    FCM: Token {idx} - SUCCESS (message_id: {resp.message_id})")
 
             logger.info(f"FCM: Sent {response.success_count}/{len(tokens)} notifications")
             print(f"    FCM: Sent {response.success_count}/{len(tokens)} push notifications")
