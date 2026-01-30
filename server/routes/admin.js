@@ -63,10 +63,15 @@ router.post('/users', async (req, res) => {
       is_active ? 1 : 0
     );
 
-    const user = userQueries.findById.get(result.lastInsertRowid);
+    // Fetch the created user - use email as fallback if lastInsertRowid fails
+    let user = userQueries.findById.get(result.lastInsertRowid);
+    if (!user) {
+      user = userQueries.findByEmail.get(email.toLowerCase().trim());
+    }
 
-    // Remove password hash
-    delete user.password_hash;
+    if (user) {
+      delete user.password_hash;
+    }
 
     res.json({ success: true, user });
   } catch (error) {
