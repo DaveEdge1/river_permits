@@ -52,15 +52,14 @@ fun AdminScreen(
             )
 
             Text(
-                text = "Test the push notification system. Use 'Test with Fake Data' to simulate permit availability without querying recreation.gov.",
+                text = "Test the push notification system by triggering a permit check. This will clear your notification history and run a full permit check to send a notification if any permits are available.",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(bottom = 16.dp)
             )
 
-            // Test with fake data button (primary action)
             Button(
-                onClick = { viewModel.testNotify(testMode = true) },
+                onClick = { viewModel.testNotify() },
                 enabled = !uiState.isLoading,
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -79,19 +78,8 @@ fun AdminScreen(
                         modifier = Modifier.size(20.dp)
                     )
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("Test with Fake Data")
+                    Text("Test Notify")
                 }
-            }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            // Real permit check button (secondary action)
-            OutlinedButton(
-                onClick = { viewModel.testNotify(testMode = false) },
-                enabled = !uiState.isLoading,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text("Real Permit Check")
             }
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -101,8 +89,10 @@ fun AdminScreen(
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     colors = CardDefaults.cardColors(
-                        containerColor = if (result.success) {
+                        containerColor = if (result.success && result.notificationSent) {
                             MaterialTheme.colorScheme.primaryContainer
+                        } else if (result.success) {
+                            MaterialTheme.colorScheme.surfaceVariant
                         } else {
                             MaterialTheme.colorScheme.errorContainer
                         }
@@ -112,7 +102,7 @@ fun AdminScreen(
                         modifier = Modifier.padding(16.dp)
                     ) {
                         Text(
-                            text = if (result.success) "Check Started!" else "Error",
+                            text = if (result.notificationSent) "Notification Sent!" else "Test Complete",
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier.padding(bottom = 8.dp)
@@ -124,9 +114,14 @@ fun AdminScreen(
                             modifier = Modifier.padding(bottom = 12.dp)
                         )
 
-                        HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+                        Divider(modifier = Modifier.padding(vertical = 8.dp))
 
                         ResultRow("Permits checked", result.permitsChecked.toString())
+                        ResultRow("Available permits", result.availablePermits.toString())
+                        ResultRow("Notification sent", if (result.notificationSent) "Yes" else "No")
+                        result.notificationsCleared?.let {
+                            ResultRow("Notifications cleared", it.toString())
+                        }
                     }
                 }
             }

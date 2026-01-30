@@ -5,11 +5,10 @@ data class TestNotifyResponse(
     val success: Boolean,
     val message: String,
     val permitsChecked: Int,
-    val availablePermits: Int = 0,
-    val notificationSent: Boolean = false,
-    val notificationsCleared: Int? = null,
-    val testMode: Boolean = false,
-    val output: String? = null
+    val availablePermits: Int,
+    val notificationSent: Boolean,
+    val notificationsCleared: Int?,
+    val output: String?
 )
 
 // Admin status response
