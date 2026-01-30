@@ -189,6 +189,15 @@ fun RiverPermitsApp(notificationDataFlow: StateFlow<NotificationData?>) {
             DashboardScreen(
                 onNavigateToSettings = {
                     navController.navigate(Screen.Settings.route)
+                },
+                notificationData = notificationData,
+                onNavigateToAvailability = { data ->
+                    val route = Screen.PermitAvailability.createRoute(
+                        totalCount = data.totalCount,
+                        riverCount = data.riverCount,
+                        riversJson = data.riversJson
+                    )
+                    navController.navigate(route)
                 }
             )
         }
