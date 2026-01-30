@@ -24,6 +24,7 @@ import com.riverpermits.app.ui.NotificationData
 fun DashboardScreen(
     onNavigateToSettings: () -> Unit,
     onNavigateToAddPermit: () -> Unit = {},
+    onNavigateToEditPermit: (Int) -> Unit = {},
     onNavigateToAvailabilityDirect: () -> Unit = {},
     notificationData: NotificationData? = null,
     onNavigateToAvailability: ((NotificationData) -> Unit)? = null,
@@ -127,6 +128,7 @@ fun DashboardScreen(
                         items(uiState.permits, key = { it.id }) { permit ->
                             PermitCard(
                                 permit = permit,
+                                onClick = { onNavigateToEditPermit(permit.id) },
                                 onToggle = { viewModel.togglePermit(permit.id) },
                                 onDelete = { viewModel.deletePermit(permit.id) }
                             )
@@ -150,13 +152,16 @@ fun DashboardScreen(
 @Composable
 fun PermitCard(
     permit: PermitEntity,
+    onClick: () -> Unit = {},
     onToggle: () -> Unit,
     onDelete: () -> Unit
 ) {
     var showDeleteDialog by remember { mutableStateOf(false) }
 
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
         colors = CardDefaults.cardColors(
             containerColor = if (permit.enabled) {
                 MaterialTheme.colorScheme.surface

@@ -49,7 +49,7 @@ fun AddPermitScreen(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
-                title = { Text("Add Permit") },
+                title = { Text(if (uiState.isEditMode) "Edit Permit" else "Add Permit") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
@@ -63,7 +63,7 @@ fun AddPermitScreen(
             )
         }
     ) { paddingValues ->
-        if (uiState.isLoadingRivers) {
+        if (uiState.isLoadingRivers || uiState.isLoadingPermit) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -120,11 +120,38 @@ fun AddPermitScreen(
                     )
                 }
 
-                // Create Button
+                // Enabled toggle (only in edit mode)
+                if (uiState.isEditMode) {
+                    item {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Column {
+                                Text(
+                                    text = "Enabled",
+                                    style = MaterialTheme.typography.titleMedium
+                                )
+                                Text(
+                                    text = "Receive notifications for this permit",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                            Switch(
+                                checked = uiState.enabled,
+                                onCheckedChange = viewModel::updateEnabled
+                            )
+                        }
+                    }
+                }
+
+                // Save/Create Button
                 item {
                     Spacer(modifier = Modifier.height(8.dp))
                     Button(
-                        onClick = viewModel::createPermit,
+                        onClick = viewModel::savePermit,
                         modifier = Modifier.fillMaxWidth(),
                         enabled = !uiState.isLoading && uiState.selectedRiver != null
                     ) {
@@ -134,9 +161,12 @@ fun AddPermitScreen(
                                 color = MaterialTheme.colorScheme.onPrimary
                             )
                         } else {
-                            Icon(Icons.Default.Add, contentDescription = null)
+                            Icon(
+                                if (uiState.isEditMode) Icons.Default.Check else Icons.Default.Add,
+                                contentDescription = null
+                            )
                             Spacer(modifier = Modifier.width(8.dp))
-                            Text("Create Permit")
+                            Text(if (uiState.isEditMode) "Save Permit" else "Create Permit")
                         }
                     }
                 }

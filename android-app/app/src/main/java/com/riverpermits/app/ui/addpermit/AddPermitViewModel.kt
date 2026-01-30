@@ -1,5 +1,6 @@
 package com.riverpermits.app.ui.addpermit
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.riverpermits.app.data.remote.dto.RiverDto
@@ -21,15 +22,20 @@ data class AddPermitUiState(
     val startDate: LocalDate = LocalDate.now(),
     val endDate: LocalDate = LocalDate.now().plusMonths(3),
     val partySize: Int = 1,
+    val enabled: Boolean = true,
     val isLoading: Boolean = false,
     val isLoadingRivers: Boolean = false,
+    val isLoadingPermit: Boolean = false,
     val error: String? = null,
-    val isSuccess: Boolean = false
+    val isSuccess: Boolean = false,
+    val isEditMode: Boolean = false,
+    val editPermitId: Int? = null
 )
 
 @HiltViewModel
 class AddPermitViewModel @Inject constructor(
-    private val permitRepository: PermitRepository
+    private val permitRepository: PermitRepository,
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(AddPermitUiState())
@@ -37,8 +43,14 @@ class AddPermitViewModel @Inject constructor(
 
     private val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
+    // Get permit ID from navigation arguments (null or 0 for create, positive for edit)
+    private val permitId: Int = savedStateHandle.get<Int>("permitId") ?: 0
+
     init {
         loadRivers()
+        if (permitId > 0) {
+            loadPermitForEditing(permitId)
+        }
     }
 
     private fun loadRivers() {
@@ -51,6 +63,17 @@ class AddPermitViewModel @Inject constructor(
                         rivers = result.data,
                         isLoadingRivers = false
                     )
+                    // If editing, select the correct river after rivers are loaded
+                    val state = _uiState.value
+                    if (state.isEditMode && state.selectedRiver == null && state.editPermitId != null) {
+                        val editPermit = permitRepository.getPermitById(state.editPermitId)
+                        if (editPermit != null) {
+                            val matchingRiver = result.data.find { it.facilityId == editPermit.facilityId }
+                            if (matchingRiver != null) {
+                                _uiState.value = _uiState.value.copy(selectedRiver = matchingRiver)
+                            }
+                        }
+                    }
                 }
                 is Result.Error -> {
                     _uiState.value = _uiState.value.copy(
@@ -59,6 +82,33 @@ class AddPermitViewModel @Inject constructor(
                     )
                 }
                 is Result.Loading -> {}
+            }
+        }
+    }
+
+    private fun loadPermitForEditing(permitId: Int) {
+        viewModelScope.launch {
+            _uiState.value = _uiState.value.copy(isLoadingPermit = true, isEditMode = true, editPermitId = permitId)
+
+            val permit = permitRepository.getPermitById(permitId)
+            if (permit != null) {
+                // Find matching river
+                val matchingRiver = _uiState.value.rivers.find { it.facilityId == permit.facilityId }
+
+                _uiState.value = _uiState.value.copy(
+                    isLoadingPermit = false,
+                    permitName = permit.name,
+                    startDate = LocalDate.parse(permit.startDate, dateFormatter),
+                    endDate = LocalDate.parse(permit.endDate, dateFormatter),
+                    partySize = permit.partySize,
+                    enabled = permit.enabled,
+                    selectedRiver = matchingRiver
+                )
+            } else {
+                _uiState.value = _uiState.value.copy(
+                    isLoadingPermit = false,
+                    error = "Failed to load permit"
+                )
             }
         }
     }
@@ -90,7 +140,11 @@ class AddPermitViewModel @Inject constructor(
         _uiState.value = _uiState.value.copy(partySize = count.coerceIn(1, 50))
     }
 
-    fun createPermit() {
+    fun updateEnabled(enabled: Boolean) {
+        _uiState.value = _uiState.value.copy(enabled = enabled)
+    }
+
+    fun savePermit() {
         val state = _uiState.value
 
         // Validate
@@ -110,13 +164,33 @@ class AddPermitViewModel @Inject constructor(
         viewModelScope.launch {
             _uiState.value = _uiState.value.copy(isLoading = true, error = null)
 
-            val result = permitRepository.createPermit(
-                name = state.permitName,
-                facilityId = state.selectedRiver.facilityId,
-                startDate = state.startDate.format(dateFormatter),
-                endDate = state.endDate.format(dateFormatter),
-                partySize = state.partySize
-            )
+            val result = if (state.isEditMode && state.editPermitId != null) {
+                // Update existing permit
+                permitRepository.updatePermit(
+                    permitId = state.editPermitId,
+                    name = state.permitName,
+                    facilityId = state.selectedRiver.facilityId,
+                    startDate = state.startDate.format(dateFormatter),
+                    endDate = state.endDate.format(dateFormatter),
+                    partySize = state.partySize,
+                    enabled = state.enabled
+                )
+            } else {
+                // Create new permit
+                permitRepository.createPermit(
+                    name = state.permitName,
+                    facilityId = state.selectedRiver.facilityId,
+                    startDate = state.startDate.format(dateFormatter),
+                    endDate = state.endDate.format(dateFormatter),
+                    partySize = state.partySize
+                ).let { createResult ->
+                    when (createResult) {
+                        is Result.Success -> Result.Success(Unit)
+                        is Result.Error -> Result.Error(createResult.exception)
+                        is Result.Loading -> Result.Loading
+                    }
+                }
+            }
 
             when (result) {
                 is Result.Success -> {
@@ -128,13 +202,16 @@ class AddPermitViewModel @Inject constructor(
                 is Result.Error -> {
                     _uiState.value = _uiState.value.copy(
                         isLoading = false,
-                        error = "Failed to create permit"
+                        error = if (state.isEditMode) "Failed to update permit" else "Failed to create permit"
                     )
                 }
                 is Result.Loading -> {}
             }
         }
     }
+
+    // Keep old method for compatibility
+    fun createPermit() = savePermit()
 
     fun clearError() {
         _uiState.value = _uiState.value.copy(error = null)
