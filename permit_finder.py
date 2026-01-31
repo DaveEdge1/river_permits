@@ -33,8 +33,8 @@ class PermitFinder:
         # Cache for division names (facility_id -> {division_id -> name})
         self._division_cache: Dict[str, Dict[str, str]] = {}
 
-        # Cache for lottery season dates (facility_id -> (start_timestamp, end_timestamp) or None)
-        self._lottery_cache: Dict[str, Optional[tuple]] = {}
+        # Cache for lottery info (facility_id -> {season_start, season_end, release_date} or None)
+        self._lottery_cache: Dict[str, Optional[Dict]] = {}
 
     def check_permit_availability(
         self,
@@ -178,15 +178,15 @@ class PermitFinder:
 
         return False
 
-    def get_lottery_season(self, facility_id: str) -> Optional[tuple]:
+    def get_lottery_info(self, facility_id: str) -> Optional[Dict]:
         """
-        Get the lottery/high-use season date range for a facility.
+        Get lottery information for a facility including season dates and release date.
 
         Args:
             facility_id: Recreation.gov facility ID
 
         Returns:
-            Tuple of (start_timestamp, end_timestamp) if lottery exists, None otherwise
+            Dict with 'season_start', 'season_end', 'release_date' timestamps, or None
         """
         # Check cache first
         if facility_id in self._lottery_cache:
@@ -202,22 +202,35 @@ class PermitFinder:
                     self._lottery_cache[facility_id] = None
                     return None
 
-                # Find high use season start and end from rules
-                start_timestamp = None
-                end_timestamp = None
+                # Find lottery-related timestamps from rules
+                season_start = None
+                season_end = None
+                release_date = None
 
                 if 'rules' in payload:
                     for rule in payload['rules']:
                         name = rule.get('name', '')
-                        if name == 'HighUseSeasonStart' and rule.get('value'):
-                            start_timestamp = rule['value']
-                        elif name == 'HighUseSeasonEnd' and rule.get('value'):
-                            end_timestamp = rule['value']
+                        value = rule.get('value')
+                        if name == 'HighUseSeasonStart' and value:
+                            season_start = value
+                        elif name == 'HighUseSeasonEnd' and value:
+                            season_end = value
+                        elif name == 'LotteryReleaseDate' and value:
+                            release_date = value
 
-                if start_timestamp and end_timestamp:
-                    self._lottery_cache[facility_id] = (start_timestamp, end_timestamp)
-                    logger.info(f"Facility {facility_id} lottery season: {datetime.fromtimestamp(start_timestamp).strftime('%Y-%m-%d')} to {datetime.fromtimestamp(end_timestamp).strftime('%Y-%m-%d')}")
-                    return (start_timestamp, end_timestamp)
+                if season_start and season_end:
+                    lottery_info = {
+                        'season_start': season_start,
+                        'season_end': season_end,
+                        'release_date': release_date
+                    }
+                    self._lottery_cache[facility_id] = lottery_info
+                    logger.info(
+                        f"Facility {facility_id} lottery: season {datetime.fromtimestamp(season_start).strftime('%Y-%m-%d')} "
+                        f"to {datetime.fromtimestamp(season_end).strftime('%Y-%m-%d')}, "
+                        f"release {datetime.fromtimestamp(release_date).strftime('%Y-%m-%d') if release_date else 'unknown'}"
+                    )
+                    return lottery_info
 
         except Exception as e:
             logger.warning(f"Could not fetch lottery info for facility {facility_id}: {e}")
@@ -227,22 +240,42 @@ class PermitFinder:
 
     def is_lottery_date(self, facility_id: str, check_date: datetime) -> bool:
         """
-        Check if a date falls within a facility's lottery season.
+        Check if a date is a lottery date that hasn't been released yet.
+
+        A date is considered "lottery-only" (not bookable FCFS) if:
+        1. It falls within the high-use/lottery season, AND
+        2. Today's date is BEFORE the lottery release date
+
+        After the lottery release date, unclaimed permits become FCFS.
 
         Args:
             facility_id: Recreation.gov facility ID
             check_date: Date to check
 
         Returns:
-            True if the date is a lottery date
+            True if the date is lottery-only and not yet released for FCFS booking
         """
-        lottery_season = self.get_lottery_season(facility_id)
-        if not lottery_season:
+        lottery_info = self.get_lottery_info(facility_id)
+        if not lottery_info:
             return False
 
-        start_ts, end_ts = lottery_season
+        season_start = lottery_info['season_start']
+        season_end = lottery_info['season_end']
+        release_date = lottery_info.get('release_date')
+
+        # Check if the date is within lottery season
         date_ts = check_date.timestamp()
-        return start_ts <= date_ts <= end_ts
+        if not (season_start <= date_ts <= season_end):
+            return False  # Not a lottery season date
+
+        # If we're past the release date, lottery permits are now FCFS
+        if release_date:
+            now_ts = datetime.now().timestamp()
+            if now_ts >= release_date:
+                return False  # Released for FCFS booking
+
+        # Date is in lottery season and we're before release - filter it out
+        return True
 
     def get_facility_info(self, facility_id: str) -> Optional[Dict]:
         """
