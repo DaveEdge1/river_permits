@@ -33,6 +33,9 @@ class PermitFinder:
         # Cache for division names (facility_id -> {division_id -> name})
         self._division_cache: Dict[str, Dict[str, str]] = {}
 
+        # Cache for lottery season dates (facility_id -> (start_timestamp, end_timestamp) or None)
+        self._lottery_cache: Dict[str, Optional[tuple]] = {}
+
     def check_permit_availability(
         self,
         facility_id: str,
@@ -101,6 +104,11 @@ class PermitFinder:
                                     if start <= check_date.replace(tzinfo=None) <= end:
                                         # Check if this permit is available
                                         if self._is_permit_available(permit_info, party_size):
+                                            # Skip lottery dates - these aren't first-come-first-served
+                                            if self.is_lottery_date(facility_id, check_date):
+                                                logger.debug(f"Skipping lottery date: {check_date.strftime('%Y-%m-%d')}")
+                                                continue
+
                                             # Get human-readable division name
                                             division_name = self.get_division_name(facility_id, division_id)
 
@@ -169,6 +177,72 @@ class PermitFinder:
             return True
 
         return False
+
+    def get_lottery_season(self, facility_id: str) -> Optional[tuple]:
+        """
+        Get the lottery/high-use season date range for a facility.
+
+        Args:
+            facility_id: Recreation.gov facility ID
+
+        Returns:
+            Tuple of (start_timestamp, end_timestamp) if lottery exists, None otherwise
+        """
+        # Check cache first
+        if facility_id in self._lottery_cache:
+            return self._lottery_cache[facility_id]
+
+        try:
+            info = self.get_facility_info(facility_id)
+            if info and 'payload' in info:
+                payload = info['payload']
+
+                # Check if facility has lottery
+                if not payload.get('has_lottery', False):
+                    self._lottery_cache[facility_id] = None
+                    return None
+
+                # Find high use season start and end from rules
+                start_timestamp = None
+                end_timestamp = None
+
+                if 'rules' in payload:
+                    for rule in payload['rules']:
+                        name = rule.get('name', '')
+                        if name == 'HighUseSeasonStart' and rule.get('value'):
+                            start_timestamp = rule['value']
+                        elif name == 'HighUseSeasonEnd' and rule.get('value'):
+                            end_timestamp = rule['value']
+
+                if start_timestamp and end_timestamp:
+                    self._lottery_cache[facility_id] = (start_timestamp, end_timestamp)
+                    logger.info(f"Facility {facility_id} lottery season: {datetime.fromtimestamp(start_timestamp).strftime('%Y-%m-%d')} to {datetime.fromtimestamp(end_timestamp).strftime('%Y-%m-%d')}")
+                    return (start_timestamp, end_timestamp)
+
+        except Exception as e:
+            logger.warning(f"Could not fetch lottery info for facility {facility_id}: {e}")
+
+        self._lottery_cache[facility_id] = None
+        return None
+
+    def is_lottery_date(self, facility_id: str, check_date: datetime) -> bool:
+        """
+        Check if a date falls within a facility's lottery season.
+
+        Args:
+            facility_id: Recreation.gov facility ID
+            check_date: Date to check
+
+        Returns:
+            True if the date is a lottery date
+        """
+        lottery_season = self.get_lottery_season(facility_id)
+        if not lottery_season:
+            return False
+
+        start_ts, end_ts = lottery_season
+        date_ts = check_date.timestamp()
+        return start_ts <= date_ts <= end_ts
 
     def get_facility_info(self, facility_id: str) -> Optional[Dict]:
         """
